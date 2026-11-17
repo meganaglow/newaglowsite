@@ -1,36 +1,40 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Business Name</title>
-  <meta name="description" content="One-sentence description of the business.">
+  <title>Aglow Studios</title>
+  <meta name="description" content="Placeholder description.">
+  <meta name="robots" content="noindex">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 0c.9 6.6 4.5 10.2 12 12-7.5 1.8-11.1 5.400-12 12-.9-6.600-4.500-10.200-12-12 7.500-1.800 11.100-5.400 12-12z"/></symbol>
+  </svg>
+
   <header class="site-header">
-    <a class="logo" href="/">Business Name</a>
-    <nav>
-      <a href="#services">Services</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <div class="wrap">
+      <a class="logo" href="index.html"><svg class="star" aria-hidden="true"><use href="#i-star"/></svg>Aglow <em>Studios</em></a>
+      <a class="btn btn--primary" href="styleguide.html">Design preview</a>
+    </div>
   </header>
 
   <main>
-    <section class="hero">
-      <h1>Headline goes here</h1>
-      <p>Supporting sentence about what you do and who it's for.</p>
-      <a class="button" href="#contact">Get in touch</a>
+    <section class="section band-night hero">
+      <div class="wrap">
+        <p class="eyebrow"><svg class="star" aria-hidden="true"><use href="#i-star"/></svg>Placeholder</p>
+        <h1 class="display">Home page not built yet.</h1>
+        <p class="lead">The design system is in place. See the design preview for the proposed look.</p>
+        <a class="btn btn--primary" href="styleguide.html">Open the design preview</a>
+      </div>
     </section>
-
-    <section id="services"><h2>Services</h2><p>Placeholder.</p></section>
-    <section id="about"><h2>About</h2><p>Placeholder.</p></section>
-    <section id="contact"><h2>Contact</h2><p>Placeholder.</p></section>
   </main>
 
   <footer class="site-footer">
-    <p>&copy; <span id="year"></span> Business Name</p>
+    <div class="wrap">
+      <p>&copy; <span data-year></span> Aglow Studios</p>
+    </div>
   </footer>
 
   <script src="script.js"></script>
