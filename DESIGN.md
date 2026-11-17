@@ -1,8 +1,9 @@
 # DESIGN.md — Aglow Studios
 
-Direction: **"Evening glow."** Warm ivory pages, deep wine for actions, and
-near-black "night" bands where champagne-gold light glows behind layered,
-floating elements. Luxurious and elegant, never cold.
+Direction: **"First light."** A blush plaster wall at dawn: an arch opening onto
+a pale sky, one glowing gold orb, steps into still water. Warm ivory pages, deep
+wine for actions, and a little near-black "night" for contrast. Luxurious and
+elegant, never cold. The palette is the original aglowstudios.ai palette, refined.
 
 Every value below exists as a CSS variable in `:root` in `styles.css`.
 Pages use the variable names, never raw values.
@@ -14,7 +15,7 @@ never the assets, copy or exact look.
 
 | Site | What it does | What Aglow borrows |
 |---|---|---|
-| unseen.co (entry screen only; its 3D world did not render in our browser) | Full-screen blush wash over a soft-focus scene of arches; tiny centered text; white pill "Enter" button; display serif + grotesk | The ambient soft-focus arch scene, blush as a full surface, pill controls, cursor-reactive depth |
+| unseen.co (home screen, from the owner's screenshot) | A rendered blush-plaster room with arches, steps into reflective water, a pearl sphere and a lavender sky, under film grain; italic display serif headline; white pill button | A scenic light hero in blush and lavender, an arch as the focal shape, water and reflection, film grain, pill controls, cursor-reactive depth. Our scene is our own composition with a gold orb, not a copy |
 | Mariana (Squarespace demo) | Full-bleed photo hero with a 144px headline; pale background; one saturated accent on headings and pill buttons; heading top-left with body text offset lower-right; dark band for the newsletter | Oversized display type, the offset "statement" layout, one dark band per page for sign-up |
 | Crosby (Squarespace demo) | Near-black photography with blush objects; charcoal and warm-grey bands; white display serif at modest sizes; small quiet buttons; full-bleed image bands between flat color bands | Blush glowing out of the dark, quiet light-colored buttons on night, alternating full-bleed and flat bands |
 
@@ -27,19 +28,25 @@ wants to see packages and book a chat.
 1. **Restraint is the luxury.** One primary color, one accent, lots of space.
 2. **Layers, not boxes.** Elements overlap and float at three depths
    (page → raised → floating). At most one layered composition per screen.
-3. **The glow is the signature.** One soft gold glow per screen, behind the
-   most important thing. Never decoration for its own sake.
+3. **The glow is the signature.** One glowing gold orb in the hero; elsewhere at
+   most one soft gold glow per screen. Never decoration for its own sake.
 4. **Motion is quiet.** Things ease, lift and draw in. Nothing bounces or spins.
 
 ## Color
 
-Light theme only. Dark "night" bands are a surface, not a dark mode.
+Light theme only, and light-first: blush, ivory and cream carry the pages.
+"Night" is an accent surface (footer, chat header, floating button, one band at
+most), not a dark mode.
 
 | Token | Value | Role |
 |---|---|---|
 | `--ivory` | `#FAF6F0` | Page background |
 | `--cream` | `#F2EADF` | Alternate section background, card fill |
 | `--blush` | `#EBD9D3` | Full blush bands (`.band-blush`), soft tint behind imagery, glow of objects on night |
+| `--plaster-light` | `#F4E6DF` | Lit side of the hero wall, steps |
+| `--plaster-shade` | `#DEC5BD` | Shaded side of the hero wall |
+| `--mist` | `#D3D1E6` | Lavender of the dawn sky and water. Scene only, never UI |
+| `--dawn` | `#F8DCC0` | Peach light at the horizon. Scene only |
 | `--line` | `#E3D8CA` | Hairline borders and dividers (decorative) |
 | `--line-strong` | `#9A8C7C` | Input borders (3:1 on ivory) |
 | `--ink` | `#231C1D` | Headings and body text (15.5:1 on ivory) |
@@ -100,9 +107,9 @@ Headings: letter-spacing `-0.01em`. Body lines max `62ch`.
 | `--r-arch` | `999px 999px 4px 4px` | Image frames: the signature shape |
 | `--shadow-raised` | `0 12px 32px -16px rgba(35,28,29,.18)` | Cards on hover, raised layer |
 | `--shadow-float` | `0 24px 60px -20px rgba(35,28,29,.30), 0 2px 6px rgba(35,28,29,.06)` | Floating layer: chips, FAB, chat panel |
-| `--glow-halo` | `radial-gradient(closest-side, rgba(245,201,123,.42), rgba(245,201,123,0))` | The glow, placed behind a layered composition |
 | `--glow-shadow` | `0 0 40px rgba(245,201,123,.45)` | Night buttons and the FAB on hover |
-| `--scene-blur` | `56px` | Blur of the ambient scene arches |
+| `--orb-glow` | two-layer gold `box-shadow` | Light around the hero orb |
+| `--water` | `clamp(120px, 22vh, 220px)` | Height of the hero water band |
 
 Layers (z-index): `--z-raised` 10 · `--z-float` 20 · `--z-nav` 100 ·
 `--z-fab` 200 · `--z-chat` 300.
@@ -123,7 +130,8 @@ Microinteractions in use:
 - **Card hover:** lifts 4px, hairline turns gold.
 - **Scroll reveal:** fade up 20px, children staggered by 80ms.
 - **Floating chips:** slow 7s drift of 8px; pause on hover.
-- **Glow:** follows the cursor slowly inside night bands (desktop only).
+- **Depth:** the orb and floating chips shift slightly with the cursor in the
+  hero (desktop only). The orb also drifts slowly.
 - **FAB:** gentle pulse ring once, 3s after load; never loops.
 
 All motion is disabled under `prefers-reduced-motion: reduce`.
@@ -144,19 +152,23 @@ All motion is disabled under `prefers-reduced-motion: reduce`.
   border, label above in `--text-label`. Focus: border `--wine`, 2px.
   Error: border `--error` plus a text message (never color alone).
 - **Bands:** sections alternate surfaces: ivory, cream, blush (`.band-blush`)
-  and night (`.band-night`). One night band besides the hero and footer, at most.
-- **Hero:** night band, full viewport height, ambient scene behind, display
-  headline left, one layered composition right.
-- **Ambient scene (`.scene`):** four soft-focus arches in wine and blush drifting
-  slowly behind a night hero and shifting with the cursor. CSS only. Stands in
-  for photography until real photos exist.
+  and night (`.band-night`). One night band besides the footer, at most.
+- **Hero (`.hero`):** full viewport height dawn scene. Plaster wall with a shaft
+  of light and film grain, water band along the bottom, display headline left,
+  the arch composition right, standing on the water line.
+- **Dawn scene (`.layers`):** the arch opening onto the sky (`.arch`), the gold
+  orb (`.orb`), three steps into the water (`.steps`), a reflection, and two or
+  three floating chips. Drawn in CSS, no image files. If a rendered or
+  photographed scene replaces it later, keep the same composition rules: light
+  wall where the text sits, one arch, one orb, water at the bottom.
 - **Statement (`.statement`):** oversized heading top-left, body text and a quiet
   link offset lower-right. One per page.
 - **Card:** `--ivory` or `--cream` fill, 1px `--line` border, `--r-card`.
 - **Floating chip:** small pill or card at the floating layer showing one live
   detail ("Booked · Sat 10:30"). Used in layered compositions, 2–3 max.
-- **Navigation:** transparent over the hero; after scroll, solid `--ivory` with a
-  hairline. Links in `--text-label`. Primary button at the right. Mobile: full
+- **Navigation:** transparent with ink text over the light hero (add
+  `.site-header--night` on a page with a night hero); after scroll, solid
+  `--ivory` with a hairline. Links in `--text-label`. Primary button at the right. Mobile: full
   screen overlay menu.
 - **Floating action button (FAB):** fixed bottom-right pill, "Ask Aglow" with the
   ✦ mark. Opens the concierge chat panel. On mobile it sits above a sticky

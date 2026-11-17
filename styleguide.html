@@ -52,11 +52,11 @@
 </header>
 
 <main>
-  <!-- The direction in use: night band, layered composition, one glow -->
-  <section class="section band-night hero">
-    <div class="scene" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  <!-- The direction in use: dawn scene hero with layered floating chips -->
+  <section class="section band-blush hero">
+    <div class="hero__water" aria-hidden="true"></div>
     <div class="wrap hero__grid">
-      <div>
+      <div class="hero__copy">
         <p class="eyebrow reveal"><svg class="star" aria-hidden="true"><use href="#i-star"/></svg>AI-enabled websites for face-to-face businesses</p>
         <h1 class="display reveal" style="--i:1">A website that works as <em>warmly</em> as you do.</h1>
         <p class="lead reveal" style="--i:2">Design preview. This page shows the proposed look: colors, type, buttons, layered elements and an example AI concierge.</p>
@@ -66,26 +66,19 @@
         </div>
       </div>
 
-      <div class="layers reveal" style="--i:2" role="img" aria-label="Illustration: an example salon website with floating notes showing a chat reply, a booking and a reminder">
-        <div class="layers__halo"></div>
-        <div class="arch">
-          <div class="mock">
-            <div class="mock__label">Example site</div>
-            <div class="mock__title">Your Salon</div>
-            <div class="mock__line"></div><div class="mock__line"></div>
-            <div class="mock__btn">Book now</div>
-            <div class="mock__tiles"><i></i><i></i></div>
-          </div>
-        </div>
-        <div class="chip chip--card chip--night" style="top:9%; left:0">
+      <div class="layers reveal" style="--i:2" role="img" aria-label="Illustration: an archway opening onto a dawn sky with a glowing orb, with floating notes showing a chat reply, a booking and a reminder">
+        <div class="arch"><div class="orb"></div></div>
+        <div class="steps"><i></i><i></i><i></i></div>
+        <div class="layers__reflection"></div>
+        <div class="chip chip--card chip--night" style="top:16%; left:-6%">
           <svg class="icon" aria-hidden="true"><use href="#i-message"/></svg>
           <span><b>Concierge</b><span class="sub">Yes, Saturday has openings.</span></span>
         </div>
-        <div class="chip" style="top:60%; right:0; animation-delay:-2s">
+        <div class="chip" style="top:46%; right:-4%; animation-delay:-2s">
           <svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg>
           <span><b>Booked</b> · Sat 10:30</span>
         </div>
-        <div class="chip" style="bottom:7%; left:4%; animation-delay:-4s">
+        <div class="chip" style="bottom:31%; left:-8%; animation-delay:-4s">
           <svg class="icon" aria-hidden="true"><use href="#i-bell"/></svg>
           <span>Reminder sent</span>
         </div>

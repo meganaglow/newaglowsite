@@ -6,8 +6,8 @@ that serve people face to face (salons, medspas, planners, nonprofits).
 Static site: plain HTML, CSS, JS. No framework, no build step, no npm.
 
 ## Design
-- `DESIGN.md` is the source of truth for the look ("Evening glow": luxurious,
-  elegant, layered). Read it before building or changing any page.
+- `DESIGN.md` is the source of truth for the look ("First light": light blush
+  dawn scene, luxurious, elegant, layered). Read it before building or changing any page.
 - `styleguide.html` is the live preview of every token and component. Add new
   components there first.
 - Colors, fonts, spacing, radius, shadows and motion are CSS variables in `:root`
