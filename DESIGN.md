@@ -7,6 +7,21 @@ floating elements. Luxurious and elegant, never cold.
 Every value below exists as a CSS variable in `:root` in `styles.css`.
 Pages use the variable names, never raw values.
 
+## References
+
+Three sites the owner likes were studied (November 2026). Borrow the patterns,
+never the assets, copy or exact look.
+
+| Site | What it does | What Aglow borrows |
+|---|---|---|
+| unseen.co (entry screen only; its 3D world did not render in our browser) | Full-screen blush wash over a soft-focus scene of arches; tiny centered text; white pill "Enter" button; display serif + grotesk | The ambient soft-focus arch scene, blush as a full surface, pill controls, cursor-reactive depth |
+| Mariana (Squarespace demo) | Full-bleed photo hero with a 144px headline; pale background; one saturated accent on headings and pill buttons; heading top-left with body text offset lower-right; dark band for the newsletter | Oversized display type, the offset "statement" layout, one dark band per page for sign-up |
+| Crosby (Squarespace demo) | Near-black photography with blush objects; charcoal and warm-grey bands; white display serif at modest sizes; small quiet buttons; full-bleed image bands between flat color bands | Blush glowing out of the dark, quiet light-colored buttons on night, alternating full-bleed and flat bands |
+
+Deliberately not borrowed: unseen.co's entry gate, sound and click-and-hold
+navigation. They suit a studio showing off; they slow down a salon owner who
+wants to see packages and book a chat.
+
 ## Principles
 
 1. **Restraint is the luxury.** One primary color, one accent, lots of space.
@@ -24,7 +39,7 @@ Light theme only. Dark "night" bands are a surface, not a dark mode.
 |---|---|---|
 | `--ivory` | `#FAF6F0` | Page background |
 | `--cream` | `#F2EADF` | Alternate section background, card fill |
-| `--blush` | `#EBD9D3` | Soft tint behind imagery, selected states |
+| `--blush` | `#EBD9D3` | Full blush bands (`.band-blush`), soft tint behind imagery, glow of objects on night |
 | `--line` | `#E3D8CA` | Hairline borders and dividers (decorative) |
 | `--line-strong` | `#9A8C7C` | Input borders (3:1 on ivory) |
 | `--ink` | `#231C1D` | Headings and body text (15.5:1 on ivory) |
@@ -33,7 +48,7 @@ Light theme only. Dark "night" bands are a surface, not a dark mode.
 | `--wine-deep` | `#662F39` | Primary hover / pressed |
 | `--gold` | `#C6A15B` | **Accent, decorative only**: hairlines, ornaments, icons. Never text on light (2.3:1) |
 | `--gold-deep` | `#7D5F26` | Gold-toned text on light: labels, eyebrows (5.5:1) |
-| `--glow` | `#F5C97B` | Glow gradients; primary button and accent text on night (11.4:1) |
+| `--glow` | `#F5C97B` | Glow gradients; label text on night (11.4:1); the color a night button lights up to on hover |
 | `--night` | `#1E1618` | Dark band background, footer |
 | `--night-raised` | `#2B2023` | Cards and floating elements on night |
 | `--on-night` | `#F4ECE2` | Text on night (15.2:1) |
@@ -56,7 +71,7 @@ Self-hosted variable fonts in `assets/fonts/` (SIL Open Font License).
 
 | Token | Size / line height | Use |
 |---|---|---|
-| `--text-display` | `clamp(2.75rem, 7vw, 5.5rem)` / 1.02 | Hero headline only |
+| `--text-display` | `clamp(3rem, 7.6vw, 6.5rem)` / 1 | Hero headline only |
 | `--text-h1` | `clamp(2.25rem, 5vw, 4rem)` / 1.08 | Page titles |
 | `--text-h2` | `clamp(1.875rem, 3.6vw, 2.875rem)` / 1.12 | Section headings |
 | `--text-h3` | `1.5rem` / 1.25 | Card and sub-section headings |
@@ -86,6 +101,8 @@ Headings: letter-spacing `-0.01em`. Body lines max `62ch`.
 | `--shadow-raised` | `0 12px 32px -16px rgba(35,28,29,.18)` | Cards on hover, raised layer |
 | `--shadow-float` | `0 24px 60px -20px rgba(35,28,29,.30), 0 2px 6px rgba(35,28,29,.06)` | Floating layer: chips, FAB, chat panel |
 | `--glow-halo` | `radial-gradient(closest-side, rgba(245,201,123,.42), rgba(245,201,123,0))` | The glow, placed behind a layered composition |
+| `--glow-shadow` | `0 0 40px rgba(245,201,123,.45)` | Night buttons and the FAB on hover |
+| `--scene-blur` | `56px` | Blur of the ambient scene arches |
 
 Layers (z-index): `--z-raised` 10 · `--z-float` 20 · `--z-nav` 100 ·
 `--z-fab` 200 · `--z-chat` 300.
@@ -114,7 +131,8 @@ All motion is disabled under `prefers-reduced-motion: reduce`.
 ## Components
 
 - **Button, primary:** pill, `--wine` fill, `--ivory` text, min height 48px.
-  Hover `--wine-deep`. On night: `--glow` fill, `--night` text.
+  Hover `--wine-deep`. On night: `--on-night` (ivory) fill, `--night` text; on
+  hover it lights up to `--glow` with `--glow-shadow`.
 - **Button, secondary:** pill, 1px `--ink` outline, transparent. Hover fills ink.
   On night: 1px `--on-night` outline.
 - **Button, quiet:** text + arrow, underline draws in. For "learn more" actions.
@@ -125,6 +143,15 @@ All motion is disabled under `prefers-reduced-motion: reduce`.
 - **Inputs:** underline style: transparent fill, 1px `--line-strong` bottom
   border, label above in `--text-label`. Focus: border `--wine`, 2px.
   Error: border `--error` plus a text message (never color alone).
+- **Bands:** sections alternate surfaces: ivory, cream, blush (`.band-blush`)
+  and night (`.band-night`). One night band besides the hero and footer, at most.
+- **Hero:** night band, full viewport height, ambient scene behind, display
+  headline left, one layered composition right.
+- **Ambient scene (`.scene`):** four soft-focus arches in wine and blush drifting
+  slowly behind a night hero and shifting with the cursor. CSS only. Stands in
+  for photography until real photos exist.
+- **Statement (`.statement`):** oversized heading top-left, body text and a quiet
+  link offset lower-right. One per page.
 - **Card:** `--ivory` or `--cream` fill, 1px `--line` border, `--r-card`.
 - **Floating chip:** small pill or card at the floating layer showing one live
   detail ("Booked · Sat 10:30"). Used in layered compositions, 2–3 max.
@@ -146,7 +173,9 @@ All motion is disabled under `prefers-reduced-motion: reduce`.
 - **Icons:** Lucide, inline SVG, 1.25px stroke, 20px or 24px. No emoji as icons.
 - **Ornament:** the four-point star ✦ as an SVG in `--gold`. Sparingly.
 - **Imagery:** client-site mockups and real photos in arch frames (`--r-arch`),
-  layered with floating chips and one glow. No stock photos of strangers
+  layered with floating chips and one glow. When real photos exist, prefer
+  full-bleed, dark-background still life (objects lit against near-black) so the
+  photo merges with a night band. No stock photos of strangers
   presented as clients; no invented client work or testimonials.
 - **Logo:** wordmark "Aglow *Studios*" in Cormorant Garamond with the ✦ mark.
   (Open decision: keep or retire the firefly mark from the current site.)

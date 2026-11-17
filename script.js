@@ -36,12 +36,12 @@
     const zone = layers.closest('section') || layers;
     zone.addEventListener('pointermove', e => {
       const r = zone.getBoundingClientRect();
-      layers.style.setProperty('--px', (((e.clientX - r.left) / r.width - 0.5) * 16).toFixed(1) + 'px');
-      layers.style.setProperty('--py', (((e.clientY - r.top) / r.height - 0.5) * 16).toFixed(1) + 'px');
+      zone.style.setProperty('--px', (((e.clientX - r.left) / r.width - 0.5) * 16).toFixed(1) + 'px');
+      zone.style.setProperty('--py', (((e.clientY - r.top) / r.height - 0.5) * 16).toFixed(1) + 'px');
     });
     zone.addEventListener('pointerleave', () => {
-      layers.style.setProperty('--px', '0px');
-      layers.style.setProperty('--py', '0px');
+      zone.style.setProperty('--px', '0px');
+      zone.style.setProperty('--py', '0px');
     });
   }
 
