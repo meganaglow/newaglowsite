@@ -1,7 +1,7 @@
 # DESIGN.md — Aglow Studios
 
 Direction: **"First light."** A blush plaster wall at dawn: an arch opening onto
-a pale sky, one glowing gold orb, steps into still water. Warm ivory pages, deep
+a pale sky, one pearl orb lit gold, steps into still water. Warm ivory pages, deep
 wine for actions, and a little near-black "night" for contrast. Luxurious and
 elegant, never cold. The palette is the original aglowstudios.ai palette, refined.
 
@@ -28,7 +28,7 @@ wants to see packages and book a chat.
 1. **Restraint is the luxury.** One primary color, one accent, lots of space.
 2. **Layers, not boxes.** Elements overlap and float at three depths
    (page → raised → floating). At most one layered composition per screen.
-3. **The glow is the signature.** One glowing gold orb in the hero; elsewhere at
+3. **The glow is the signature.** One pearl orb backlit gold in the hero; elsewhere at
    most one soft gold glow per screen. Never decoration for its own sake.
 4. **Motion is quiet.** Things ease, lift and draw in. Nothing bounces or spins.
 
@@ -47,6 +47,8 @@ most), not a dark mode.
 | `--plaster-shade` | `#DEC5BD` | Shaded side of the hero wall |
 | `--mist` | `#D3D1E6` | Lavender of the dawn sky and water. Scene only, never UI |
 | `--dawn` | `#F8DCC0` | Peach light at the horizon. Scene only |
+| `--pearl` | `#FFFDF9` | Pearl highlights, clouds, lit edges. Scene only |
+| `--reveal` | `#C9A9A3` | Shaded inner side of the wall opening. Scene only |
 | `--line` | `#E3D8CA` | Hairline borders and dividers (decorative) |
 | `--line-strong` | `#9A8C7C` | Input borders (3:1 on ivory) |
 | `--ink` | `#231C1D` | Headings and body text (15.5:1 on ivory) |
@@ -156,11 +158,15 @@ All motion is disabled under `prefers-reduced-motion: reduce`.
 - **Hero (`.hero`):** full viewport height dawn scene. Plaster wall with a shaft
   of light and film grain, water band along the bottom, display headline left,
   the arch composition right, standing on the water line.
-- **Dawn scene (`.layers`):** the arch opening onto the sky (`.arch`), the gold
-  orb (`.orb`), three steps into the water (`.steps`), a reflection, and two or
-  three floating chips. Drawn in CSS, no image files. If a rendered or
-  photographed scene replaces it later, keep the same composition rules: light
-  wall where the text sits, one arch, one orb, water at the bottom.
+- **Dawn scene (`.layers` > `svg.scene-art`):** one inline SVG, drawn with the
+  palette tokens. A thick wall opening (shaded `--reveal` jamb on the left, lit
+  front edge on the right) onto a dawn sky over the sea; a pearl orb resting on
+  the top step, backlit by a soft gold glow; three plaster steps into the water;
+  a rippled, fading reflection below the water line. On desktop the sky and the
+  orb shift in opposite directions with the cursor for depth; the orb floats and
+  the clouds drift slowly. Two or three floating chips sit over it. If a
+  rendered or photographed scene replaces it later, keep the same composition:
+  light wall where the text sits, one arch, one pearl, water at the bottom.
 - **Statement (`.statement`):** oversized heading top-left, body text and a quiet
   link offset lower-right. One per page.
 - **Card:** `--ivory` or `--cream` fill, 1px `--line` border, `--r-card`.
