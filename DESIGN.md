@@ -45,7 +45,7 @@ most), not a dark mode.
 | `--blush` | `#EBD9D3` | Full blush bands (`.band-blush`), soft tint behind imagery, glow of objects on night |
 | `--plaster-light` | `#F4E6DF` | Lit side of the hero wall, steps |
 | `--plaster-shade` | `#DEC5BD` | Shaded side of the hero wall |
-| `--mist` | `#D3D1E6` | Lavender of the dawn sky and water. Scene only, never UI |
+| `--mist` | `#D3D1E6` | Lavender of the dawn sky and water. Illustration only, never UI |
 | `--dawn` | `#F8DCC0` | Peach light at the horizon. Scene only |
 | `--pearl` | `#FFFDF9` | Pearl highlights, clouds, lit edges. Scene only |
 | `--reveal` | `#C9A9A3` | Shaded inner side of the wall opening. Scene only |
@@ -155,18 +155,21 @@ All motion is disabled under `prefers-reduced-motion: reduce`.
   Error: border `--error` plus a text message (never color alone).
 - **Bands:** sections alternate surfaces: ivory, cream, blush (`.band-blush`)
   and night (`.band-night`). One night band besides the footer, at most.
-- **Hero (`.hero`):** full viewport height dawn scene. Plaster wall with a shaft
-  of light and film grain, water band along the bottom, display headline left,
-  the arch composition right, standing on the water line.
-- **Dawn scene (`.layers` > `svg.scene-art`):** one inline SVG, drawn with the
-  palette tokens. A thick wall opening (shaded `--reveal` jamb on the left, lit
-  front edge on the right) onto a dawn sky over the sea; a pearl orb resting on
-  the top step, backlit by a soft gold glow; three plaster steps into the water;
-  a rippled, fading reflection below the water line. On desktop the sky and the
-  orb shift in opposite directions with the cursor for depth; the orb floats and
-  the clouds drift slowly. Two or three floating chips sit over it. If a
-  rendered or photographed scene replaces it later, keep the same composition:
-  light wall where the text sits, one arch, one pearl, water at the bottom.
+- **Hero (`.hero`):** full viewport height. Background is the rendered dawn scene
+  (`assets/images/hero-dawn-1200.webp` / `-2000.webp`, a Canva AI render owned by
+  Aglow Studios): blush plaster wall with a shaft of light, an arch onto a sunset
+  sea, a pearl on the sill, steps into still reflective water. A plaster-coloured
+  veil fades in from the left so the copy stays above 4.5:1 (measured 5.9:1 or
+  better at 1280, 1440 and 1920 wide). Film grain over everything. On desktop
+  the image shifts slightly with the cursor.
+- **Hero on phones:** the copy sits on the plaster gradient, then a 4:5 crop of
+  the arch (`hero-dawn-mobile.webp`) fades in below it. Chips sit over the crop.
+- **Floating chips (`.layers`):** two or three chips (`.chip--a/b/c`) and three
+  twinkling stars over the arch. Never cover the pearl.
+- **Replacing the hero image:** keep the composition (empty light wall on the
+  left for copy, one arch right of centre, one pearl, water across the bottom),
+  export at 2720px or wider, then regenerate the three WebP files and re-run the
+  contrast check.
 - **Statement (`.statement`):** oversized heading top-left, body text and a quiet
   link offset lower-right. One per page.
 - **Card:** `--ivory` or `--cream` fill, 1px `--line` border, `--r-card`.
@@ -197,8 +200,7 @@ emoji.
 |---|---|---|
 | Logo | Glint cluster; twinkles once on hover | `#i-mark` |
 | Hero headline | A star glints beside the italic word every few seconds | `<em class="glint-word">` |
-| Hero sky | Five tiny pearl stars twinkle in the dawn sky and in its reflection | `.sky-stars` in the SVG |
-| Hero wall | Two gold stars beside the arch | `.wall-stars` in the SVG |
+| Hero arch | Three gold stars twinkle around the arch | `.layers__star` |
 | Hero cursor | A short trail of gold stars follows the mouse (mouse only) | `script.js` |
 | Eyebrows | The ✦ spins in when its block is revealed | `.eyebrow .star` |
 | Primary buttons | A star pops at the top-right corner on hover | `.btn--primary::after` |

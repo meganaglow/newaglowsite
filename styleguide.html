@@ -65,9 +65,12 @@
 </header>
 
 <main>
-  <!-- The direction in use: dawn scene hero with layered floating chips -->
+  <!-- Hero: rendered dawn scene (Canva AI render) with floating chips -->
   <section class="section band-blush hero">
-    <div class="hero__water" aria-hidden="true"></div>
+    <picture class="hero__media">
+      <source media="(max-width: 899px)" srcset="assets/images/hero-dawn-mobile.webp" width="903" height="1129">
+      <img src="assets/images/hero-dawn-2000.webp" srcset="assets/images/hero-dawn-1200.webp 1200w, assets/images/hero-dawn-2000.webp 2000w" sizes="100vw" width="2000" height="1129" alt="" fetchpriority="high">
+    </picture>
     <div class="wrap hero__grid">
       <div class="hero__copy">
         <p class="eyebrow reveal"><svg class="star" aria-hidden="true"><use href="#i-star"/></svg>AI-enabled websites for face-to-face businesses</p>
@@ -79,143 +82,19 @@
         </div>
       </div>
 
-      <div class="layers reveal" style="--i:2" role="img" aria-label="Illustration: an archway opening onto a dawn sky with a glowing orb, with floating notes showing a chat reply, a booking and a reminder">
-        <svg class="scene-art" viewBox="0 0 400 560" aria-hidden="true" focusable="false">
-          <defs>
-            <path id="arch-front" d="M64 470V214a136 136 0 0 1 272 0v256z"/>
-            <clipPath id="clip-front"><use href="#arch-front"/></clipPath>
-            <linearGradient id="g-reveal" x1="64" x2="110" y1="0" y2="0" gradientUnits="userSpaceOnUse">
-              <stop offset="0" style="stop-color:var(--reveal)"/>
-              <stop offset="1" style="stop-color:var(--plaster-shade)"/>
-            </linearGradient>
-            <linearGradient id="g-sky" x1="0" x2="0" y1="80" y2="470" gradientUnits="userSpaceOnUse">
-              <stop offset="0" style="stop-color:var(--mist)"/>
-              <stop offset=".5" style="stop-color:color-mix(in srgb, var(--mist) 50%, var(--blush))"/>
-              <stop offset=".79" style="stop-color:var(--dawn)"/>
-              <stop offset=".8" style="stop-color:var(--plaster-light)"/>
-              <stop offset=".82" style="stop-color:color-mix(in srgb, var(--dawn) 60%, var(--mist))"/>
-              <stop offset="1" style="stop-color:var(--mist)"/>
-            </linearGradient>
-            <radialGradient id="g-sun" cx="230" cy="392" r="150" gradientUnits="userSpaceOnUse">
-              <stop offset="0" style="stop-color:var(--glow);stop-opacity:.75"/>
-              <stop offset=".35" style="stop-color:var(--dawn);stop-opacity:.55"/>
-              <stop offset="1" style="stop-color:var(--dawn);stop-opacity:0"/>
-            </radialGradient>
-            <radialGradient id="g-halo">
-              <stop offset="0" style="stop-color:var(--glow);stop-opacity:.55"/>
-              <stop offset="1" style="stop-color:var(--glow);stop-opacity:0"/>
-            </radialGradient>
-            <radialGradient id="g-pearl" cx=".36" cy=".3" r=".78">
-              <stop offset="0" style="stop-color:var(--pearl)"/>
-              <stop offset=".38" style="stop-color:color-mix(in srgb, var(--pearl) 60%, var(--blush))"/>
-              <stop offset=".75" style="stop-color:var(--blush)"/>
-              <stop offset="1" style="stop-color:var(--plaster-shade)"/>
-            </radialGradient>
-            <radialGradient id="g-shade" cx=".3" cy=".25" r=".95">
-              <stop offset=".55" style="stop-color:var(--reveal);stop-opacity:0"/>
-              <stop offset="1" style="stop-color:var(--reveal);stop-opacity:.55"/>
-            </radialGradient>
-            <radialGradient id="g-rim" cx=".42" cy=".42" r=".6">
-              <stop offset=".8" style="stop-color:var(--glow);stop-opacity:0"/>
-              <stop offset="1" style="stop-color:var(--glow);stop-opacity:.75"/>
-            </radialGradient>
-            <linearGradient id="g-riser" x1="0" x2="0" y1="0" y2="1">
-              <stop offset="0" style="stop-color:var(--plaster-shade)"/>
-              <stop offset="1" style="stop-color:color-mix(in srgb, var(--plaster-shade) 85%, var(--wine))"/>
-            </linearGradient>
-            <linearGradient id="g-edge" x1="64" x2="336" y1="0" y2="0" gradientUnits="userSpaceOnUse">
-              <stop offset="0" style="stop-color:var(--pearl);stop-opacity:0"/>
-              <stop offset="1" style="stop-color:var(--pearl);stop-opacity:.9"/>
-            </linearGradient>
-            <linearGradient id="g-fade" x1="0" x2="0" y1="560" y2="720" gradientUnits="userSpaceOnUse">
-              <stop offset="0" stop-color="#fff" stop-opacity=".6"/>
-              <stop offset="1" stop-color="#fff" stop-opacity="0"/>
-            </linearGradient>
-            <mask id="m-fade" maskUnits="userSpaceOnUse" x="0" y="560" width="400" height="200"><rect x="0" y="560" width="400" height="200" fill="url(#g-fade)"/></mask>
-            <filter id="f-ripple" x="-5%" y="0" width="110%" height="100%">
-              <feTurbulence type="fractalNoise" baseFrequency=".006 .09" numOctaves="2" seed="4"/>
-              <feDisplacementMap in="SourceGraphic" scale="10" xChannelSelector="R" yChannelSelector="G"/>
-              <feGaussianBlur stdDeviation="1.2"/>
-            </filter>
-            <filter id="f-soft" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="9"/></filter>
-            <filter id="f-blur2" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.5"/></filter>
-          </defs>
-
-          <g id="scene-main">
-            <!-- Opening in a thick wall: shaded reveal, then the sky seen through it -->
-            <g clip-path="url(#clip-front)">
-              <rect x="40" y="60" width="320" height="420" fill="url(#g-reveal)"/>
-              <g class="sky-move">
-                <path d="M90 480V230a136 136 0 0 1 272 0v250z" fill="url(#g-sky)"/>
-                <rect x="40" y="200" width="340" height="300" fill="url(#g-sun)"/>
-                <g class="clouds" filter="url(#f-soft)" style="fill:var(--pearl)">
-                  <ellipse cx="170" cy="190" rx="70" ry="10" opacity=".7"/>
-                  <ellipse cx="290" cy="250" rx="60" ry="8" opacity=".55"/>
-                  <ellipse cx="150" cy="300" rx="50" ry="6" opacity=".45"/>
-                </g>
-                <rect x="40" y="389" width="360" height="1.2" style="fill:var(--pearl)" opacity=".8"/>
-                <g class="sky-stars" style="fill:var(--pearl)">
-                  <path d="M150 128q.9 7.1 8 8-7.1.9-8 8-.9-7.1-8-8 7.1-.9 8-8z"/>
-                  <path d="M250 112q.5 4.5 5 5-4.5.5-5 5-.5-4.5-5-5 4.5-.5 5-5z"/>
-                  <path d="M300 168q.6 5.4 6 6-5.4.6-6 6-.6-5.4-6-6 5.4-.6 6-6z"/>
-                  <path d="M118 236q.4 3.6 4 4-3.6.4-4 4-.4-3.6-4-4 3.6-.4 4-4z"/>
-                  <path d="M206 208q.4 3.6 4 4-3.6.4-4 4-.4-3.6-4-4 3.6-.4 4-4z"/>
-                </g>
-                <g style="stroke:var(--pearl)" stroke-width="1" opacity=".35">
-                  <path d="M120 412h70M210 424h90M140 440h60M250 452h70"/>
-                </g>
-              </g>
-            </g>
-            <!-- Light catching the front edge of the opening -->
-            <use href="#arch-front" fill="none" stroke="url(#g-edge)" stroke-width="2"/>
-
-            <!-- Two gold stars on the wall beside the arch -->
-            <g class="wall-stars" fill="url(#g-mark)">
-              <path d="M362 70q1.3 10.7 12 12-10.7 1.3-12 12-1.3-10.7-12-12 10.7-1.3 12-12z"/>
-              <path d="M30 128q.7 5.3 6 6-5.3.7-6 6-.7-5.3-6-6 5.3-.7 6-6z"/>
-            </g>
-
-            <!-- Steps down into the water -->
-            <g>
-              <rect x="44" y="470" width="312" height="8" style="fill:var(--plaster-light)"/>
-              <rect x="44" y="478" width="312" height="22" fill="url(#g-riser)"/>
-              <rect x="22" y="500" width="356" height="8" style="fill:var(--plaster-light)"/>
-              <rect x="22" y="508" width="356" height="22" fill="url(#g-riser)"/>
-              <rect x="0" y="530" width="400" height="8" style="fill:var(--plaster-light)"/>
-              <rect x="0" y="538" width="400" height="22" fill="url(#g-riser)"/>
-              <rect x="44" y="470" width="312" height="1" style="fill:var(--pearl)" opacity=".9"/>
-              <rect x="22" y="500" width="356" height="1" style="fill:var(--pearl)" opacity=".8"/>
-              <rect x="0" y="530" width="400" height="1" style="fill:var(--pearl)" opacity=".7"/>
-            </g>
-
-            <!-- Pearl orb resting on the top step, lit gold from the dawn behind it -->
-            <g class="orb-move">
-              <ellipse cx="262" cy="471" rx="48" ry="5" style="fill:var(--wine)" opacity=".28" filter="url(#f-blur2)"/>
-              <g class="orb-float">
-                <circle cx="262" cy="416" r="110" fill="url(#g-halo)"/>
-                <circle cx="262" cy="416" r="53" fill="url(#g-pearl)"/>
-                <circle cx="262" cy="416" r="53" fill="url(#g-shade)"/>
-                <circle cx="262" cy="416" r="53" fill="url(#g-rim)"/>
-                <ellipse cx="243" cy="392" rx="14" ry="9" transform="rotate(-30 243 392)" style="fill:var(--pearl)" opacity=".95" filter="url(#f-blur2)"/>
-                <circle cx="238" cy="389" r="3" style="fill:var(--pearl)"/>
-              </g>
-            </g>
-          </g>
-
-          <!-- Reflection in the water -->
-          <g mask="url(#m-fade)">
-            <use href="#scene-main" transform="translate(0 1120) scale(1 -1)" filter="url(#f-ripple)"/>
-          </g>
-        </svg>
-        <div class="chip chip--card chip--night" style="top:16%; left:-6%">
+      <div class="layers reveal" style="--i:2" role="img" aria-label="Example notes from an AI concierge: a chat reply, a booking and a reminder">
+        <span class="sparkle layers__star" style="--sz:22px; top:2%; right:6%"></span>
+        <span class="sparkle layers__star" style="--sz:11px; top:10%; right:0"></span>
+        <span class="sparkle layers__star" style="--sz:9px; top:34%; left:2%"></span>
+        <div class="chip chip--card chip--night chip--a">
           <svg class="icon" aria-hidden="true"><use href="#i-message"/></svg>
           <span><b>Concierge</b><span class="sub">Yes, Saturday has openings.</span></span>
         </div>
-        <div class="chip" style="top:46%; right:-4%; animation-delay:-2s">
+        <div class="chip chip--b" style="animation-delay:-2s">
           <svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg>
           <span><b>Booked</b> · Sat 10:30</span>
         </div>
-        <div class="chip" style="bottom:31%; left:-8%; animation-delay:-4s">
+        <div class="chip chip--c" style="animation-delay:-4s">
           <svg class="icon" aria-hidden="true"><use href="#i-bell"/></svg>
           <span>Reminder sent</span>
         </div>
