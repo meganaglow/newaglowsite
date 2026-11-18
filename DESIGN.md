@@ -186,6 +186,33 @@ All motion is disabled under `prefers-reduced-motion: reduce`.
   labeled "Live demo" or "Example"; never implies a real client.
 - **Footer:** night band, on-night text, gold hairline on top.
 
+## Stars
+
+The four-point star is the brand's playful signature. It appears in many small
+places, and most of them only appear when the visitor does something. One shape,
+always gold (`--gold-sheen`) or `--glow` on night, never a five-point star or an
+emoji.
+
+| Where | What it does | Code |
+|---|---|---|
+| Logo | Glint cluster; twinkles once on hover | `#i-mark` |
+| Hero headline | A star glints beside the italic word every few seconds | `<em class="glint-word">` |
+| Hero sky | Five tiny pearl stars twinkle in the dawn sky and in its reflection | `.sky-stars` in the SVG |
+| Hero wall | Two gold stars beside the arch | `.wall-stars` in the SVG |
+| Hero cursor | A short trail of gold stars follows the mouse (mouse only) | `script.js` |
+| Eyebrows | The ✦ spins in when its block is revealed | `.eyebrow .star` |
+| Primary buttons | A star pops at the top-right corner on hover | `.btn--primary::after` |
+| Link cards | A star appears in the corner on hover | `.card--link::after` |
+| Section divider | Hairline, three stars, hairline. One per page at most | `.star-divider` |
+| Industry tabs | The selected tab gains a star | `.tab::before` |
+| Chat | Typing dots are stars; the header is a small starfield; stars burst from "Ask Aglow" when it opens | `.bubble--typing`, `[data-starfield]`, `burst()` |
+| Footer | A night sky of twinkling stars | `[data-starfield="16"]` |
+
+Rules: stars are small (4 to 16px apart from the logo), at most one always-on
+twinkle per element, and none on body text. Everything stops or stays still
+under `prefers-reduced-motion`. New star? Use `<span class="sparkle"
+style="--sz:10px">` rather than a new shape.
+
 ## Imagery and icons
 
 - **Icons:** Lucide, inline SVG, 1.25px stroke, 20px or 24px. No emoji as icons.

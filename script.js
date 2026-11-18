@@ -6,6 +6,21 @@
   const $ = (s, el = document) => el.querySelector(s);
   const $$ = (s, el = document) => [...el.querySelectorAll(s)];
 
+  // Starfields: scatter tiny twinkling stars inside [data-starfield="n"]
+  $$('[data-starfield]').forEach(field => {
+    const n = Math.min(+field.dataset.starfield || 8, 30);
+    for (let i = 0; i < n; i++) {
+      const s = document.createElement('span');
+      s.className = 'sparkle';
+      s.style.left = (Math.random() * 96 + 2).toFixed(1) + '%';
+      s.style.top = (Math.random() * 84 + 8).toFixed(1) + '%';
+      s.style.setProperty('--sz', (4 + Math.random() * 7).toFixed(0) + 'px');
+      s.style.setProperty('--dur', (3 + Math.random() * 4).toFixed(1) + 's');
+      s.style.setProperty('--delay', (-Math.random() * 6).toFixed(1) + 's');
+      field.append(s);
+    }
+  });
+
   // Footer year
   $$('[data-year]').forEach(el => { el.textContent = new Date().getFullYear(); });
 
@@ -44,6 +59,45 @@
       zone.style.setProperty('--py', '0px');
     });
   }
+
+  // Hero: a short trail of stars follows the cursor (mouse only)
+  const hero = $('.hero');
+  if (hero && !reduced && matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    let last = 0, lx = 0, ly = 0;
+    hero.addEventListener('pointermove', e => {
+      const now = performance.now();
+      if (now - last < 70 || Math.hypot(e.clientX - lx, e.clientY - ly) < 28) return;
+      last = now; lx = e.clientX; ly = e.clientY;
+      const r = hero.getBoundingClientRect();
+      const s = document.createElement('span');
+      s.className = 'sparkle sparkle--trail';
+      s.style.left = (e.clientX - r.left) + 'px';
+      s.style.top = (e.clientY - r.top) + 'px';
+      s.style.setProperty('--sz', (8 + Math.random() * 9).toFixed(0) + 'px');
+      s.style.setProperty('--rot', (Math.random() * 120 - 60).toFixed(0) + 'deg');
+      hero.append(s);
+      s.addEventListener('animationend', () => s.remove());
+    });
+  }
+
+  // A small burst of stars from an element (used when the chat opens)
+  const burst = el => {
+    if (reduced) return;
+    const r = el.getBoundingClientRect();
+    for (let i = 0; i < 8; i++) {
+      const a = (i / 8) * Math.PI * 2 + Math.random() * .4;
+      const d = 40 + Math.random() * 30;
+      const s = document.createElement('span');
+      s.className = 'sparkle sparkle--burst';
+      s.style.left = (r.left + r.width * .2) + 'px';
+      s.style.top = (r.top + r.height / 2) + 'px';
+      s.style.setProperty('--sz', (7 + Math.random() * 7).toFixed(0) + 'px');
+      s.style.setProperty('--dx', (Math.cos(a) * d).toFixed(0) + 'px');
+      s.style.setProperty('--dy', (Math.sin(a) * d).toFixed(0) + 'px');
+      document.body.append(s);
+      s.addEventListener('animationend', () => s.remove());
+    }
+  };
 
   // ----- Scripted concierge demo -----
   // These are example conversations, not a live AI. A real assistant needs a
@@ -152,6 +206,7 @@
     mountChat(panel);
     const toggle = open => {
       panel.hidden = !open;
+      if (open) burst(fab);
       fab.setAttribute('aria-expanded', String(open));
       if (open) $('.chat__close', panel).focus(); else fab.focus();
     };

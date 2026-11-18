@@ -71,7 +71,7 @@
     <div class="wrap hero__grid">
       <div class="hero__copy">
         <p class="eyebrow reveal"><svg class="star" aria-hidden="true"><use href="#i-star"/></svg>AI-enabled websites for face-to-face businesses</p>
-        <h1 class="display reveal" style="--i:1">A website that works as <em>warmly</em> as you do.</h1>
+        <h1 class="display reveal" style="--i:1">A website that works as <em class="glint-word">warmly</em> as you do.</h1>
         <p class="lead reveal" style="--i:2">Design preview. This page shows the proposed look: colors, type, buttons, layered elements and an example AI concierge.</p>
         <div class="btn-row reveal" style="--i:3">
           <a class="btn btn--primary" href="#ai">See the AI demo <svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
@@ -154,6 +154,13 @@
                   <ellipse cx="150" cy="300" rx="50" ry="6" opacity=".45"/>
                 </g>
                 <rect x="40" y="389" width="360" height="1.2" style="fill:var(--pearl)" opacity=".8"/>
+                <g class="sky-stars" style="fill:var(--pearl)">
+                  <path d="M150 128q.9 7.1 8 8-7.1.9-8 8-.9-7.1-8-8 7.1-.9 8-8z"/>
+                  <path d="M250 112q.5 4.5 5 5-4.5.5-5 5-.5-4.5-5-5 4.5-.5 5-5z"/>
+                  <path d="M300 168q.6 5.4 6 6-5.4.6-6 6-.6-5.4-6-6 5.4-.6 6-6z"/>
+                  <path d="M118 236q.4 3.6 4 4-3.6.4-4 4-.4-3.6-4-4 3.6-.4 4-4z"/>
+                  <path d="M206 208q.4 3.6 4 4-3.6.4-4 4-.4-3.6-4-4 3.6-.4 4-4z"/>
+                </g>
                 <g style="stroke:var(--pearl)" stroke-width="1" opacity=".35">
                   <path d="M120 412h70M210 424h90M140 440h60M250 452h70"/>
                 </g>
@@ -161,6 +168,12 @@
             </g>
             <!-- Light catching the front edge of the opening -->
             <use href="#arch-front" fill="none" stroke="url(#g-edge)" stroke-width="2"/>
+
+            <!-- Two gold stars on the wall beside the arch -->
+            <g class="wall-stars" fill="url(#g-mark)">
+              <path d="M362 70q1.3 10.7 12 12-10.7 1.3-12 12-1.3-10.7-12-12 10.7-1.3 12-12z"/>
+              <path d="M30 128q.7 5.3 6 6-5.3.7-6 6-.7-5.3-6-6 5.3-.7 6-6z"/>
+            </g>
 
             <!-- Steps down into the water -->
             <g>
@@ -221,6 +234,7 @@
         <a class="btn btn--quiet" href="#ai">See who Aglow is for <svg class="arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </div>
     </div>
+    <div class="wrap"><div class="star-divider" aria-hidden="true"><span class="sparkle" style="--sz:8px"></span><span class="sparkle" style="--sz:14px"></span><span class="sparkle" style="--sz:8px"></span></div></div>
   </section>
 
   <section class="section band-cream" id="color">
@@ -327,7 +341,7 @@
           <li><span class="num">05</span><div><h3>Review reply drafts</h3><p>A warm reply drafted for each new review, ready to approve. <span class="tag">Idea</span></p></div></li>
         </ol>
         <div class="chat" data-script="salon" aria-live="polite">
-          <div class="chat__head"><span class="who">Salon concierge</span><span class="tag">Scripted demo</span></div>
+          <div class="chat__head"><div class="starfield" data-starfield="5" aria-hidden="true"></div><span class="who">Salon concierge</span><span class="tag">Scripted demo</span></div>
           <div class="chat__body"></div>
           <div class="chat__suggest"></div>
         </div>
@@ -337,6 +351,7 @@
 </main>
 
 <footer class="site-footer">
+  <div class="starfield" data-starfield="16" aria-hidden="true"></div>
   <div class="wrap">
     <a class="logo" href="index.html" aria-label="Aglow Studios, home"><svg class="mark" aria-hidden="true"><use href="#i-mark"/></svg><span>Aglow <em>Studios</em></span></a>
     <p>&copy; <span data-year></span> Aglow Studios · Design preview, not the live site</p>
@@ -346,6 +361,7 @@
 <!-- Floating layer: action button and concierge panel -->
 <div class="chat chat--floating" id="concierge" data-script="salon" role="dialog" aria-label="Ask Aglow, scripted demo" hidden>
   <div class="chat__head">
+    <div class="starfield" data-starfield="5" aria-hidden="true"></div>
     <span class="who">Salon concierge</span>
     <span class="tag">Scripted demo</span>
     <button class="chat__close" type="button" aria-label="Close chat"><svg aria-hidden="true"><use href="#i-x"/></svg></button>
