@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cuivre Hair Studio · Concept by Aglow Studios</title>
+  <meta name="description" content="A concept website for a fictional hair salon, designed by Aglow Studios to show a fashion-editorial direction. Not a real business.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="fonts/archivo-latin-wdth-wght.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="salon.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <!-- Concept label: required on every concept page (see CLAUDE.md). -->
+  <div class="concept-bar" role="note">
+    <span class="concept-tag">Concept</span>
+    <p>A design example by Aglow Studios. Cuivre is not a real salon.</p>
+    <a href="../../index.html">Back to Aglow <span aria-hidden="true">&rarr;</span></a>
+  </div>
+
+  <header class="top">
+    <a class="wordmark" href="#main" aria-label="Cuivre Hair Studio, top of page">Cuivre<span>Hair Studio</span></a>
+    <nav aria-label="Sections">
+      <a href="#lookbook">Lookbook</a>
+      <a href="#menu">Menu</a>
+      <a href="#match">Find your stylist</a>
+      <a href="#visit">Visit</a>
+    </nav>
+    <a class="btn btn--copper" href="#book">Book</a>
+  </header>
+
+  <main id="main">
+    <!-- Hero: full-bleed portrait -->
+    <section class="hero" aria-labelledby="hero-title">
+      <figure class="frame hero__img" data-ph="Placeholder image: hero portrait, faceless">
+        <img src="../../assets/images/concepts/salon-hero.jpg" width="2400" height="1600" alt="Back of a head of glossy copper hair in a sleek low knot, lit against a warm black backdrop." fetchpriority="high">
+      </figure>
+      <div class="hero__copy">
+        <p class="kicker">Hair studio &middot; Placeholder City</p>
+        <h1 id="hero-title" class="mega">Hair with a<br>point of <em>view</em></h1>
+        <p class="hero__lead">Cuts, color and texture by stylists who edit, not follow. Placeholder copy.</p>
+        <div class="hero__actions">
+          <a class="btn btn--copper" href="#book">Book a chair</a>
+          <a class="btn btn--line" href="#match">Find your stylist</a>
+        </div>
+      </div>
+      <p class="hero__issue" aria-hidden="true">Vol. 01 &mdash; The copper issue</p>
+    </section>
+
+    <!-- Statement -->
+    <section class="statement" aria-labelledby="st-title">
+      <p class="index" aria-hidden="true">01</p>
+      <h2 id="st-title" class="tall">Every cut starts with a <em>conversation</em>.</h2>
+      <p class="statement__body">Placeholder copy. Fifteen minutes in the chair before the scissors come out: how you wear your hair, how much time you give it in the morning, and what you want people to notice.</p>
+    </section>
+
+    <!-- Lookbook: sideways scroll -->
+    <section class="lookbook" id="lookbook" aria-labelledby="lb-title">
+      <div class="lookbook__head">
+        <p class="index" aria-hidden="true">02</p>
+        <h2 id="lb-title" class="tall">Lookbook</h2>
+        <p class="lookbook__hint">Scroll sideways <span aria-hidden="true">&rarr;</span></p>
+        <div class="lookbook__ctrl">
+          <button type="button" class="round" data-scroll="-1" aria-label="Previous looks"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
+          <button type="button" class="round" data-scroll="1" aria-label="Next looks"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg></button>
+        </div>
+      </div>
+      <div class="track" tabindex="0" role="region" aria-label="Lookbook, scrolls sideways">
+        <figure class="look look--tall">
+          <div class="frame" data-ph="Placeholder image: still life, scissors and comb">
+            <img src="../../assets/images/concepts/salon-look-1.jpg" width="1600" height="2000" loading="lazy" alt="Brass shears and a tortoiseshell comb resting on dark stone under a single warm light.">
+          </div>
+          <figcaption><span>Look 01</span> The tools</figcaption>
+        </figure>
+        <article class="look look--text">
+          <p class="look__no">02</p>
+          <h3>Copper <em>gloss</em></h3>
+          <p>A sheer copper glaze over natural brunette. Placeholder description.</p>
+        </article>
+        <figure class="look look--wide">
+          <div class="frame" data-ph="Placeholder image: hair texture close-up">
+            <img src="../../assets/images/concepts/salon-look-2.jpg" width="1600" height="2000" loading="lazy" alt="Close-up of loose copper waves catching light against a dark background.">
+          </div>
+          <figcaption><span>Look 03</span> Lived-in waves</figcaption>
+        </figure>
+        <article class="look look--text look--copper">
+          <p class="look__no">04</p>
+          <h3>The blunt <em>bob</em></h3>
+          <p>One length, cut dry, sharp at the jaw. Placeholder description.</p>
+        </article>
+        <figure class="look look--tall">
+          <div class="frame frame--crop" data-ph="Placeholder image: hero portrait, alternate crop">
+            <img src="../../assets/images/concepts/salon-hero.jpg" width="2400" height="1600" loading="lazy" alt="Detail of a sleek copper low knot.">
+          </div>
+          <figcaption><span>Look 05</span> The low knot</figcaption>
+        </figure>
+        <article class="look look--text look--end">
+          <h3>Your look, <em>next</em></h3>
+          <p>Not sure what to ask for? Three questions and we will point you to the right stylist.</p>
+          <a class="btn btn--copper" href="#match">Find your stylist</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Menu -->
+    <section class="menu" id="menu" aria-labelledby="menu-title">
+      <div class="menu__head">
+        <p class="index" aria-hidden="true">03</p>
+        <h2 id="menu-title" class="tall">The menu</h2>
+        <p class="note">Sample menu. Prices and times are examples for this concept.</p>
+      </div>
+      <div class="menu__cols">
+        <div class="menu__group">
+          <h3>Cut</h3>
+          <ul>
+            <li><span class="item">Signature cut</span><span class="dots" aria-hidden="true"></span><span class="price">$95</span><span class="meta">60 min &middot; consult, wash, cut, finish</span></li>
+            <li><span class="item">Precision bob</span><span class="dots" aria-hidden="true"></span><span class="price">$110</span><span class="meta">75 min &middot; cut dry, then refined wet</span></li>
+            <li><span class="item">Curl cut</span><span class="dots" aria-hidden="true"></span><span class="price">$120</span><span class="meta">90 min &middot; shaped curl by curl</span></li>
+            <li><span class="item">Fringe refresh</span><span class="dots" aria-hidden="true"></span><span class="price">$25</span><span class="meta">15 min &middot; between visits</span></li>
+          </ul>
+        </div>
+        <div class="menu__group">
+          <h3>Color</h3>
+          <ul>
+            <li><span class="item">Gloss</span><span class="dots" aria-hidden="true"></span><span class="price">$70</span><span class="meta">45 min &middot; tone and shine</span></li>
+            <li><span class="item">Single process</span><span class="dots" aria-hidden="true"></span><span class="price">$130</span><span class="meta">2 hr &middot; root to tip</span></li>
+            <li><span class="item">Lived-in color</span><span class="dots" aria-hidden="true"></span><span class="price">$240</span><span class="meta">3 hr &middot; hand-painted, soft grow-out</span></li>
+            <li><span class="item">Color correction</span><span class="dots" aria-hidden="true"></span><span class="price">By consult</span><span class="meta">Starts with a free 20 min consult</span></li>
+          </ul>
+        </div>
+        <div class="menu__group">
+          <h3>Finish</h3>
+          <ul>
+            <li><span class="item">Blowout</span><span class="dots" aria-hidden="true"></span><span class="price">$55</span><span class="meta">45 min</span></li>
+            <li><span class="item">Event styling</span><span class="dots" aria-hidden="true"></span><span class="price">$85</span><span class="meta">60 min &middot; up-dos, sets, sleek knots</span></li>
+            <li><span class="item">Bond treatment</span><span class="dots" aria-hidden="true"></span><span class="price">$40</span><span class="meta">Add to any service</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- AI demo 1: stylist-match quiz -->
+    <section class="match" id="match" aria-labelledby="match-title">
+      <div class="match__intro">
+        <p class="index" aria-hidden="true">04</p>
+        <p class="demo-tag">Scripted demo</p>
+        <h2 id="match-title" class="tall">Find your <em>stylist</em></h2>
+        <p>Three questions, one recommendation. On a live site this would use the salon's real team and calendar; here the answers are scripted.</p>
+      </div>
+      <div class="quiz" data-quiz>
+        <fieldset class="q is-active" data-step="1">
+          <legend><span class="q__no">1 / 3</span> What are you coming in for?</legend>
+          <div class="opts">
+            <button type="button" data-name="service" value="cut">A cut</button>
+            <button type="button" data-name="service" value="color">Color</button>
+            <button type="button" data-name="service" value="both">Cut and color</button>
+            <button type="button" data-name="service" value="unsure">Not sure yet</button>
+          </div>
+        </fieldset>
+        <fieldset class="q" data-step="2">
+          <legend><span class="q__no">2 / 3</span> How would you describe your hair?</legend>
+          <div class="opts">
+            <button type="button" data-name="texture" value="straight">Straight</button>
+            <button type="button" data-name="texture" value="wavy">Wavy</button>
+            <button type="button" data-name="texture" value="curly">Curly or coily</button>
+          </div>
+        </fieldset>
+        <fieldset class="q" data-step="3">
+          <legend><span class="q__no">3 / 3</span> How much change are you after?</legend>
+          <div class="opts">
+            <button type="button" data-name="change" value="polish">A polish</button>
+            <button type="button" data-name="change" value="notice">Something noticeable</button>
+            <button type="button" data-name="change" value="transform">A full transformation</button>
+          </div>
+        </fieldset>
+        <div class="result" data-result hidden tabindex="-1">
+          <p class="result__label">Your match</p>
+          <div class="result__card">
+            <span class="monogram" data-r-initial aria-hidden="true"></span>
+            <div>
+              <h3 data-r-name></h3>
+              <p class="result__role" data-r-role></p>
+              <p data-r-why></p>
+              <p class="result__book"><strong>Suggested booking:</strong> <span data-r-service></span></p>
+            </div>
+          </div>
+          <div class="result__actions">
+            <a class="btn btn--copper" href="#book" data-r-book>Book with <span data-r-first></span></a>
+            <button type="button" class="btn btn--line" data-restart>Start again</button>
+          </div>
+          <p class="note">Example result. Stylists shown are fictional.</p>
+        </div>
+        <div class="quiz__nav">
+          <button type="button" class="link-btn" data-back hidden><span aria-hidden="true">&larr;</span> Back</button>
+          <div class="progress" aria-hidden="true"><i></i></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AI demo 2: booking concierge -->
+    <section class="book" id="book" aria-labelledby="book-title">
+      <div class="book__copy">
+        <p class="index" aria-hidden="true">05</p>
+        <p class="demo-tag">Scripted demo</p>
+        <h2 id="book-title" class="tall">Book at <em>2&nbsp;a.m.</em></h2>
+        <p>A booking concierge that answers questions and holds a time while the salon is closed. On a live site it would read the real calendar and hand anything tricky to the front desk.</p>
+        <ul class="ticks">
+          <li>Answers questions about services and timing</li>
+          <li>Offers open times and holds a slot</li>
+          <li>Sends a confirmation and a reminder</li>
+        </ul>
+      </div>
+      <div class="concierge" data-concierge>
+        <div class="concierge__head">
+          <span class="dot" aria-hidden="true"></span>
+          <p><strong>Cuivre concierge</strong><span>Scripted demo, not a live AI</span></p>
+        </div>
+        <div class="concierge__body" aria-live="polite"></div>
+        <div class="concierge__suggest" aria-label="Suggested questions"></div>
+      </div>
+    </section>
+
+    <!-- Visit -->
+    <section class="visit" id="visit" aria-labelledby="visit-title">
+      <h2 id="visit-title" class="mega mega--sm">Come <em>in</em></h2>
+      <dl class="visit__grid">
+        <div><dt>Address</dt><dd>Placeholder street<br>Placeholder City</dd></div>
+        <div><dt>Hours</dt><dd>Placeholder hours<br>Tuesday to Saturday</dd></div>
+        <div><dt>Contact</dt><dd>Placeholder phone<br>Placeholder email</dd></div>
+      </dl>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p class="foot__mark" aria-hidden="true">Cuivre</p>
+    <div class="foot__row">
+      <p><span class="concept-tag">Concept</span> Cuivre Hair Studio is a fictional salon. This page is a design example by <a href="../../index.html">Aglow Studios</a>, not client work.</p>
+      <p>Photography: AI-generated placeholders.</p>
+    </div>
+  </footer>
+
+  <script src="salon.js"></script>
+</body>
+</html>

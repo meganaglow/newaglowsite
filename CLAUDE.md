@@ -58,6 +58,17 @@ concept slowly on hover; click opens the live concept page.
 - `index.html` is still a placeholder. Next: build the real home page from the
   live site's copy, following `DESIGN.md`.
 - Open with the owner: scripted chat for launch then live later, or live now.
+- Salon pilot built: `concepts/salon/` ("Cuivre Hair Studio", fictional). Own
+  tokens in `salon.css`, own fonts in `concepts/salon/fonts/` (Archivo variable
+  with width axis for condensed headlines, Instrument Serif italic; OFL).
+  Scripted stylist-match quiz and booking concierge in `salon.js`. Menu prices
+  are labeled as samples. Waiting on 3 photos from the owner, uploaded to
+  `assets/images/concepts/` with these exact names (JPG):
+  `salon-hero.jpg` (landscape 3:2, subject right of centre, ~2400x1600),
+  `salon-look-1.jpg` and `salon-look-2.jpg` (portrait 4:5, ~1600x2000).
+  Until then each frame shows a labeled placeholder. After upload: convert to
+  WebP and update the `src` paths.
+- Not built yet: the concept cards on the Aglow home page.
 
 ## Preview
 `python3 -m http.server 8000` from the repo root, then open `/styleguide.html`.
