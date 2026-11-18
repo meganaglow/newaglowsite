@@ -195,8 +195,14 @@ All motion is disabled under `prefers-reduced-motion: reduce`.
   full-bleed, dark-background still life (objects lit against near-black) so the
   photo merges with a night band. No stock photos of strangers
   presented as clients; no invented client work or testimonials.
-- **Logo:** wordmark "Aglow *Studios*" in Cormorant Garamond with the ✦ mark.
-  (Open decision: keep or retire the firefly mark from the current site.)
+- **Logo:** the "glint cluster" mark (one large four-point star with a fine
+  diagonal glint, plus two small stars to its upper right) in a gold gradient,
+  followed by the wordmark "Aglow *Studios*" in Cormorant Garamond. Defined once
+  as the `#i-mark` symbol in each page's sprite. Header size 34px (28px on
+  phones); it twinkles once on hover. Stacked version: mark above "Aglow" with
+  "STUDIOS" in spaced Jost caps below. The firefly mark is retired.
+- **Favicon:** `assets/favicon.svg` (large star plus one small star, since the
+  third star blurs below 32px) and `assets/apple-touch-icon.png` (180px, blush).
 
 ## Avoid
 

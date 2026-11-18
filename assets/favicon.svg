@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Aglow Studios mark, simplified for small sizes. Colors match the glow, gold and gold-deep tokens in styles.css. -->
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E3C27F"/><stop offset=".55" stop-color="#C6A15B"/><stop offset="1" stop-color="#A6834A"/></linearGradient></defs>
+  <g transform="translate(-1 -3) scale(1.08)"><path fill="url(#g)" d="M26 11Q29.2 32.8 51 36Q29.2 39.2 26 61Q22.8 39.2 1 36Q22.8 32.8 26 11Z"/><path fill="url(#g)" d="M50.5 3.5Q52 11.5 60 13Q52 14.5 50.5 22.5Q49 14.5 41 13Q49 11.5 50.5 3.5Z"/></g>
+</svg>
