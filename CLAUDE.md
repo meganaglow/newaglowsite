@@ -30,6 +30,35 @@ Static site: plain HTML, CSS, JS. No framework, no build step, no npm.
   the Claude API) so the API key is never in browser code. Not built yet.
 - Demo content must always be labeled as an example; never imply a real client.
 
+## Concept portfolio (planned, not built)
+Goal: a "Concept designs" section on the home page linking to four live example
+sites, to show range. Decisions already made with the owner:
+- Build each concept as a real mini-site in `concepts/<name>/` (own `index.html`
+  and its own small stylesheet and tokens; do not reuse Aglow's look).
+- Use Canva AI images for photography only (2 to 3 per concept), never for
+  pictures of layouts. Claude cannot download full-size files from Canva: ask
+  the owner to download them and upload to `assets/images/concepts/` on GitHub.
+  Prefer faceless shots and still life.
+- Label every concept "Concept" on the card and on the page. Never present one
+  as client work. No testimonials, before-and-after results or return figures.
+- Build order: hair salon first as a pilot; the owner decides on the rest after.
+
+| Concept | Look | Layout idea | AI demo |
+|---|---|---|---|
+| Hair salon | Fashion editorial: warm black, copper, cream; bold condensed headlines | Full-bleed portraits, sideways-scrolling lookbook | Stylist-match quiz, booking concierge |
+| Injectable medspa | Clinical calm: white, stone, soft sage; light airy type | Generous space, treatment menu like a fine-dining menu | Treatment finder, pre-visit prep assistant |
+| Financial planner | Quiet confidence: deep green or navy, cream, brass; classic serif | Structured grid, thin chart-like lines, numbered steps | Meeting-prep intake that summarizes goals |
+| Wedding planner | Romantic editorial: ivory, dusty rose, olive; large italic serif | Overlapping photo collage, slow parallax gallery | Date-availability check, rough-estimate builder |
+
+On the Aglow home page: four cards, each a browser frame that scrolls the
+concept slowly on hover; click opens the live concept page.
+
+## Status
+- Done: design system, logo (glint cluster), hero render, stars, preview page.
+- `index.html` is still a placeholder. Next: build the real home page from the
+  live site's copy, following `DESIGN.md`.
+- Open with the owner: scripted chat for launch then live later, or live now.
+
 ## Preview
 `python3 -m http.server 8000` from the repo root, then open `/styleguide.html`.
 
