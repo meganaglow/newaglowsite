@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sauge Aesthetic Clinic · Concept by Aglow Studios</title>
+  <meta name="description" content="A concept website for a fictional aesthetic clinic, designed by Aglow Studios to show a calm, clinical direction. Not a real business.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="fonts/newsreader-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="medspa.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <!-- Concept label: required on every concept page (see CLAUDE.md). -->
+  <div class="concept-bar" role="note">
+    <span class="concept-tag">Concept</span>
+    <p>A design example by Aglow Studios. Sauge is not a real clinic.</p>
+    <a href="../../index.html">Back to Aglow <span aria-hidden="true">&rarr;</span></a>
+  </div>
+
+  <header class="top">
+    <a class="wordmark" href="#main" aria-label="Sauge Aesthetic Clinic, top of page">Sauge<span>Aesthetic clinic</span></a>
+    <nav aria-label="Sections">
+      <a href="#approach">Approach</a>
+      <a href="#menu">Treatments</a>
+      <a href="#finder">Treatment finder</a>
+      <a href="#visit">Visit</a>
+    </nav>
+    <a class="btn btn--line" href="#prep">Book a consultation</a>
+  </header>
+
+  <main id="main">
+    <!-- Hero: split, generous space -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__copy">
+        <p class="eyebrow">Aesthetic clinic &middot; Placeholder City</p>
+        <h1 id="hero-title">Look rested,<br><em>not done.</em></h1>
+        <p class="lead">Injectables and skin treatments planned slowly, with a clinician who listens first. Placeholder copy.</p>
+        <div class="actions">
+          <a class="btn btn--solid" href="#finder">Find your treatment</a>
+          <a class="link" href="#menu">See the menu <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </div>
+      <figure class="frame hero__img" data-ph="Placeholder image: serum still life">
+        <img src="../../assets/images/concepts/medspa-hero-1600.webp" width="1600" height="1067" alt="A glass dropper bottle, two smooth stones and a sprig of eucalyptus on a white plaster ledge in soft morning light." fetchpriority="high">
+      </figure>
+    </section>
+
+    <!-- Approach -->
+    <section class="approach" id="approach" aria-labelledby="ap-title">
+      <figure class="frame approach__img" data-ph="Placeholder image: treatment room">
+        <img src="../../assets/images/concepts/medspa-room-1200.webp" width="1200" height="1500" loading="lazy" alt="An empty treatment room with a white bed, folded linen and an olive branch in a stone vase, lit by daylight through a sheer curtain.">
+      </figure>
+      <div class="approach__copy">
+        <p class="eyebrow">Our approach</p>
+        <h2 id="ap-title">Less, placed <em>well</em>.</h2>
+        <ol class="steps">
+          <li><span class="step__when">First visit</span><h3>A conversation</h3><p>Thirty unhurried minutes on your goals, history and options. No obligation to book anything. Placeholder copy.</p></li>
+          <li><span class="step__when">Treatment day</span><h3>A written plan</h3><p>You leave with what was done, where, and what to expect over the next two weeks. Placeholder copy.</p></li>
+          <li><span class="step__when">Two weeks later</span><h3>A review</h3><p>A complimentary check-in to see how things have settled. Placeholder copy.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Menu, laid out like a fine-dining menu -->
+    <section class="menu" id="menu" aria-labelledby="menu-title">
+      <div class="menu__card">
+        <figure class="frame menu__img" data-ph="Placeholder image: still life detail">
+          <img src="../../assets/images/concepts/medspa-detail-1200.webp" width="1200" height="1500" loading="lazy" alt="A small white ceramic dish holding a few drops of clear gel beside a sage leaf on travertine.">
+        </figure>
+        <p class="eyebrow eyebrow--center">The menu</p>
+        <h2 id="menu-title">Treatments</h2>
+        <p class="menu__note">Sample menu. Prices are examples for this concept. Every injectable treatment begins with a consultation with a licensed clinician.</p>
+
+        <div class="course">
+          <h3><span>I</span>To begin</h3>
+          <div class="dish"><p class="dish__name">Consultation</p><p class="dish__desc">Goals, history and options, with no obligation to book</p><p class="dish__price">Complimentary &middot; 30 min</p></div>
+          <div class="dish"><p class="dish__name">Skin analysis</p><p class="dish__desc">Close-up imaging and a written skin plan</p><p class="dish__price">$50 &middot; 30 min</p></div>
+        </div>
+        <div class="course">
+          <h3><span>II</span>Injectables</h3>
+          <div class="dish"><p class="dish__name">Wrinkle relaxer</p><p class="dish__desc">Softens expression lines on the forehead and around the eyes</p><p class="dish__price">From $280</p></div>
+          <div class="dish"><p class="dish__name">Lip balancing</p><p class="dish__desc">Dermal filler for subtle shape and hydration</p><p class="dish__price">From $650</p></div>
+          <div class="dish"><p class="dish__name">Cheek and jaw contour</p><p class="dish__desc">Dermal filler to restore structure, placed conservatively</p><p class="dish__price">From $750</p></div>
+        </div>
+        <div class="course">
+          <h3><span>III</span>Skin</h3>
+          <div class="dish"><p class="dish__name">Skin booster</p><p class="dish__desc">Fine injections of hydration for texture and glow</p><p class="dish__price">From $400</p></div>
+          <div class="dish"><p class="dish__name">Medical-grade peel</p><p class="dish__desc">Resurfacing matched to your skin type</p><p class="dish__price">$175 &middot; 45 min</p></div>
+          <div class="dish"><p class="dish__name">Microneedling</p><p class="dish__desc">Collagen induction for texture and fine lines</p><p class="dish__price">$325 &middot; 60 min</p></div>
+        </div>
+        <div class="course">
+          <h3><span>IV</span>To finish</h3>
+          <div class="dish"><p class="dish__name">Two-week review</p><p class="dish__desc">A check-in after any injectable treatment</p><p class="dish__price">Complimentary</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AI demo 1: treatment finder -->
+    <section class="finder" id="finder" aria-labelledby="finder-title">
+      <div class="finder__intro">
+        <p class="demo-tag">Scripted demo</p>
+        <h2 id="finder-title">Not sure where <em>to start?</em></h2>
+        <p>Three questions point you to a sensible first conversation. On a live site this would draw on the clinic's own menu and guidance; here the answers are scripted.</p>
+      </div>
+      <div class="finder__card" data-finder>
+        <div class="fq is-active" data-step="1" role="group" aria-labelledby="fq1">
+          <p class="fq__count">1 of 3</p>
+          <h3 id="fq1">What would you like to change?</h3>
+          <p class="fq__hint">Choose any that apply.</p>
+          <div class="chips">
+            <button type="button" class="chip" data-multi="lines" aria-pressed="false">Fine lines</button>
+            <button type="button" class="chip" data-multi="volume" aria-pressed="false">Volume or shape</button>
+            <button type="button" class="chip" data-multi="texture" aria-pressed="false">Skin texture</button>
+            <button type="button" class="chip" data-multi="dull" aria-pressed="false">Dull or tired skin</button>
+            <button type="button" class="chip" data-multi="unsure" aria-pressed="false">Not sure yet</button>
+          </div>
+          <button type="button" class="btn btn--solid" data-next disabled>Next</button>
+        </div>
+        <div class="fq" data-step="2" role="group" aria-labelledby="fq2">
+          <p class="fq__count">2 of 3</p>
+          <h3 id="fq2">Is there a date you are planning around?</h3>
+          <div class="chips chips--stack">
+            <button type="button" class="chip" data-one="timing" value="soon">An event in the next two weeks</button>
+            <button type="button" class="chip" data-one="timing" value="month">Something in a month or two</button>
+            <button type="button" class="chip" data-one="timing" value="none">No date in mind</button>
+          </div>
+        </div>
+        <div class="fq" data-step="3" role="group" aria-labelledby="fq3">
+          <p class="fq__count">3 of 3</p>
+          <h3 id="fq3">Have you had injectables before?</h3>
+          <div class="chips chips--stack">
+            <button type="button" class="chip" data-one="before" value="yes">Yes</button>
+            <button type="button" class="chip" data-one="before" value="no">No, this would be my first time</button>
+          </div>
+        </div>
+        <div class="fresult" data-fresult hidden tabindex="-1">
+          <p class="fq__count">A suggested starting point</p>
+          <h3>Talk to us about</h3>
+          <ul class="fresult__list" data-flist></ul>
+          <p class="fresult__note" data-fnote></p>
+          <div class="actions">
+            <a class="btn btn--solid" href="#prep" data-fbook>Book a consultation</a>
+            <button type="button" class="link" data-frestart>Start again</button>
+          </div>
+          <p class="fine">Example result, not medical advice. A clinician decides what is suitable at your consultation.</p>
+        </div>
+        <button type="button" class="link fback" data-fback hidden><span aria-hidden="true">&larr;</span> Back</button>
+      </div>
+    </section>
+
+    <!-- AI demo 2: pre-visit prep assistant -->
+    <section class="prep" id="prep" aria-labelledby="prep-title">
+      <div class="prep__copy">
+        <p class="demo-tag">Scripted demo</p>
+        <h2 id="prep-title">Ready for your <em>visit.</em></h2>
+        <p>A prep assistant that answers the questions people ask the front desk the night before: what to bring, whether to wear makeup, how long it takes. On a live site, anything clinical goes straight to a clinician.</p>
+      </div>
+      <div class="assistant" data-assistant>
+        <div class="assistant__head">
+          <span class="leaf" aria-hidden="true"></span>
+          <p><strong>Visit assistant</strong><span>Scripted demo, not a live AI. Not medical advice.</span></p>
+        </div>
+        <div class="assistant__body" aria-live="polite"></div>
+        <div class="assistant__suggest" aria-label="Suggested questions"></div>
+      </div>
+    </section>
+
+    <!-- Visit -->
+    <section class="visit" id="visit" aria-labelledby="visit-title">
+      <h2 id="visit-title">Visit</h2>
+      <dl class="visit__grid">
+        <div><dt>Address</dt><dd>Placeholder street<br>Placeholder City</dd></div>
+        <div><dt>Hours</dt><dd>Placeholder hours<br>Monday to Saturday</dd></div>
+        <div><dt>Contact</dt><dd>Placeholder phone<br>Placeholder email</dd></div>
+      </dl>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p class="foot__mark" aria-hidden="true">Sauge</p>
+    <p><span class="concept-tag">Concept</span> Sauge Aesthetic Clinic is a fictional clinic. This page is a design example by <a href="../../index.html">Aglow Studios</a>, not client work.</p>
+    <p>Photography: AI-generated images.</p>
+  </footer>
+
+  <script src="medspa.js"></script>
+</body>
+</html>

@@ -40,7 +40,12 @@ sites, to show range. Decisions already made with the owner:
   directly in Canva (Canva connector, `generate-image`) instead of handing the
   owner prompts. Claude cannot download full-size files from Canva, so the owner
   picks, downloads and sends them (chat or `assets/images/concepts/`); Claude
-  then converts them to WebP. Prefer faceless shots and still life. Check every
+  then converts them to WebP. Why: `generate-image` returns only a media id and
+  a 200px preview, and the connector has no media download. The only route is
+  placing the image in a design and using `export-design`, whose signed link is
+  on `export-download.canva.com` (host now allowed in this environment), but
+  auto mode blocked fetching that link (Nov 2026). Revisit only if the owner
+  adds a permission rule for it. Prefer faceless shots and still life. Check every
   image for real brand names or logos (AI often adds them) and remove or
   regenerate before use.
 - Label every concept "Concept" on the card and on the page. Never present one
@@ -69,6 +74,16 @@ concept slowly on hover; click opens the live concept page.
   are labeled as samples. Photos in `assets/images/concepts/salon-*.webp`
   (the comb's "Mason Pearson" brand text was painted out). Frames fall back to
   a labeled placeholder if an image is missing.
+- Medspa concept built: `concepts/medspa/` ("Sauge Aesthetic Clinic",
+  fictional). White, stone, sage; Newsreader (light serif) + Manrope; fonts in
+  `concepts/medspa/fonts/` (OFL). Fine-dining menu with sample prices,
+  scripted treatment finder and visit assistant in `medspa.js` (logistics only,
+  labeled "not medical advice"). Waiting on 3 photos, generated in the owner's
+  Canva: hero = media MAHbPJqd61g -> `medspa-hero-1600.webp` (3:2),
+  room = MAHbPGgFJAo -> `medspa-room-1200.webp` (4:5),
+  detail = MAHbPEdgx64 -> `medspa-detail-1200.webp` (4:5).
+  Frames show labeled placeholders until then.
+- Concepts left: financial planner, wedding planner (owner decides).
 - Not built yet: the concept cards on the Aglow home page.
 
 ## Preview
