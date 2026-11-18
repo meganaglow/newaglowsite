@@ -36,9 +36,13 @@ sites, to show range. Decisions already made with the owner:
 - Build each concept as a real mini-site in `concepts/<name>/` (own `index.html`
   and its own small stylesheet and tokens; do not reuse Aglow's look).
 - Use Canva AI images for photography only (2 to 3 per concept), never for
-  pictures of layouts. Claude cannot download full-size files from Canva: ask
-  the owner to download them and upload to `assets/images/concepts/` on GitHub.
-  Prefer faceless shots and still life.
+  pictures of layouts. Owner's standing preference: Claude generates the images
+  directly in Canva (Canva connector, `generate-image`) instead of handing the
+  owner prompts. Claude cannot download full-size files from Canva, so the owner
+  picks, downloads and sends them (chat or `assets/images/concepts/`); Claude
+  then converts them to WebP. Prefer faceless shots and still life. Check every
+  image for real brand names or logos (AI often adds them) and remove or
+  regenerate before use.
 - Label every concept "Concept" on the card and on the page. Never present one
   as client work. No testimonials, before-and-after results or return figures.
 - Build order: hair salon first as a pilot; the owner decides on the rest after.
@@ -62,12 +66,9 @@ concept slowly on hover; click opens the live concept page.
   tokens in `salon.css`, own fonts in `concepts/salon/fonts/` (Archivo variable
   with width axis for condensed headlines, Instrument Serif italic; OFL).
   Scripted stylist-match quiz and booking concierge in `salon.js`. Menu prices
-  are labeled as samples. Waiting on 3 photos from the owner, uploaded to
-  `assets/images/concepts/` with these exact names (JPG):
-  `salon-hero.jpg` (landscape 3:2, subject right of centre, ~2400x1600),
-  `salon-look-1.jpg` and `salon-look-2.jpg` (portrait 4:5, ~1600x2000).
-  Until then each frame shows a labeled placeholder. After upload: convert to
-  WebP and update the `src` paths.
+  are labeled as samples. Photos in `assets/images/concepts/salon-*.webp`
+  (the comb's "Mason Pearson" brand text was painted out). Frames fall back to
+  a labeled placeholder if an image is missing.
 - Not built yet: the concept cards on the Aglow home page.
 
 ## Preview
