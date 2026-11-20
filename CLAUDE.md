@@ -102,3 +102,16 @@ concept slowly on hover; click opens the live concept page.
 
 ## Deploy
 Planned: Netlify, publish directory = repo root, no build command.
+- OWNER RULE: never deploy to, overwrite or change any existing Netlify project
+  unless the owner explicitly names it. Their team has many projects, including
+  "aglowstudios", which serves the LIVE aglowstudios.ai. Previews of this
+  redesign go to their own new project only.
+- Preview project (created for this redesign, Nov 2026): "aglow-redesign-preview",
+  https://aglow-redesign-preview.netlify.app, site id
+  ad7df9fa-3cd6-4dc5-9a30-377f8b749f4b. Requires Netlify team login to view.
+  Not connected to Git: redeploy manually after changes. How: call the Netlify
+  connector's deploy-site with that site id, then run the npx command it returns
+  from the repo root with NODE_USE_ENV_PROXY=1 and
+  NODE_EXTRA_CA_CERTS=/root/.ccr/ca-bundle.crt (hosts netlify-mcp.netlify.app
+  and api.netlify.com are allowed in this environment). `netlify.toml`
+  publishes the repo root with no build command.
