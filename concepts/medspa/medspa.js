@@ -1,4 +1,4 @@
-/* Sauge Spa & Skin concept: small interactions. No dependencies.
+/* Olea Spa & Skin Retreat concept: small interactions. No dependencies.
    "Design your day" and the day concierge are scripted demos, not a live AI
    (see CLAUDE.md "AI demos"). Health questions are always handed to a therapist. */
 (() => {
@@ -37,7 +37,7 @@
     },
     awake: {
       body: ['Mineral salt scrub', 'Buffed in, rinsed under warm rain'],
-      skin: ['Sculpting facial', 'Lifting massage that brings colour back'],
+      skin: ['Lifting facial', 'Massage that brings colour back to the skin'],
       mind: ['Breathwork', 'In the meditation rooms, windows open']
     }
   };
@@ -144,10 +144,14 @@
   // Replies stay with the experience and logistics; health goes to a therapist.
   const NODES = {
     arrive: { ask: 'When should I arrive?', say: 'Thirty minutes before your first ritual. Time for tea, a robe and a slow walk through the thermal suite before anything begins.', next: ['bring', 'thermal'] },
-    bring: { ask: 'What should I bring?', say: 'Only swimwear for the thermal suite. Robes, slippers and everything for the changing rooms are waiting for you.', next: ['thermal', 'change'] },
-    thermal: { ask: 'How does the thermal suite work?', say: 'Move between the cedar sauna, eucalyptus steam and red light as you like, with rest and cool water in between. Your host suggests an order when you arrive.', next: ['meditate', 'health'] },
+    bring: { ask: 'What should I bring?', say: 'Only swimwear for the thermal suite. Robes, slippers and everything for the changing rooms are waiting for you.', next: ['wear', 'thermal'] },
+    wear: { ask: 'Will I be comfortable in swimwear?', say: 'You are in a soft robe almost all day. Changing rooms are private, and treatments take place with you covered by warm linen. Only the thermal suite calls for swimwear.', next: ['alone', 'pace'] },
+    alone: { ask: 'Is it all right to come alone?', say: 'Many guests do, and the day is designed for it. If you would like company, we can reserve a day for two with rituals side by side.', next: ['pace', 'first'] },
+    pace: { ask: 'Will the day feel rushed?', say: 'Never. Each ritual has time either side of it, nothing in the thermal suite is timed, and the day ends when you are ready.', next: ['first', 'health'] },
+    first: { ask: 'I have never been to a spa', say: 'Then we will walk you through everything when you arrive. Your host shows you around, explains each ritual before it begins, and is never far away.', next: ['thermal', 'health'] },
+    thermal: { ask: 'How does the thermal suite work?', say: 'Move between the cedar sauna, eucalyptus steam and red light as you like, with rest and cool water in between. Your host suggests an order when you arrive.', next: ['meditate', 'arrive'] },
     change: { ask: 'Can my day change on the morning?', say: 'It often does. Your skin reading on arrival may change a ritual or two, and the day is rearranged around you.', next: ['meditate', 'arrive'] },
-    meditate: { ask: 'Do I need meditation experience?', say: 'None at all. Sessions are guided, short and quiet. You are also welcome simply to lie in the stillness room.', next: ['health'] },
+    meditate: { ask: 'Do I need meditation experience?', say: 'None at all. Sessions are guided, short and quiet. You are also welcome simply to lie in the stillness room.', next: ['change', 'health'] },
     health: { ask: 'I have a health question', say: 'That one belongs with our therapists. On a live site I would pass it to them, and they would reply before your visit.', next: [] }
   };
 
@@ -194,9 +198,9 @@
       if (plan) {
         say(`${plan.title} is held for Saturday, arriving at 10:00. I will send your arrival notes once it is confirmed. Anything you would like to know first?`, 'msg--bot');
       } else {
-        say('Good evening. I can help you prepare for your day at Sauge. What would you like to know?', 'msg--bot');
+        say('Hello. I can help you prepare for your day at Olea. What would you like to know?', 'msg--bot');
       }
-      offer(['arrive', 'bring', 'thermal', 'change']);
+      offer(['wear', 'alone', 'pace', 'bring']);
     };
     startConcierge(null);
   }

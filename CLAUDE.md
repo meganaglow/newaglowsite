@@ -74,7 +74,10 @@ concept slowly on hover; click opens the live concept page.
   are labeled as samples. Photos in `assets/images/concepts/salon-*.webp`
   (the comb's "Mason Pearson" brand text was painted out). Frames fall back to
   a labeled placeholder if an image is missing.
-- Medspa concept built: `concepts/medspa/` ("Sauge Spa & Skin", fictional).
+- Medspa concept built: `concepts/medspa/` ("Olea Spa & Skin Retreat", fictional;
+  the owner rejected the earlier name "Sauge"). Written for the target reader: a
+  woman around 55 looking for a retreat (comfort in swimwear, coming alone,
+  never rushed, first-timer reassurance, larger text, no light-weight body type).
   Owner's direction (Nov 2026): high-end and experiential, not clinical. A spa
   is a day of luxury with treatments customized to skin, body and the kind of
   day you want; never "a plan". Two kinds of day: the Still Day (meditation
@@ -88,8 +91,9 @@ concept slowly on hover; click opens the live concept page.
   full-bleed hero `medspa-hero-*.webp` (shoulder, vase, sphere; copy on the
   wall behind a light veil), full-bleed band `medspa-band-*.webp` (figure under
   an arch), `medspa-room-1200.webp` (arch + olive tree), menu thumbnail
-  `medspa-detail-600.webp` (hand, cropped above the chin). Awaiting owner
-  review of the new copy.
+  `medspa-detail-600.webp` (hand, cropped above the chin). Visit section has
+  no placeholders (directions sent on booking, hours, alone or together, what
+  to bring). Awaiting owner review.
 - Concepts left: financial planner, wedding planner (owner decides).
 - Not built yet: the concept cards on the Aglow home page.
 

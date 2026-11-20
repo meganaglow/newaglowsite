@@ -1,4 +1,4 @@
-/* Sauge Aesthetic Clinic: concept site by Aglow Studios.
+/* Olea Spa & Skin Retreat: concept site by Aglow Studios.
    Own look and tokens; do not import Aglow's styles.css.
    Direction: clinical calm. White, stone, soft sage; light, airy type; generous space. */
 
@@ -39,9 +39,9 @@
   --t-h2: clamp(2.25rem, 4.4vw, 3.75rem);
   --t-h3: 1.375rem;
   --t-lead: clamp(1.125rem, 1.4vw, 1.25rem);
-  --t-body: 1rem;
-  --t-small: .875rem;
-  --t-label: .72rem;
+  --t-body: 1.0625rem;
+  --t-small: .9375rem;
+  --t-label: .78rem;
 
   /* Space: generous */
   --gut: clamp(20px, 5vw, 80px);
@@ -149,7 +149,7 @@ h1 em, h2 em { font-style: italic; color: var(--sage-deep); }
 .hero { display: flex; flex-direction: column-reverse; margin-bottom: var(--sec); }
 .hero__copy { padding: 24px var(--gut) 56px; }
 .hero h1 { font-size: var(--t-h1); line-height: 1.02; }
-.lead { font-size: var(--t-lead); font-weight: 300; color: var(--ink-soft); max-width: 36ch; margin: 32px 0 40px; }
+.lead { font-size: var(--t-lead); font-weight: 400; color: var(--ink-soft); max-width: 36ch; margin: 32px 0 40px; }
 .hero__img { aspect-ratio: 4 / 3.4; border-radius: 0; }
 .hero__img img { object-position: 72% 50%; }
 @media (min-width: 960px) {
@@ -231,7 +231,7 @@ h1 em, h2 em { font-style: italic; color: var(--sage-deep); }
 .dish { padding: 22px 0; }
 .dish + .dish { border-top: 1px solid var(--line); }
 .dish__name { font: 400 1.5rem/1.3 var(--f-serif); }
-.dish__desc { font: italic 300 1.0625rem/1.5 var(--f-serif); color: var(--ink-soft); margin-top: 4px; }
+.dish__desc { font: italic 400 1.125rem/1.5 var(--f-serif); color: var(--ink-soft); margin-top: 4px; }
 .dish__price { font: 600 var(--t-label)/1 var(--f-sans); letter-spacing: .18em; text-transform: uppercase; color: var(--sage-deep); margin-top: 12px; }
 
 /* ---------- Treatment finder ---------- */
@@ -270,7 +270,7 @@ h1 em, h2 em { font-style: italic; color: var(--sage-deep); }
 .fresult__list strong { display: block; font: 400 1.25rem/1.3 var(--f-serif); }
 .fresult__list span { font-size: var(--t-small); color: var(--ink-soft); }
 .fresult__note { margin: 20px 0 28px; padding: 16px 20px; border-radius: var(--r); background: var(--stone); font-size: var(--t-small); }
-.fine { margin-top: 24px; font-size: .8125rem; color: var(--ink-soft); }
+.fine { margin-top: 24px; font-size: var(--t-small); color: var(--ink-soft); }
 
 /* ---------- Prep assistant ---------- */
 .prep { background: var(--sage-soft); padding: var(--sec) var(--gut); display: grid; gap: 48px; }
@@ -306,8 +306,9 @@ h1 em, h2 em { font-style: italic; color: var(--sage-deep); }
 .visit__grid { display: grid; gap: 32px; margin: 0; }
 .visit__grid div { padding-top: 20px; border-top: 1px solid var(--line); }
 .visit__grid dt { font: 600 var(--t-label)/1 var(--f-sans); letter-spacing: .22em; text-transform: uppercase; color: var(--sage-deep); margin-bottom: 12px; }
-.visit__grid dd { margin: 0; font: 300 1.25rem/1.5 var(--f-serif); }
-@media (min-width: 720px) { .visit__grid { grid-template-columns: repeat(3, 1fr); gap: 48px; } }
+.visit__grid dd { margin: 0; font: 400 1.25rem/1.5 var(--f-serif); max-width: 24ch; }
+@media (min-width: 720px) { .visit__grid { grid-template-columns: repeat(2, 1fr); gap: 40px 48px; } }
+@media (min-width: 1100px) { .visit__grid { grid-template-columns: repeat(4, 1fr); } }
 
 .foot { background: var(--stone); padding: 72px var(--gut) 40px; text-align: center; font-size: var(--t-small); color: var(--ink-soft); display: grid; gap: 14px; justify-items: center; }
 .foot__mark { font: 300 clamp(4rem, 14vw, 9rem)/1 var(--f-serif); font-style: italic; color: var(--sage); margin-bottom: 16px; }
