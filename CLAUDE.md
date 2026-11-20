@@ -64,8 +64,22 @@ concept slowly on hover; click opens the live concept page.
 
 ## Status
 - Done: design system, logo (glint cluster), hero render, stars, preview page.
-- `index.html` is still a placeholder. Next: build the real home page from the
-  live site's copy, following `DESIGN.md`.
+- Site pages built (Nov 2026) from the live site's copy, same URLs as live:
+  `index.html`, `services.html`, `who.html`, `packages.html`, `contact.html`.
+  Shared header, mobile menu, footer, sticky phone booking bar and "Ask Aglow"
+  chat are repeated in each file: change all five together. Home adds a
+  "Concept designs" section (browser-frame cards that scroll on hover; images
+  `assets/images/concepts/card-*.webp` are full-page screenshots of the concept
+  sites, regenerate when a concept changes) and the "Smart site setup" demo.
+- Contact form: Netlify Forms, same form name ("contact") and field names as
+  live, posted by fetch from `script.js`; `?about=quote|invoice` presets kept.
+  Glow List still uses the live site's interim mailto; replace when the owner
+  picks Flodesk or Mailchimp.
+- "Ask Aglow" uses `SCRIPTS.aglow` in `script.js`: answers only from live-site
+  facts. Keep it that way.
+- At launch: remove `<meta name="robots" content="noindex">` from all pages.
+- To do: add the new components (concept card, compare table, package list,
+  checklist, pills, page hero, mobile menu) to `styleguide.html`.
 - Open with the owner: scripted chat for launch then live later, or live now.
 - Salon pilot built: `concepts/salon/` ("Cuivre Hair Studio", fictional). Own
   tokens in `salon.css`, own fonts in `concepts/salon/fonts/` (Archivo variable
@@ -95,7 +109,6 @@ concept slowly on hover; click opens the live concept page.
   no placeholders (directions sent on booking, hours, alone or together, what
   to bring). Approved by the owner (Nov 2026).
 - Concepts left: financial planner, wedding planner (owner decides).
-- Not built yet: the concept cards on the Aglow home page.
 
 ## Preview
 `python3 -m http.server 8000` from the repo root, then open `/styleguide.html`.
@@ -115,3 +128,7 @@ Planned: Netlify, publish directory = repo root, no build command.
   NODE_EXTRA_CA_CERTS=/root/.ccr/ca-bundle.crt (hosts netlify-mcp.netlify.app
   and api.netlify.com are allowed in this environment). `netlify.toml`
   publishes the repo root with no build command.
+- BEFORE ANY MERGE TO `main`: check in Netlify whether "aglowstudios" (live
+  site) builds from this repo's `main` (Project configuration > Build & deploy >
+  Continuous deployment). If it does, merging replaces the live site. Never
+  merge to `main` without the owner's explicit go-ahead.

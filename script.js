@@ -103,6 +103,18 @@
   // These are example conversations, not a live AI. A real assistant needs a
   // server-side function; see CLAUDE.md "AI demos".
   const SCRIPTS = {
+    // Aglow's own concierge (the "Ask Aglow" button). Answers use only facts
+    // from the live site's copy; keep it that way.
+    aglow: {
+      name: 'Aglow concierge',
+      hello: 'Hello! I can answer common questions about working with Aglow. What would you like to know?',
+      qa: [
+        ['What does a website cost?', 'Every project is quoted after a short conversation, because a one-page refresh and a full rebuild are not the same job. You get a written proposal with a fixed price before any work begins.'],
+        ['How does the process work?', 'Four calm steps: get clear, shape the direction, design and build, then refine and launch. You see where things are headed early.'],
+        ['Can you help after launch?', 'Yes. Ongoing website care covers updates, small changes and routine upkeep, so you can send a note instead of logging in.'],
+        ['How do I get started?', 'Book a free 20-minute chat from the Contact page. Megan usually replies within one business day.']
+      ]
+    },
     salon: {
       name: 'Salon concierge',
       hello: 'Hello! I can answer questions and help you book. What can I do for you?',
@@ -214,4 +226,85 @@
     $('.chat__close', panel).addEventListener('click', () => toggle(false));
     addEventListener('keydown', e => { if (e.key === 'Escape' && !panel.hidden) toggle(false); });
   }
+
+  // ----- Mobile menu: full-screen overlay below 900px -----
+  const menu = $('#mobile-menu');
+  const menuBtn = $('.menu-toggle');
+  if (menu && menuBtn) {
+    const setMenu = open => {
+      menu.hidden = !open;
+      menuBtn.setAttribute('aria-expanded', String(open));
+      document.body.style.overflow = open ? 'hidden' : '';
+      (open ? $('.mobile-menu__close', menu) : menuBtn).focus();
+    };
+    menuBtn.addEventListener('click', () => setMenu(true));
+    $('.mobile-menu__close', menu).addEventListener('click', () => setMenu(false));
+    $$('a', menu).forEach(a => a.addEventListener('click', () => setMenu(false)));
+    addEventListener('keydown', e => { if (e.key === 'Escape' && !menu.hidden) setMenu(false); });
+  }
+
+  // ----- Contact form -> Netlify Forms by fetch, so the visitor stays on the page -----
+  // Same form name ("contact") and field names as the live site, so submissions
+  // and email notifications keep working after launch.
+  const form = $('#contact-form');
+  if (form) {
+    const status = $('#cf-status');
+    const submitBtn = $('#cf-submit');
+    const setStatus = (kind, message) => { status.className = 'form-status is-' + kind; status.textContent = message; };
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      if (location.protocol === 'file:') {
+        setStatus('pending', 'Local preview: the form cannot send from a file opened on your computer. Deploy to Netlify and test there.');
+        return;
+      }
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+      setStatus('pending', 'Sending your message…');
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(form)).toString()
+      }).then(res => {
+        if (!res.ok) throw new Error('Bad response: ' + res.status);
+        form.reset();
+        setStatus('ok', 'Thank you. Your message is on its way, and Megan will be in touch shortly.');
+        submitBtn.textContent = 'Message sent';
+      }).catch(() => {
+        setStatus('error', 'Something went wrong sending that. Please email megan@aglowstudios.ai directly and it will get straight to her.');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Try again';
+      });
+    });
+
+    // Deep links: contact.html?about=invoice or ?about=quote
+    const presets = {
+      invoice: {
+        reason: 'Invoice request', heading: 'Request an invoice',
+        intro: 'Tell me which project or deposit this is for and I will send an invoice you can pay by card, bank transfer or Venmo.',
+        msg: "I'd like an invoice for: "
+      },
+      quote: {
+        reason: 'Quote request', heading: 'Request a quote',
+        intro: "Tell me about the site you need and I'll come back with a written proposal and a fixed price.",
+        msg: ''
+      }
+    };
+    const preset = presets[new URLSearchParams(location.search).get('about')];
+    if (preset) {
+      $('#cf-reason').value = preset.reason;
+      $('#cf-heading').textContent = preset.heading;
+      $('#cf-intro').textContent = preset.intro;
+      document.title = preset.heading + ' · Aglow Studios';
+      if (preset.msg) $('#cf-msg').value = preset.msg;
+    }
+  }
+
+  // ----- Glow List sign-up -> interim mailto, as on the live site -----
+  // Replace once the email platform (Flodesk or Mailchimp) is chosen and wired in.
+  $$('.glow-list-form').forEach(gf => gf.addEventListener('submit', e => {
+    e.preventDefault();
+    const em = $('input[type="email"]', gf).value || '';
+    location.href = 'mailto:megan@aglowstudios.ai?subject=' + encodeURIComponent('Add me to the Glow List') +
+      '&body=' + encodeURIComponent('Please add me to the Glow List: ' + em);
+  }));
 })();
