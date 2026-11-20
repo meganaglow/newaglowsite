@@ -80,8 +80,12 @@ concept slowly on hover; click opens the live concept page.
   scripted treatment finder and visit assistant in `medspa.js` (logistics only,
   labeled "not medical advice"). Waiting on 3 photos. First Canva set was
   rejected by the owner as too generic (dropper bottle, treatment bed). Second
-  set, in the owner's Canva: hero option A sculptural vessel MAHbfXScW9I or
-  option B faceless shoulder MAHbfeNccvU -> `medspa-hero-1600.webp` (3:2),
+  set, in the owner's Canva: owner wants the hero to combine skin with the
+  architectural items. Combined options: close crop (shoulder + vase, sphere,
+  window shadow) MAHbffAjrCE or wide scene (seated figure, arch) MAHbfW4wqxM
+  -> `medspa-hero-1600.webp` (3:2). Earlier separate options: vessel
+  MAHbfXScW9I, shoulder MAHbfeNccvU. Either combined shot suits a full-bleed
+  hero with copy on the empty left wall (layout change, not made yet).
   room arch + olive tree MAHbffJXtu8 -> `medspa-room-1200.webp` (4:5),
   hand on collarbone MAHbfWvpHR4 -> `medspa-detail-1200.webp` (4:5).
   Owner to pick the hero and send the files.
