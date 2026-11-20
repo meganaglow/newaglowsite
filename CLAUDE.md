@@ -17,11 +17,13 @@ Static site: plain HTML, CSS, JS. No framework, no build step, no npm.
   belongs with the people in front of you."
 - Two ways to work together (owner, Nov 2026), on `services.html`:
   1. Design & hand-off: Aglow designs and builds the site, then hands it over for
-     the owner to host and manage.
+     the owner to host and manage, with a full walkthrough and transition support.
   2. Full service: the owner just reaches out; Aglow makes changes, updates
      content and graphics, posts seasonal specials and promotions, and includes
      hosting and technical maintenance.
   No prices stated for either; every engagement is quoted after a chat.
+  `packages.html` calls the ongoing option "Full service" too (was "Ongoing
+  website care").
 - Voice (from the live site copy): calm, honest, one-to-one. "I" for promises,
   "we" for the shared process, "you" for the reader. "No" lists that remove
   worries; "X, not Y" contrasts; a longer sentence then a short landing line;
