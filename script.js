@@ -46,7 +46,7 @@
   }
 
   // Layered composition: layers shift slightly with the pointer (desktop only)
-  const layers = $('.devices, .layers');
+  const layers = $('.layers');
   if (layers && !reduced && matchMedia('(hover: hover) and (min-width: 900px)').matches) {
     const zone = layers.closest('section') || layers;
     zone.addEventListener('pointermove', e => {

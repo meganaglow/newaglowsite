@@ -642,47 +642,6 @@ a.card, .card--link { display: block; text-decoration: none; color: inherit; }
 .skip-link { position: absolute; left: var(--s-4); top: -60px; z-index: calc(var(--z-chat) + 2); padding: var(--s-3) var(--s-4); background: var(--ink); color: var(--ivory); border-radius: var(--r-pill); }
 .skip-link:focus { top: var(--s-4); }
 
-/* ---------- Home hero: real website screens, layered (replaces the rendered scene) ---------- */
-/* A browser window and a phone show two concept sites. Labeled as concepts by the caption. */
-.devices { position: relative; width: min(100%, 600px); margin-inline: auto; aspect-ratio: 600 / 500; }
-.devices::before { /* the one gold glow */
-  content: ""; position: absolute; inset: -12% -10% -6% 4%; border-radius: 50%; z-index: 0; pointer-events: none;
-  background: radial-gradient(closest-side, color-mix(in srgb, var(--glow) 55%, transparent), transparent);
-}
-.devices__browser {
-  position: absolute; top: 4%; right: 0; width: 90%; z-index: 1;
-  box-shadow: var(--shadow-float); translate: var(--px) var(--py);
-  animation: drift 9s var(--ease) infinite alternate;
-}
-.devices__browser .browser__view img { object-position: 50% 0; transition: none; }
-.devices__phone {
-  position: absolute; left: 0; bottom: 6%; width: 27%; z-index: 2; aspect-ratio: 400 / 843;
-  border: 6px solid var(--night); border-radius: 26px; background: var(--night); overflow: hidden;
-  box-shadow: var(--shadow-float); translate: calc(var(--px) * 1.6) calc(var(--py) * 1.6);
-  animation: drift 7s var(--ease) -3s infinite alternate;
-}
-.devices__phone img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; }
-.devices__star { position: absolute; z-index: 3; animation: twinkle-soft 4.6s ease-in-out infinite; }
-.devices__star + .devices__star { animation-delay: -2s; }
-.devices__caption {
-  position: absolute; right: 4%; bottom: 0; z-index: 3;
-  display: inline-flex; align-items: center; gap: var(--s-2); padding: var(--s-2) var(--s-4);
-  background: var(--ivory); color: var(--ink); border: 1px solid var(--line); border-radius: var(--r-pill);
-  font-size: .8125rem; text-decoration: none; box-shadow: var(--shadow-raised);
-  transition: border-color var(--t-micro) var(--ease), transform var(--t-micro) var(--ease);
-}
-.devices__caption:hover { border-color: var(--gold); transform: translateY(-2px); }
-@media (min-width: 900px) {
-  .hero__grid:has(.devices) { align-items: center; grid-template-columns: 1.15fr .85fr; }
-  .devices { width: 108%; max-width: 700px; justify-self: end; margin-right: -4%; }
-}
-@media (min-width: 1400px) { .devices { width: 128%; margin-right: -18%; } }
-@media (max-width: 899px) {
-  .hero { padding-bottom: var(--s-8); }
-  .hero__grid { gap: var(--s-6); }
-  .devices { width: 100%; }
-}
-
 /* ---------- Smart site setup: the floating chips sit around the demo chat ---------- */
 .demo__stage { position: relative; }
 .demo__chips { display: flex; flex-wrap: wrap; gap: var(--s-2); margin-bottom: var(--s-4); }
