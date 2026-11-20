@@ -93,7 +93,7 @@ concept slowly on hover; click opens the live concept page.
   an arch), `medspa-room-1200.webp` (arch + olive tree), menu thumbnail
   `medspa-detail-600.webp` (hand, cropped above the chin). Visit section has
   no placeholders (directions sent on booking, hours, alone or together, what
-  to bring). Awaiting owner review.
+  to bring). Approved by the owner (Nov 2026).
 - Concepts left: financial planner, wedding planner (owner decides).
 - Not built yet: the concept cards on the Aglow home page.
 
