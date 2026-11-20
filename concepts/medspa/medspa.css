@@ -142,18 +142,54 @@ h1 em, h2 em { font-style: italic; color: var(--sage-deep); }
 .frame.is-missing img { visibility: hidden; }
 .frame.is-missing::after { opacity: 1; }
 
-/* ---------- Hero ---------- */
-.hero {
-  max-width: var(--max); margin: 0 auto; padding: clamp(40px, 7vw, 96px) var(--gut) var(--sec);
-  display: grid; gap: 56px; align-items: center;
-}
+/* ---------- Hero ----------
+   Phones: copy on the page, then the photo full width below it.
+   Desktop: full-bleed photo; copy sits on the empty plaster wall at the left,
+   with a light veil so text stays above 4.5:1 over the window shadow. */
+.hero { display: flex; flex-direction: column-reverse; margin-bottom: var(--sec); }
+.hero__copy { padding: 24px var(--gut) 56px; }
 .hero h1 { font-size: var(--t-h1); line-height: 1.02; }
 .lead { font-size: var(--t-lead); font-weight: 300; color: var(--ink-soft); max-width: 36ch; margin: 32px 0 40px; }
-.hero__img { aspect-ratio: 4 / 5; box-shadow: var(--shadow); }
-.hero__img img { object-position: 80% 50%; }
+.hero__img { aspect-ratio: 4 / 3.4; border-radius: 0; }
+.hero__img img { object-position: 72% 50%; }
 @media (min-width: 960px) {
-  .hero { grid-template-columns: 1.05fr .95fr; gap: 80px; }
-  .hero__img { aspect-ratio: 4 / 4.6; }
+  .top { position: relative; z-index: 2; }
+  .hero {
+    position: relative; display: grid; align-items: center; isolation: isolate;
+    min-height: clamp(620px, 88vh, 900px); margin-top: -104px; padding: 104px 0 0;
+  }
+  .hero__img { position: absolute; inset: 0; z-index: -1; aspect-ratio: auto; }
+  .hero__img img { object-position: 70% 40%; }
+  .hero__img::before {
+    content: ""; position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(90deg, rgba(251, 250, 247, .85) 0%, rgba(251, 250, 247, .7) 34%, rgba(251, 250, 247, 0) 54%),
+                linear-gradient(180deg, rgba(251, 250, 247, .6), rgba(251, 250, 247, 0) 20%);
+  }
+  .hero__copy { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 var(--gut) 40px; }
+  .hero__copy > * { max-width: 470px; }
+  .hero .lead { max-width: 30ch; color: var(--ink); }
+  .top .btn--line { background: var(--white); }
+  .top .btn--line:hover { background: var(--sage-deep); }
+}
+
+/* ---------- Image band ---------- */
+.band { display: flex; flex-direction: column; }
+.band__line {
+  order: -1; padding: 0 var(--gut) 32px; max-width: 18ch;
+  font: 300 clamp(2rem, 4vw, 3.5rem)/1.12 var(--f-serif); letter-spacing: -.015em;
+}
+.band__line em { font-style: italic; color: var(--sage-deep); }
+.band__img { aspect-ratio: 4 / 3; border-radius: 0; }
+.band__img img { object-position: 72% 50%; }
+@media (min-width: 960px) {
+  .band { position: relative; isolation: isolate; min-height: clamp(560px, 80vh, 860px); }
+  .band__img { position: absolute; inset: 0; z-index: -1; aspect-ratio: auto; }
+  .band__img img { object-position: 60% 50%; }
+  .band__img::before {
+    content: ""; position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(90deg, rgba(251, 250, 247, .5), rgba(251, 250, 247, 0) 45%);
+  }
+  .band__line { order: 0; padding: clamp(64px, 9vw, 128px) 0 0 max(var(--gut), calc((100vw - var(--max)) / 2 + var(--gut))); }
 }
 
 /* ---------- Approach ---------- */

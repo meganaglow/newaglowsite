@@ -78,18 +78,14 @@ concept slowly on hover; click opens the live concept page.
   fictional). White, stone, sage; Newsreader (light serif) + Manrope; fonts in
   `concepts/medspa/fonts/` (OFL). Fine-dining menu with sample prices,
   scripted treatment finder and visit assistant in `medspa.js` (logistics only,
-  labeled "not medical advice"). Waiting on 3 photos. First Canva set was
-  rejected by the owner as too generic (dropper bottle, treatment bed). Second
-  set, in the owner's Canva: owner wants the hero to combine skin with the
-  architectural items. Combined options: close crop (shoulder + vase, sphere,
-  window shadow) MAHbffAjrCE or wide scene (seated figure, arch) MAHbfW4wqxM
-  -> `medspa-hero-1600.webp` (3:2). Earlier separate options: vessel
-  MAHbfXScW9I, shoulder MAHbfeNccvU. Either combined shot suits a full-bleed
-  hero with copy on the empty left wall (layout change, not made yet).
-  room arch + olive tree MAHbffJXtu8 -> `medspa-room-1200.webp` (4:5),
-  hand on collarbone MAHbfWvpHR4 -> `medspa-detail-1200.webp` (4:5).
-  Owner to pick the hero and send the files.
-  Frames show labeled placeholders until then.
+  labeled "not medical advice"). Photos (Canva, owner-approved direction:
+  skin + architecture): full-bleed hero `medspa-hero-*.webp` (shoulder, vase,
+  sphere; copy on the wall behind a light veil, text measured 8:1 or better),
+  full-bleed band `medspa-band-*.webp` (figure under an arch), approach
+  `medspa-room-1200.webp` (arch + olive tree), menu thumbnail
+  `medspa-detail-600.webp` (hand on collarbone, cropped above the chin).
+  An unused faceless-shoulder option exists in the owner's Canva (MAHbfeNccvU).
+  Awaiting owner review.
 - Concepts left: financial planner, wedding planner (owner decides).
 - Not built yet: the concept cards on the Aglow home page.
 
