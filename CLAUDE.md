@@ -10,8 +10,9 @@ Static site: plain HTML, CSS, JS. No framework, no build step, no npm.
   Keep the word "website" up front, and frame it as the home for their business
   while they are busy being its face. Booking, payments, FAQs, email sign-up, light
   AI and ongoing care are what is inside that home, never pitched as separate tech.
-- Home hero: headline "A website that works as warmly as you do." Lead: "More than
-  a website, it's the home for your business. While you're there face to face, it
+- Home hero (say "website" once only, in the headline): eyebrow "For
+  people-first businesses", headline "A website that works as warmly as you do." Lead: "It's the
+  home for your business. While you're there face to face, it
   welcomes new clients, takes bookings and answers their questions. Your time
   belongs with the people in front of you."
 - Two ways to work together (owner, Nov 2026), on `services.html`:
