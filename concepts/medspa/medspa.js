@@ -1,6 +1,6 @@
-/* Sauge Aesthetic Clinic concept: small interactions. No dependencies.
-   The treatment finder and visit assistant are scripted demos, not a live AI
-   and not medical advice (see CLAUDE.md "AI demos"). */
+/* Sauge Spa & Skin concept: small interactions. No dependencies.
+   "Design your day" and the day concierge are scripted demos, not a live AI
+   (see CLAUDE.md "AI demos"). Health questions are always handed to a therapist. */
 (() => {
   document.documentElement.classList.remove('no-js');
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -26,24 +26,56 @@
     reveals.forEach(el => io.observe(el));
   }
 
-  // ----- Treatment finder (scripted) -----
-  const TREATMENTS = {
-    lines: { name: 'Wrinkle relaxer', why: 'For expression lines on the forehead and around the eyes', injectable: true },
-    volume: { name: 'Cheek and jaw contour or lip balancing', why: 'Dermal filler, placed conservatively', injectable: true },
-    texture: { name: 'Microneedling or skin booster', why: 'For texture and fine lines over a short course', injectable: false },
-    dull: { name: 'Medical-grade peel', why: 'Resurfacing matched to your skin type', injectable: false },
-    unsure: { name: 'Skin analysis', why: 'Close-up imaging and a written plan, so you can decide without pressure', injectable: false }
+  // ----- Design your day (scripted) -----
+  // Rituals by mood and focus. "both" takes the awake ritual in the morning
+  // and the still ritual in the afternoon.
+  const RITUALS = {
+    still: {
+      body: ['Warm-stone massage', 'Heated basalt and slow, deep pressure'],
+      skin: ['The bespoke facial', 'Composed from a close reading of your skin'],
+      mind: ['Guided meditation', 'In the stillness room, lights low']
+    },
+    awake: {
+      body: ['Mineral salt scrub', 'Buffed in, rinsed under warm rain'],
+      skin: ['Sculpting facial', 'Lifting massage that brings colour back'],
+      mind: ['Breathwork', 'In the meditation rooms, windows open']
+    }
   };
-  const LABELS = { lines: 'fine lines', volume: 'volume and shape', texture: 'skin texture', dull: 'dull skin', unsure: 'where to start' };
+  const EXTRAS = { sauna: 'cedar sauna', steam: 'eucalyptus steam', light: 'red-light therapy' };
+  const TITLES = { still: 'Your Still Day', awake: 'Your Awake Day', both: 'A day of both' };
+  const list = arr => arr.length > 1 ? arr.slice(0, -1).join(', ') + ' and ' + arr.at(-1) : arr[0];
 
-  let concerns = [];
+  const buildDay = a => {
+    const focus = ['body', 'skin', 'mind'].filter(f => a.focus.includes(f)); // body before skin
+    let rituals;
+    if (a.mood === 'both') {
+      const second = focus[1] || (focus[0] === 'mind' ? 'body' : 'mind');
+      rituals = [RITUALS.awake[focus[0]], RITUALS.still[second]];
+      if (focus[2]) rituals.push(RITUALS.still[focus[2]]);
+    } else {
+      rituals = focus.map(f => RITUALS[a.mood][f]);
+    }
+    const thermal = a.extras.filter(x => EXTRAS[x]).map(x => EXTRAS[x]);
+    const day = [['10:00', 'Arrival', 'Tea, a robe, and a reading of your skin and your mood']];
+    day.push(['10:30', ...rituals[0]]);
+    const cap = t => t[0].toUpperCase() + t.slice(1);
+    day.push(['12:00', 'The thermal suite', thermal.length ? `${cap(list(thermal))}, at your own pace` : 'Sauna, steam and red light, at your own pace']);
+    day.push(['13:00', 'Lunch in the garden room', 'Light, seasonal, unhurried']);
+    const times = ['14:30', '16:00'];
+    rituals.slice(1).forEach((r, i) => day.push([times[i], ...r]));
+    const hasMeditation = rituals.some(r => r[0] === 'Guided meditation');
+    if (a.extras.includes('meditate') && !hasMeditation) day.push([rituals.length > 2 ? '17:00' : '16:00', 'Guided meditation', 'To close the day, in the stillness room']);
+    day.push(['Before you go', 'A note to take home', 'Everything we used, so the day comes home with you']);
+    return { title: TITLES[a.mood], day };
+  };
+
+  let planned = null;
   const finder = $('[data-finder]');
   if (finder) {
     const steps = $$('.fq', finder);
     const result = $('[data-fresult]', finder);
     const back = $('[data-fback]', finder);
-    const next = $('[data-next]', finder);
-    const answers = {};
+    const answers = { mood: null, focus: [], extras: [] };
     let step = 0;
     const show = i => {
       step = i;
@@ -62,63 +94,65 @@
       }
     }, reduced ? 0 : 280);
 
-    // Step 1: multi-select
-    $$('[data-multi]', finder).forEach(chip => chip.addEventListener('click', () => {
-      const on = chip.getAttribute('aria-pressed') !== 'true';
-      chip.setAttribute('aria-pressed', String(on));
-      concerns = $$('[data-multi][aria-pressed="true"]', finder).map(c => c.dataset.multi);
-      next.disabled = concerns.length === 0;
-    }));
-    next.addEventListener('click', advance);
-
-    // Steps 2 and 3: single choice, then advance
-    $$('[data-one]', finder).forEach(chip => chip.addEventListener('click', () => {
-      $$(`[data-one="${chip.dataset.one}"]`, finder).forEach(c => c.setAttribute('aria-pressed', String(c === chip)));
-      answers[chip.dataset.one] = chip.value;
-      advance();
-    }));
+    steps.forEach(s => {
+      const name = s.dataset.name;
+      const next = $('[data-next]', s);
+      if (next && name === 'extras') next.disabled = false; // optional step
+      $$('.chip', s).forEach(chip => {
+        chip.setAttribute('aria-pressed', 'false');
+        chip.addEventListener('click', () => {
+          if (s.dataset.type === 'one') {
+            $$('.chip', s).forEach(c => c.setAttribute('aria-pressed', String(c === chip)));
+            answers[name] = chip.value;
+            advance();
+          } else {
+            chip.setAttribute('aria-pressed', String(chip.getAttribute('aria-pressed') !== 'true'));
+            answers[name] = $$('.chip[aria-pressed="true"]', s).map(c => c.value);
+            if (name !== 'extras') next.disabled = answers[name].length === 0;
+          }
+        });
+      });
+      if (next) next.addEventListener('click', advance);
+    });
 
     const render = () => {
-      const keys = concerns.includes('unsure') && concerns.length > 1 ? concerns.filter(c => c !== 'unsure') : concerns;
-      const list = $('[data-flist]', finder);
-      list.replaceChildren(...[{ name: 'Consultation', why: 'Complimentary, 30 minutes. Where every plan starts' }, ...keys.map(k => TREATMENTS[k])].map(t => {
+      planned = buildDay(answers);
+      $('[data-ftitle]', finder).textContent = planned.title;
+      $('[data-flist]', finder).replaceChildren(...planned.day.map(([t, name, note]) => {
         const li = document.createElement('li');
-        const b = document.createElement('strong'); b.textContent = t.name;
-        const s = document.createElement('span'); s.textContent = t.why;
-        li.append(b, s);
+        const time = document.createElement('span'); time.className = 'fresult__time'; time.textContent = t;
+        const b = document.createElement('strong'); b.textContent = name;
+        const s = document.createElement('span'); s.textContent = note;
+        const text = document.createElement('div'); text.append(b, s);
+        li.append(time, text);
         return li;
       }));
-      const anyInjectable = keys.some(k => TREATMENTS[k].injectable);
-      let note;
-      if (answers.timing === 'soon' && anyInjectable) note = 'With an event in under two weeks, your clinician may suggest a skin treatment now and injectables after the event, so nothing is still settling on the day.';
-      else if (answers.timing === 'soon') note = 'Two weeks is enough time for a gentle skin treatment. Your clinician will check timing at the consultation.';
-      else if (answers.before === 'no' && anyInjectable) note = 'First time? The consultation covers how injectables work, what they feel like and what the two weeks after look like, before anything is booked.';
-      else note = 'Your clinician will build a plan around your goals, and you can take it home to think it over.';
-      $('[data-fnote]', finder).textContent = note;
     };
 
     back.addEventListener('click', () => show(Math.max(0, step - 1)));
     $('[data-frestart]', finder).addEventListener('click', () => {
       $$('.chip', finder).forEach(c => c.setAttribute('aria-pressed', 'false'));
-      concerns = []; next.disabled = true; show(0); $('.chip', steps[0]).focus();
+      Object.assign(answers, { mood: null, focus: [], extras: [] });
+      $$('[data-next]', finder).forEach(n => { n.disabled = n.closest('.fq').dataset.name !== 'extras'; });
+      planned = null; show(0); $('.chip', steps[0]).focus();
     });
-    $('[data-fbook]', finder).addEventListener('click', () => startAssistant(concerns));
+    $('[data-fbook]', finder).addEventListener('click', () => startConcierge(planned));
     show(0);
   }
 
-  // ----- Visit assistant (scripted) -----
-  // Replies stay with logistics; anything clinical is handed to a clinician.
+  // ----- Day concierge (scripted) -----
+  // Replies stay with the experience and logistics; health goes to a therapist.
   const NODES = {
-    before: { ask: 'What should I do before my appointment?', say: 'Once you book, your clinician sends personal prep steps based on your health history. In general: arrive with a clean face, and let us know about any medicines or supplements you take.', next: ['makeup', 'bring', 'long'] },
-    makeup: { ask: 'Can I wear makeup?', say: 'Please come without makeup on the area being treated if you can. If not, there is cleanser in every treatment room.', next: ['bring', 'downtime'] },
-    long: { ask: 'How long will it take?', say: 'A consultation takes about 30 minutes. Most injectable appointments take 30 to 45 minutes, including time to talk the plan through.', next: ['downtime', 'bring'] },
-    bring: { ask: 'What should I bring?', say: 'A photo ID, a list of any medicines and supplements, and your questions. That is all.', next: ['downtime', 'makeup'] },
-    downtime: { ask: 'Will there be downtime?', say: 'It depends on the treatment, so your clinician will talk you through it before anything happens. Written aftercare is sent to your phone afterwards.', next: ['other'] },
-    other: { ask: 'I have a medical question', say: 'That is one for your clinician. On a live site I would pass your question to them and they would reply before your visit.', next: [] }
+    arrive: { ask: 'When should I arrive?', say: 'Thirty minutes before your first ritual. Time for tea, a robe and a slow walk through the thermal suite before anything begins.', next: ['bring', 'thermal'] },
+    bring: { ask: 'What should I bring?', say: 'Only swimwear for the thermal suite. Robes, slippers and everything for the changing rooms are waiting for you.', next: ['thermal', 'change'] },
+    thermal: { ask: 'How does the thermal suite work?', say: 'Move between the cedar sauna, eucalyptus steam and red light as you like, with rest and cool water in between. Your host suggests an order when you arrive.', next: ['meditate', 'health'] },
+    change: { ask: 'Can my day change on the morning?', say: 'It often does. Your skin reading on arrival may change a ritual or two, and the day is rearranged around you.', next: ['meditate', 'arrive'] },
+    meditate: { ask: 'Do I need meditation experience?', say: 'None at all. Sessions are guided, short and quiet. You are also welcome simply to lie in the stillness room.', next: ['health'] },
+    health: { ask: 'I have a health question', say: 'That one belongs with our therapists. On a live site I would pass it to them, and they would reply before your visit.', next: [] }
   };
 
   const box = $('[data-assistant]');
-  let startAssistant = () => {};
+  let startConcierge = () => {};
   if (box) {
     const body = $('.assistant__body', box);
     const suggest = $('.assistant__suggest', box);
@@ -132,13 +166,12 @@
     };
     const offer = keys => {
       suggest.replaceChildren();
-      const list = keys.length ? keys : ['restart'];
-      list.forEach(k => {
+      (keys.length ? keys : ['restart']).forEach(k => {
         const btn = document.createElement('button');
         btn.type = 'button';
         btn.className = 'suggest';
         btn.textContent = k === 'restart' ? 'Start over' : NODES[k].ask;
-        btn.addEventListener('click', () => (k === 'restart' ? startAssistant([]) : go(k)));
+        btn.addEventListener('click', () => (k === 'restart' ? startConcierge(null) : go(k)));
         suggest.append(btn);
       });
     };
@@ -155,18 +188,16 @@
       clearTimeout(timer);
       timer = setTimeout(() => { typing.remove(); say(n.say, 'msg--bot'); offer(n.next); }, reduced ? 0 : 1000);
     };
-    startAssistant = picked => {
+    startConcierge = plan => {
       clearTimeout(timer);
       body.replaceChildren();
-      if (picked && picked.length) {
-        const topics = picked.map(k => LABELS[k]);
-        const list = topics.length > 1 ? topics.slice(0, -1).join(', ') + ' and ' + topics.at(-1) : topics[0];
-        say(`Hello. You are booking a consultation about ${list}. The next openings are Tuesday at 10:00 and Thursday at 3:30. Once it is confirmed I will send your prep steps. Anything you would like to know first?`, 'msg--bot');
+      if (plan) {
+        say(`${plan.title} is held for Saturday, arriving at 10:00. I will send your arrival notes once it is confirmed. Anything you would like to know first?`, 'msg--bot');
       } else {
-        say('Hello. I can help you get ready for your visit. What would you like to know?', 'msg--bot');
+        say('Good evening. I can help you prepare for your day at Sauge. What would you like to know?', 'msg--bot');
       }
-      offer(['before', 'makeup', 'long', 'bring']);
+      offer(['arrive', 'bring', 'thermal', 'change']);
     };
-    startAssistant([]);
+    startConcierge(null);
   }
 })();

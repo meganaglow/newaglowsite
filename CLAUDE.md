@@ -55,7 +55,7 @@ sites, to show range. Decisions already made with the owner:
 | Concept | Look | Layout idea | AI demo |
 |---|---|---|---|
 | Hair salon | Fashion editorial: warm black, copper, cream; bold condensed headlines | Full-bleed portraits, sideways-scrolling lookbook | Stylist-match quiz, booking concierge |
-| Injectable medspa | Clinical calm: white, stone, soft sage; light airy type | Generous space, treatment menu like a fine-dining menu | Treatment finder, pre-visit prep assistant |
+| Luxury spa & skin (medspa) | Calm luxury: white, stone, soft sage; light airy type | Full-bleed photos, generous space, rituals menu like a fine-dining menu | "Design your day" itinerary builder, day concierge |
 | Financial planner | Quiet confidence: deep green or navy, cream, brass; classic serif | Structured grid, thin chart-like lines, numbered steps | Meeting-prep intake that summarizes goals |
 | Wedding planner | Romantic editorial: ivory, dusty rose, olive; large italic serif | Overlapping photo collage, slow parallax gallery | Date-availability check, rough-estimate builder |
 
@@ -74,18 +74,22 @@ concept slowly on hover; click opens the live concept page.
   are labeled as samples. Photos in `assets/images/concepts/salon-*.webp`
   (the comb's "Mason Pearson" brand text was painted out). Frames fall back to
   a labeled placeholder if an image is missing.
-- Medspa concept built: `concepts/medspa/` ("Sauge Aesthetic Clinic",
-  fictional). White, stone, sage; Newsreader (light serif) + Manrope; fonts in
-  `concepts/medspa/fonts/` (OFL). Fine-dining menu with sample prices,
-  scripted treatment finder and visit assistant in `medspa.js` (logistics only,
-  labeled "not medical advice"). Photos (Canva, owner-approved direction:
-  skin + architecture): full-bleed hero `medspa-hero-*.webp` (shoulder, vase,
-  sphere; copy on the wall behind a light veil, text measured 8:1 or better),
-  full-bleed band `medspa-band-*.webp` (figure under an arch), approach
-  `medspa-room-1200.webp` (arch + olive tree), menu thumbnail
-  `medspa-detail-600.webp` (hand on collarbone, cropped above the chin).
-  An unused faceless-shoulder option exists in the owner's Canva (MAHbfeNccvU).
-  Awaiting owner review.
+- Medspa concept built: `concepts/medspa/` ("Sauge Spa & Skin", fictional).
+  Owner's direction (Nov 2026): high-end and experiential, not clinical. A spa
+  is a day of luxury with treatments customized to skin, body and the kind of
+  day you want; never "a plan". Two kinds of day: the Still Day (meditation
+  centre, tranquil) and the Awake Day (invigorating body scrub); sauna, steam
+  and red-light therapy in both. Hero: "Be still. Or come alive." Injectables
+  kept only as one "Aesthetic consultation" line on the menu.
+  White, stone, sage; Newsreader (light serif) + Manrope; fonts in
+  `concepts/medspa/fonts/` (OFL). Rituals menu with sample prices; scripted
+  "Design your day" (builds a timed itinerary) and day concierge in
+  `medspa.js` (health questions go to a therapist). Photos (owner-approved):
+  full-bleed hero `medspa-hero-*.webp` (shoulder, vase, sphere; copy on the
+  wall behind a light veil), full-bleed band `medspa-band-*.webp` (figure under
+  an arch), `medspa-room-1200.webp` (arch + olive tree), menu thumbnail
+  `medspa-detail-600.webp` (hand, cropped above the chin). Awaiting owner
+  review of the new copy.
 - Concepts left: financial planner, wedding planner (owner decides).
 - Not built yet: the concept cards on the Aglow home page.
 
