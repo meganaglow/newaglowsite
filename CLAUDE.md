@@ -5,6 +5,21 @@ Redesign of aglowstudios.ai (Aglow Studios): AI-enabled websites for businesses
 that serve people face to face (salons, medspas, planners, nonprofits).
 Static site: plain HTML, CSS, JS. No framework, no build step, no npm.
 
+## Positioning and voice (owner, Nov 2026)
+- Customers ask for "a website"; what they value is time back with their clients.
+  Keep the word "website" up front, and frame it as the home for their business
+  while they are busy being its face. Booking, payments, FAQs, email sign-up, light
+  AI and ongoing care are what is inside that home, never pitched as separate tech.
+- Home hero: headline "A website that works as warmly as you do." Lead: "It's the
+  home for your business while you're busy being the face of it. Built around you
+  and looked after for you: no learning software, no chasing bookings, no
+  answering the same email twice. Just more time with the people in front of you."
+- Voice (from the live site copy): calm, honest, one-to-one. "I" for promises,
+  "we" for the shared process, "you" for the reader. "No" lists that remove
+  worries; "X, not Y" contrasts; a longer sentence then a short landing line;
+  technology useful but never the point; no hype words, urgency or exclamation
+  marks; never invented results or testimonials.
+
 ## Design
 - `DESIGN.md` is the source of truth for the look ("First light": light blush
   dawn scene, luxurious, elegant, layered). Read it before building or changing any page.
