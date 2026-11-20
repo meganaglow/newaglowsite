@@ -78,10 +78,13 @@ concept slowly on hover; click opens the live concept page.
   fictional). White, stone, sage; Newsreader (light serif) + Manrope; fonts in
   `concepts/medspa/fonts/` (OFL). Fine-dining menu with sample prices,
   scripted treatment finder and visit assistant in `medspa.js` (logistics only,
-  labeled "not medical advice"). Waiting on 3 photos, generated in the owner's
-  Canva: hero = media MAHbPJqd61g -> `medspa-hero-1600.webp` (3:2),
-  room = MAHbPGgFJAo -> `medspa-room-1200.webp` (4:5),
-  detail = MAHbPEdgx64 -> `medspa-detail-1200.webp` (4:5).
+  labeled "not medical advice"). Waiting on 3 photos. First Canva set was
+  rejected by the owner as too generic (dropper bottle, treatment bed). Second
+  set, in the owner's Canva: hero option A sculptural vessel MAHbfXScW9I or
+  option B faceless shoulder MAHbfeNccvU -> `medspa-hero-1600.webp` (3:2),
+  room arch + olive tree MAHbffJXtu8 -> `medspa-room-1200.webp` (4:5),
+  hand on collarbone MAHbfWvpHR4 -> `medspa-detail-1200.webp` (4:5).
+  Owner to pick the hero and send the files.
   Frames show labeled placeholders until then.
 - Concepts left: financial planner, wedding planner (owner decides).
 - Not built yet: the concept cards on the Aglow home page.
