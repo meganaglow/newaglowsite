@@ -63,7 +63,9 @@ On the Aglow home page: four cards, each a browser frame that scrolls the
 concept slowly on hover; click opens the live concept page.
 
 ## Status
-- Done: design system, logo (glint cluster), hero render, stars, preview page.
+- Done: design system, logo (glint cluster), stars, preview page. The home hero
+  now uses real concept-site screens (see DESIGN.md); the dawn render was retired
+  from the home page by the owner.
 - Site pages built (Nov 2026) from the live site's copy, same URLs as live:
   `index.html`, `services.html`, `who.html`, `packages.html`, `contact.html`.
   Shared header, mobile menu, footer, sticky phone booking bar and "Ask Aglow"

@@ -155,21 +155,19 @@ All motion is disabled under `prefers-reduced-motion: reduce`.
   Error: border `--error` plus a text message (never color alone).
 - **Bands:** sections alternate surfaces: ivory, cream, blush (`.band-blush`)
   and night (`.band-night`). One night band besides the footer, at most.
-- **Hero (`.hero`):** full viewport height. Background is the rendered dawn scene
-  (`assets/images/hero-dawn-1200.webp` / `-2000.webp`, a Canva AI render owned by
-  Aglow Studios): blush plaster wall with a shaft of light, an arch onto a sunset
-  sea, a pearl on the sill, steps into still reflective water. A plaster-coloured
-  veil fades in from the left so the copy stays above 4.5:1 (measured 5.9:1 or
-  better at 1280, 1440 and 1920 wide). Film grain over everything. On desktop
-  the image shifts slightly with the cursor.
-- **Hero on phones:** the copy sits on the plaster gradient, then a 4:5 crop of
-  the arch (`hero-dawn-mobile.webp`) fades in below it. Chips sit over the crop.
-- **Floating chips (`.layers`):** two or three chips (`.chip--a/b/c`) and three
-  twinkling stars over the arch. Never cover the pearl.
-- **Replacing the hero image:** keep the composition (empty light wall on the
-  left for copy, one arch right of centre, one pearl, water across the bottom),
-  export at 2720px or wider, then regenerate the three WebP files and re-run the
-  contrast check.
+- **Home hero (`.hero` + `.devices`), Nov 2026:** owner rejected the rendered dawn
+  scene because it "doesn't say websites". The hero now shows real website
+  screens, layered: a browser window (`.devices__browser`, Olea concept) and an
+  overlapping phone (`.devices__phone`, Cuivre concept) on the blush plaster
+  gradient with film grain and one gold glow behind them. A caption pill links to
+  the Concept designs section and labels the screens as concepts. Images:
+  `assets/images/hero-screen-browser.webp` and `hero-screen-phone.webp`, real
+  screenshots of the concept pages (never AI pictures of layouts). Re-capture
+  them when a concept's top section changes. On phones the screens sit below the
+  copy. The dawn render files remain for the style guide only.
+- **Floating chips:** no longer in the hero. They sit around the demo chat in the
+  Smart site setup section (`.demo__chips`): above and below the chat on wide
+  screens, never covering its text; a plain row above the chat below 1100px.
 - **Statement (`.statement`):** oversized heading top-left, body text and a quiet
   link offset lower-right. One per page.
 - **Card:** `--ivory` or `--cream` fill, 1px `--line` border, `--r-card`.
