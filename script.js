@@ -111,7 +111,7 @@
       qa: [
         ['What does a website cost?', 'Every project is quoted after a short conversation, because a one-page refresh and a full rebuild are not the same job. You get a written proposal with a fixed price before any work begins.'],
         ['How does the process work?', 'Four calm steps: get clear, shape the direction, design and build, then refine and launch. You see where things are headed early.'],
-        ['Can you help after launch?', 'Yes. Ongoing website care covers updates, small changes and routine upkeep, so you can send a note instead of logging in.'],
+        ['Can you help after launch?', 'Yes, if you would like. You can take your finished site and run it yourself, or choose full service: send a note and I handle changes, content, graphics and seasonal promotions, plus hosting and technical maintenance.'],
         ['How do I get started?', 'Book a free 20-minute chat from the Contact page. Megan usually replies within one business day.']
       ]
     },

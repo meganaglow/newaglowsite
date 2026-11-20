@@ -10,10 +10,17 @@ Static site: plain HTML, CSS, JS. No framework, no build step, no npm.
   Keep the word "website" up front, and frame it as the home for their business
   while they are busy being its face. Booking, payments, FAQs, email sign-up, light
   AI and ongoing care are what is inside that home, never pitched as separate tech.
-- Home hero: headline "A website that works as warmly as you do." Lead: "It's the
-  home for your business while you're busy being the face of it. Built around you
-  and looked after for you: no learning software, no chasing bookings, no
-  answering the same email twice. Just more time with the people in front of you."
+- Home hero: headline "A website that works as warmly as you do." Lead: "More than
+  a website, it's the home for your business. While you're there face to face, it
+  welcomes new clients, takes bookings and answers their questions. Your time
+  belongs with the people in front of you."
+- Two ways to work together (owner, Nov 2026), on `services.html`:
+  1. Design & hand-off: Aglow designs and builds the site, then hands it over for
+     the owner to host and manage.
+  2. Full service: the owner just reaches out; Aglow makes changes, updates
+     content and graphics, posts seasonal specials and promotions, and includes
+     hosting and technical maintenance.
+  No prices stated for either; every engagement is quoted after a chat.
 - Voice (from the live site copy): calm, honest, one-to-one. "I" for promises,
   "we" for the shared process, "you" for the reader. "No" lists that remove
   worries; "X, not Y" contrasts; a longer sentence then a short landing line;
