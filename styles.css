@@ -586,7 +586,8 @@ a.card, .card--link { display: block; text-decoration: none; color: inherit; }
 
 /* ---------- Concept cards: a browser frame that scrolls the page on hover ---------- */
 .concepts { display: grid; gap: var(--s-6); }
-@media (min-width: 900px) { .concepts { grid-template-columns: repeat(2, 1fr); gap: var(--s-7); } }
+@media (min-width: 700px) and (max-width: 999px) { .concepts { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1000px) { .concepts { grid-template-columns: repeat(3, 1fr); gap: var(--s-6); } }
 .concept { display: block; color: inherit; text-decoration: none; }
 .browser {
   border: 1px solid var(--line); border-radius: var(--r-card); background: var(--ivory); overflow: hidden;

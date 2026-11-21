@@ -81,7 +81,7 @@ sites, to show range. Decisions already made with the owner:
 |---|---|---|---|
 | Hair salon | Fashion editorial: warm black, copper, cream; bold condensed headlines | Full-bleed portraits, sideways-scrolling lookbook | Stylist-match quiz, booking concierge |
 | Luxury spa & skin (medspa) | Calm luxury: white, stone, soft sage; light airy type | Full-bleed photos, generous space, rituals menu like a fine-dining menu | Online booking, "Design your day" itinerary builder, day concierge |
-| Financial planner | Quiet confidence: deep green or navy, cream, brass; classic serif | Structured grid, thin chart-like lines, numbered steps | Meeting-prep intake that summarizes goals |
+| Financial planner | Quiet confidence: deep green, paper, gold; classic serif; botanical line art | Structured grid, fee comparison table, numbered steps | Meeting-prep intake that summarizes each request |
 | Wedding planner | Romantic editorial: ivory, dusty rose, olive; large italic serif | Overlapping photo collage, slow parallax gallery | Date-availability check, rough-estimate builder |
 
 On the Aglow home page: four cards, each a browser frame that scrolls the
@@ -144,14 +144,27 @@ concept slowly on hover; click opens the live concept page.
 - Concept card scrolling (owner, Nov 2026): all cards scroll, about 30s linear
   for the full page on hover (`--scroll-time`), quick return on leave. The 9s
   original was too fast.
-- Concepts left: financial planner, wedding planner (owner decides).
-- Financial concept, open question: the owner has an older "Wildflower" demo on
-  Netlify (project playful-dasik-de8141, password protected). It uses the
-  identity of a real, operating advisory firm (name, adviser, credentials, fee),
-  confirmed by web search Nov 2026, though the owner recalled it as fictional.
-  Do NOT put it on the site or in this public repo as-is. Use it only once
-  fictionalized (new firm and person, no real email, fee or memberships) or
-  with the firm's written permission, and then as client work, not a Concept.
+- Financial concept built: `concepts/financial/` ("Horizon Financial", fictional;
+  founder "Nora Ellery, CFP"). Deep green, paper, gold; Fraunces + Inter in
+  `concepts/financial/fonts/` (OFL); botanical line art. One file with nine
+  "pages" switched by `showPage()` in `financial.js` (home, services, approach,
+  fees, about, contact, resources, insights, one sample article). Scripted demo
+  on the contact page: the intro-call form becomes the summary a planner would
+  read before the call (meeting prompts only, never advice; nothing is sent).
+  Origin and caution: adapted from the owner's older private demo on Netlify
+  (project playful-dasik-de8141), which used a real, operating firm's identity.
+  Everything identifying was changed (firm, adviser, email, city, founding year,
+  fee, memberships, personal details) and the long tax article was cut to a
+  short sample. Never restore those details, never copy that original into this
+  public repo, and never show it publicly without the firm's written permission.
+  Fee figure ($6,000) is labeled as a sample.
+  Waiting on 3 photos generated in the owner's Canva: coast MAHbk-sEgnY ->
+  `financial-coast-1200.webp` (4:3), desk MAHbkwxZHWA ->
+  `financial-desk-1200.webp` (4:3), founder seen from behind MAHbk4k6J5I ->
+  `financial-founder-1000.webp` (4:5), all in `assets/images/concepts/`. Until
+  then the line-art panels show. Home card image `card-financial.webp` joins the
+  home page and the contact page with the summary showing.
+- Concepts left: wedding planner (owner decides).
 
 ## Preview
 `python3 -m http.server 8000` from the repo root, then open `/styleguide.html`.

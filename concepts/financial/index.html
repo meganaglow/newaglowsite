@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Horizon Financial · Concept by Aglow Studios</title>
+<meta name="description" content="A concept website for a fictional fee-only financial planning firm, designed by Aglow Studios. Not a real business, and not financial advice.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/fraunces-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="financial.css">
+</head>
+<body>
+
+<!-- ===================== SVG DEFS: botanical line art ===================== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- single poppy sprig, fine line -->
+    <g id="poppy-sprig">
+      <path d="M30 120 C 32 80, 26 60, 34 30" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+      <path d="M34 30 C 26 18, 26 10, 34 4 C 42 10, 42 18, 34 30 Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+      <path d="M34 30 C 24 26, 18 18, 20 8" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+      <path d="M34 30 C 44 26, 50 18, 48 8" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+      <path d="M31 78 C 20 74, 14 64, 16 54" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+    </g>
+    <!-- lupine spike -->
+    <g id="lupine-spike">
+      <path d="M20 120 C 22 84, 18 50, 22 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+      <circle cx="22" cy="16" r="2.4" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="15" cy="26" r="2.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="28" cy="30" r="2.8" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="14" cy="42" r="3.2" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="29" cy="46" r="3.2" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="15" cy="58" r="3.4" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <circle cx="28" cy="62" r="3.4" fill="none" stroke="currentColor" stroke-width="1.3"/>
+      <path d="M21 92 C 10 88, 5 78, 8 70" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+    </g>
+    <!-- grass tuft -->
+    <g id="grass-tuft">
+      <path d="M20 120 C 18 90, 10 70, 4 58" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <path d="M22 120 C 24 86, 22 60, 26 40" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+      <path d="M24 120 C 30 94, 38 78, 46 68" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+    </g>
+    <!-- small daisy head for marks -->
+    <g id="daisy-mark">
+      <circle cx="16" cy="16" r="3" fill="none" stroke="currentColor" stroke-width="1.4"/>
+      <path d="M16 5 L16 10 M16 22 L16 27 M5 16 L10 16 M22 16 L27 16 M8.5 8.5 L12 12 M20 20 L23.5 23.5 M23.5 8.5 L20 12 M12 20 L8.5 23.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" fill="none"/>
+    </g>
+  </defs>
+</svg>
+
+<!-- Concept label: required on every concept page (see CLAUDE.md). -->
+<div class="concept-bar" role="note">
+  <span class="concept-tag">Concept</span>
+  <p>A design example by Aglow Studios. Horizon Financial is not a real firm, and nothing here is financial advice.</p>
+  <a href="../../index.html">Back to Aglow <span aria-hidden="true">&rarr;</span></a>
+</div>
+
+<!-- ===================== NAV ===================== -->
+<div class="utility">
+  <div class="wrap">
+    <span class="tagline">Fee-only &amp; fiduciary &middot; Serving clients nationwide</span>
+    <div class="links">
+      <button onclick="showPage('resources')" title="Documents and secure file exchange">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+        Documents &amp; Forms
+      </button>
+      <button onclick="showPage('resources')" title="Secure client file vault">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+        Client Login
+      </button>
+    </div>
+  </div>
+</div>
+<header class="site">
+  <div class="wrap navbar">
+    <a class="brand" href="#" onclick="showPage('home');return false;" aria-label="Horizon Financial home">
+      <svg width="34" height="34" viewBox="0 0 32 32" style="color:var(--poppy)"><use href="#daisy-mark"/></svg>
+      <span class="brand-name">Horizon <span>Financial</span></span>
+    </a>
+    <button class="menu-toggle" aria-expanded="false" onclick="toggleMenu(this)">Menu</button>
+    <nav class="main" id="mainNav" aria-label="Primary">
+      <button data-page="home" aria-current="page" onclick="showPage('home')">Home</button>
+      <button data-page="services" onclick="showPage('services')">Services</button>
+      <button data-page="approach" onclick="showPage('approach')">Our Approach</button>
+      <button data-page="fees" onclick="showPage('fees')">Fees</button>
+      <button data-page="blog" onclick="showPage('blog')">Insights</button>
+      <button data-page="about" onclick="showPage('about')">About</button>
+      <button data-page="resources" onclick="showPage('resources')">Resources</button>
+      <button data-page="contact" class="nav-cta" onclick="showPage('contact')">Book an Intro Call</button>
+    </nav>
+  </div>
+</header>
+
+<!-- ===================== PAGE: HOME ===================== -->
+<main>
+<div class="page active" id="page-home">
+
+  <div class="hero dark">
+    <div class="wrap">
+      <p class="eyebrow on-dark">Fee-Only &middot; Fiduciary &middot; Independent</p>
+      <h1 style="margin-top:18px">Financial advice that takes <span class="grow">the long view</span> — never a commission.</h1>
+      <p class="lede">Horizon Financial is an independent firm offering comprehensive financial planning, investment management, and tax guidance under a fiduciary oath: your best interest, always.</p>
+      <div class="hero-ctas">
+        <a class="btn gold" href="#" onclick="showPage('contact');return false;">Book a free intro call</a>
+        <a class="btn ghost" href="#" onclick="showPage('fees');return false;">See our transparent fees</a>
+      </div>
+    </div>
+    <svg class="meadow" viewBox="0 0 720 190" aria-hidden="true" style="color:var(--poppy-soft)">
+      <g transform="translate(40,60)"><use href="#poppy-sprig"/></g>
+      <g transform="translate(130,40) scale(1.15)"><use href="#lupine-spike"/></g>
+      <g transform="translate(215,80) scale(0.9)"><use href="#grass-tuft"/></g>
+      <g transform="translate(290,52) scale(1.05)"><use href="#poppy-sprig"/></g>
+      <g transform="translate(390,66)" style="color:#9db49a"><use href="#lupine-spike"/></g>
+      <g transform="translate(470,84)"><use href="#grass-tuft"/></g>
+      <g transform="translate(540,48) scale(1.2)"><use href="#poppy-sprig"/></g>
+      <g transform="translate(640,70)" style="color:#9db49a"><use href="#grass-tuft"/></g>
+      <line x1="0" y1="180" x2="720" y2="180" stroke="rgba(233,238,228,0.25)" stroke-width="1"/>
+    </svg>
+    <div class="wrap hero-facts">
+      <div><strong>Fee-only</strong><span>Our only compensation is the transparent fee you pay. No commissions, no products to sell you.</span></div>
+      <div><strong>Flat fee, not %</strong><span>We don&rsquo;t take a percentage of your assets. Fees are laid out clearly before any work begins.</span></div>
+      <div><strong>Fiduciary oath</strong><span>Legally and ethically bound to act in your best interest on every recommendation.</span></div>
+      <div><strong>One planner</strong><span>Led by Nora Ellery, CFP&reg;. The person who builds your plan is the person who answers your call.</span></div>
+    </div>
+  </div>
+
+  <div class="trustbar">
+    <div class="wrap">
+      <p>How we work</p>
+      <div class="badges">
+        <span class="badge">CFP&reg; Professional</span>
+        <span class="badge">Fee-only</span>
+        <span class="badge">Fiduciary</span>
+        <span class="badge">Flat fee</span>
+        <span class="badge">Independent</span>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">What we do</p>
+        <h2>Every part of your financial life, tended together</h2>
+        <p class="lede">Money decisions don&rsquo;t happen in isolation — your investments, taxes, and life plans are one ecosystem. We plan them that way.</p>
+      </div>
+      <div class="grid-3">
+        <div class="card reveal">
+          <svg class="flower-mark" viewBox="0 0 60 130" style="color:var(--poppy)"><use href="#poppy-sprig"/></svg>
+          <h3>Financial Planning</h3>
+          <p>A comprehensive plan built around your goals, values, and timeline — retirement readiness, cash flow, equity compensation, insurance, and the decisions in between.</p>
+        </div>
+        <div class="card reveal">
+          <svg class="flower-mark" viewBox="0 0 45 130" style="color:var(--poppy)"><use href="#lupine-spike"/></svg>
+          <h3>Investment Management</h3>
+          <p>Elegantly designed, globally diversified portfolios focused on what we can control: diversification, tax efficiency, and cost minimization.</p>
+        </div>
+        <div class="card reveal">
+          <svg class="flower-mark" viewBox="0 0 55 130" style="color:var(--poppy)"><use href="#grass-tuft"/></svg>
+          <h3>Tax Planning</h3>
+          <p>Tax-aware strategy woven through every recommendation, so more of what you earn and grow stays working for your future.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="pullquote reveal">
+        <blockquote>First we learn what matters most in your life. Then we build the financial plan around it.</blockquote>
+        <cite>Nora Ellery, CFP&reg; &middot; Founder</cite>
+        <svg class="corner" viewBox="0 0 300 130" aria-hidden="true" style="color:var(--poppy-soft)">
+          <g transform="translate(30,10)"><use href="#poppy-sprig"/></g>
+          <g transform="translate(120,4)"><use href="#lupine-spike"/></g>
+          <g transform="translate(200,30)"><use href="#grass-tuft"/></g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--sage-paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">How it works</p>
+        <h2>A clear path from first call to a plan that lasts</h2>
+      </div>
+      <div class="steps">
+        <div class="step reveal"><h3>Get acquainted</h3><p>A free introductory call to hear your story, answer your questions, and see whether we&rsquo;re the right fit — no pressure, no jargon.</p></div>
+        <div class="step reveal"><h3>Design your plan</h3><p>We gather the full picture, then build a plan aligned with your goals, ideals, and values — with fees laid out transparently before work begins.</p></div>
+        <div class="step reveal"><h3>Grow with guidance</h3><p>Ongoing advice, investment management, and tax-aware adjustments as your life evolves — season after season.</p></div>
+      </div>
+      <div style="margin-top:48px" class="reveal">
+        <a class="btn green" href="#" onclick="showPage('contact');return false;">Start with a free intro call</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===================== PAGE: SERVICES ===================== -->
+<div class="page" id="page-services">
+  <div class="page-hero">
+    <div class="wrap">
+      <p class="eyebrow">Services</p>
+      <h1>Planning, investments, and taxes — one integrated practice</h1>
+      <p class="lede">Horizon Financial offers comprehensive financial planning under a fiduciary oath to always work in the best interest of our clients.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap grid-2">
+      <div class="reveal">
+        <p class="eyebrow">Financial Planning</p>
+        <h2 style="font-size:34px;margin:12px 0 16px">A living plan for a full life</h2>
+        <p style="color:#4d5c53">Financial planning at Horizon begins with what matters most to you. We take time to get to know our clients — your goals, ideals, and values — and then work together on the best approach to saving, investing, tax planning, and the many financial decisions life brings.</p>
+        <ul style="list-style:none;margin-top:22px">
+          <li style="margin-bottom:12px"><span class="tick">&#10003;</span>Retirement planning &amp; income strategy</li>
+          <li style="margin-bottom:12px"><span class="tick">&#10003;</span>Cash flow, savings &amp; benefits decisions</li>
+          <li style="margin-bottom:12px"><span class="tick">&#10003;</span>Equity compensation &amp; concentrated stock</li>
+          <li style="margin-bottom:12px"><span class="tick">&#10003;</span>Insurance &amp; risk review</li>
+          <li><span class="tick">&#10003;</span>Coordination with your CPA &amp; estate attorney</li>
+        </ul>
+      </div>
+      <div class="portrait reveal" style="aspect-ratio:4/3">
+        <svg viewBox="0 0 300 130" style="width:70%;color:var(--poppy)" aria-hidden="true">
+          <g transform="translate(40,6)"><use href="#poppy-sprig"/></g>
+          <g transform="translate(130,0)"><use href="#lupine-spike"/></g>
+          <g transform="translate(210,26)"><use href="#grass-tuft"/></g>
+        </svg>
+        <img src="../../assets/images/concepts/financial-coast-1200.webp" width="1200" height="900" loading="lazy" alt="A long, clear ocean horizon at first light, with golden grasses and wild poppies in the foreground.">
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--sage-paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+    <div class="wrap grid-2">
+      <div class="portrait reveal" style="aspect-ratio:4/3;background:#fff">
+        <svg viewBox="0 0 45 130" style="height:70%;color:var(--lupine)" aria-hidden="true"><use href="#lupine-spike"/></svg>
+      </div>
+      <div class="reveal">
+        <p class="eyebrow">Investment Management</p>
+        <h2 style="font-size:34px;margin:12px 0 16px">Portfolios designed to be lived with</h2>
+        <p style="color:#4d5c53">Your portfolio should be elegantly designed around your specific needs. Grounded in Modern Portfolio Theory, we build individualized, globally diversified investment plans and focus on the elements we can control — diversification, tax efficiency, and cost minimization — rather than chasing headlines.</p>
+        <p style="color:#4d5c53;margin-top:14px">Because we never earn commissions or a percentage of your assets, every investment recommendation has exactly one motive: your outcome.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap grid-2">
+      <div class="reveal">
+        <p class="eyebrow">Tax Planning</p>
+        <h2 style="font-size:34px;margin:12px 0 16px">Taxes, planned — not just filed</h2>
+        <p style="color:#4d5c53">Taxes touch nearly every financial decision. We integrate tax strategy into your plan year-round — from account placement and withdrawal sequencing to charitable giving and equity compensation timing — and coordinate with your tax professional so nothing falls between the cracks.</p>
+        <div style="margin-top:26px"><a class="btn green" href="#" onclick="showPage('fees');return false;">See how our fees work</a></div>
+      </div>
+      <div class="portrait reveal" style="aspect-ratio:4/3">
+        <svg viewBox="0 0 60 130" style="height:70%;color:var(--poppy)" aria-hidden="true"><use href="#poppy-sprig"/></svg>
+        <img src="../../assets/images/concepts/financial-desk-1200.webp" width="1200" height="900" loading="lazy" alt="An open notebook, a fountain pen, a cup of coffee and a jar of meadow flowers on a wooden desk by a window.">
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===================== PAGE: APPROACH ===================== -->
+<div class="page" id="page-approach">
+  <div class="page-hero">
+    <div class="wrap">
+      <p class="eyebrow">Our Approach</p>
+      <h1>An investment philosophy you can stick with</h1>
+      <p class="lede">No predictions and no product of the month. A small set of principles, applied patiently.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Three things we control</p>
+        <h2>We don&rsquo;t predict markets. We prepare portfolios.</h2>
+        <p class="lede">Headlines change daily; sound principles don&rsquo;t. Every Horizon portfolio is built on three controllable elements.</p>
+      </div>
+      <div class="grid-3">
+        <div class="card reveal">
+          <svg class="flower-mark" viewBox="0 0 60 130" style="color:var(--poppy)"><use href="#poppy-sprig"/></svg>
+          <h3>Diversification</h3>
+          <p>Broad, global exposure across asset classes so no single company, sector, or country determines your future. Like a healthy meadow, resilience comes from variety.</p>
+        </div>
+        <div class="card reveal">
+          <svg class="flower-mark" viewBox="0 0 45 130" style="color:var(--poppy)"><use href="#lupine-spike"/></svg>
+          <h3>Tax efficiency</h3>
+          <p>Thoughtful account placement, loss harvesting where appropriate, and withdrawal strategies designed to keep more of your return compounding for you.</p>
+        </div>
+        <div class="card reveal">
+          <svg class="flower-mark" viewBox="0 0 55 130" style="color:var(--poppy)"><use href="#grass-tuft"/></svg>
+          <h3>Cost minimization</h3>
+          <p>Low-cost investment vehicles and a flat, transparent advisory fee. Every dollar not lost to unnecessary expense is a dollar still growing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap grid-2">
+      <div class="reveal">
+        <p class="eyebrow">Evidence over emotion</p>
+        <h2 style="font-size:34px;margin:12px 0 16px">Grounded in Modern Portfolio Theory, tailored to you</h2>
+        <p style="color:#4d5c53">We take the time to create an individualized investment plan tailored to your personal financial needs and goals — then help you stay the course through market seasons. The discipline to stick with a sound plan is where most long-term returns are actually earned.</p>
+        <div style="margin-top:26px"><a class="btn green" href="#" onclick="showPage('contact');return false;">Talk through your portfolio</a></div>
+      </div>
+      <div class="pullquote reveal" style="padding:48px 40px">
+        <blockquote>A good plan doesn&rsquo;t fight the seasons. It&rsquo;s built for them.</blockquote>
+        <cite>The Horizon approach to markets</cite>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===================== PAGE: FEES ===================== -->
+<div class="page" id="page-fees">
+  <div class="page-hero">
+    <div class="wrap">
+      <p class="eyebrow">Fees</p>
+      <h1>Transparent, flat, and explained before we begin</h1>
+      <p class="lede">Horizon Financial is fee-only. Our only compensation comes from the fees charged for our services — we do not charge commissions or receive a percentage of assets under management. Sample minimum fee: $6,000 per year.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Why it matters</p>
+        <h2>How a flat fee changes the conversation</h2>
+        <p class="lede">Most advisory models quietly shape the advice you get. Ours is designed so the only thing we&rsquo;re paid to do is advise you well.</p>
+      </div>
+      <div class="reveal" style="overflow-x:auto">
+        <table class="fee-compare">
+          <thead>
+            <tr><th style="width:34%"></th><th class="wf">Horizon &mdash; flat fee</th><th>Typical %-of-assets model</th><th>Commission model</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>How the advisor is paid</td><td class="wf">A transparent flat fee, agreed before work begins</td><td>A percentage of your portfolio, often ~1% per year</td><td>Commissions on products sold to you</td></tr>
+            <tr><td>Cost as your assets grow</td><td class="wf">Stays flat and predictable</td><td>Rises automatically with your balance</td><td>Varies by product</td></tr>
+            <tr><td>Incentive on advice like paying off a mortgage or gifting</td><td class="wf">Neutral — the fee doesn&rsquo;t change</td><td>Advice that shrinks the portfolio shrinks the fee</td><td>Tied to what&rsquo;s sold</td></tr>
+            <tr><td>Fiduciary standard</td><td class="wf">Always, on every recommendation</td><td>Varies by firm</td><td>Often a lower &ldquo;suitability&rdquo; standard</td></tr>
+          </tbody>
+        </table>
+        <p class="footnote">Illustrative comparison of common industry compensation models; individual firms vary. All Horizon fees are laid out clearly and in writing before any engagement begins.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--sage-paper);border-top:1px solid var(--line)">
+    <div class="wrap grid-2">
+      <div class="reveal">
+        <p class="eyebrow">Plain numbers</p>
+        <h2 style="font-size:34px;margin:12px 0 16px">One number, no surprises</h2>
+        <p style="color:#4d5c53">Engagements begin at <strong>$6,000 per year</strong> (a sample figure for this concept), with your exact fee quoted after the introductory conversation and set out in writing. That single number covers ongoing planning, investment guidance, and tax-aware advice — there is nothing else to buy, ever.</p>
+        <div style="margin-top:26px"><a class="btn green" href="#" onclick="showPage('contact');return false;">Get your fee quote on an intro call</a></div>
+      </div>
+      <div class="card reveal" style="background:#fff">
+        <p class="eyebrow" style="margin-bottom:14px">What&rsquo;s included</p>
+        <ul style="list-style:none">
+          <li style="margin-bottom:12px"><span class="tick">&#10003;</span>Comprehensive financial plan &amp; ongoing updates</li>
+          <li style="margin-bottom:12px"><span class="tick">&#10003;</span>Investment management &amp; rebalancing</li>
+          <li style="margin-bottom:12px"><span class="tick">&#10003;</span>Year-round tax planning</li>
+          <li style="margin-bottom:12px"><span class="tick">&#10003;</span>Meetings through the year, plus questions anytime</li>
+          <li><span class="tick">&#10003;</span>Coordination with your CPA &amp; estate attorney</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===================== PAGE: ABOUT ===================== -->
+<div class="page" id="page-about">
+  <div class="page-hero">
+    <div class="wrap">
+      <p class="eyebrow">About</p>
+      <h1>Small by design. Built on a fiduciary promise.</h1>
+      <p class="lede">Horizon Financial was founded to bring clarity, peace of mind and expert guidance to a deliberately small number of households.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap grid-2">
+      <div class="portrait reveal">
+        <svg viewBox="0 0 60 130" style="height:44%;color:var(--poppy)" aria-hidden="true"><use href="#poppy-sprig"/></svg>
+        <img src="../../assets/images/concepts/financial-founder-1000.webp" width="1000" height="1250" loading="lazy" alt="A woman in a green coat, seen from behind, looking out at the ocean horizon.">
+      </div>
+      <div class="reveal">
+        <p class="eyebrow">Founder</p>
+        <h2 style="font-size:36px;margin:12px 0 16px">Nora Ellery, CFP&reg;</h2>
+        <p style="color:#4d5c53">Nora founded Horizon Financial on a simple conviction: financial advice should align with what matters most in each client&rsquo;s life. As a practicing Certified Financial Planner&trade; professional, she takes time to understand your goals, ideals, and values before a single recommendation is made.</p>
+        <p style="color:#4d5c53;margin-top:14px"><strong>You will always talk to Nora.</strong> Horizon serves a deliberately small number of households, so there is no junior advisor rotation and no handoff after you sign. The person who builds your plan is the person who answers your call.</p>
+        <p style="color:#4d5c53;margin-top:14px">She built the firm fee-only and independent from day one — no commissions, no sales quotas, no percentage of your assets — so that every client conversation starts and ends with your best interest.</p>
+        <div class="badges" style="margin-top:24px">
+          <span class="badge">CFP&reg; Professional</span>
+        <span class="badge">Fee-only</span>
+        <span class="badge">Fiduciary</span>
+        <span class="badge">Flat fee</span>
+        <span class="badge">Independent</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--sage-paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Life outside the office</p>
+        <h2>Patience, practiced outdoors</h2>
+        <p class="lede">When she&rsquo;s not planning portfolios, Nora is usually outside: in the garden, or on a long walk before the day starts. That patience — planting, tending, letting good things compound — is the same philosophy she brings to your money.</p>
+      </div>
+      <div class="life-strip">
+        <div class="portrait reveal"><svg viewBox="0 0 55 130" style="height:50%;color:var(--poppy)" aria-hidden="true"><use href="#grass-tuft"/></svg><span>Planting</span></div>
+        <div class="portrait reveal"><svg viewBox="0 0 32 32" style="height:34%;color:var(--poppy)" aria-hidden="true"><use href="#daisy-mark"/></svg><span>Tending</span></div>
+        <div class="portrait reveal"><svg viewBox="0 0 45 130" style="height:50%;color:var(--lupine)" aria-hidden="true"><use href="#lupine-spike"/></svg><span>Compounding</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="pullquote reveal">
+        <blockquote>Clarity, peace of mind, and a plan you can actually follow.</blockquote>
+        <cite>The founding promise</cite>
+        <svg class="corner" viewBox="0 0 300 130" aria-hidden="true" style="color:var(--poppy-soft)">
+          <g transform="translate(30,10)"><use href="#poppy-sprig"/></g>
+          <g transform="translate(120,4)"><use href="#lupine-spike"/></g>
+          <g transform="translate(200,30)"><use href="#grass-tuft"/></g>
+        </svg>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===================== PAGE: CONTACT ===================== -->
+<div class="page" id="page-contact">
+  <div class="page-hero">
+    <div class="wrap">
+      <p class="eyebrow">Connect</p>
+      <h1>Start with a conversation, not a commitment</h1>
+      <p class="lede">The first call is free, friendly, and pressure-free — a chance to share your story, ask anything, and see whether we&rsquo;re the right fit.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap grid-2" style="align-items:start">
+      <div class="reveal">
+        <h2 style="font-size:32px;margin-bottom:16px">What to expect</h2>
+        <div class="steps" style="grid-template-columns:1fr;gap:20px">
+          <div class="step"><h3>A 30-minute intro call</h3><p>We&rsquo;ll listen first — your goals, your questions, your timeline.</p></div>
+          <div class="step"><h3>A clear proposal</h3><p>If we&rsquo;re a fit, you&rsquo;ll receive your exact flat fee and scope in writing. No obligation.</p></div>
+          <div class="step"><h3>Your decision, on your schedule</h3><p>Take the time you need. Good planning starts with a comfortable yes.</p></div>
+        </div>
+        <p style="margin-top:30px;font-size:15px;color:#4d5c53">Prefer email? On a live site, the planner&rsquo;s address would be here.</p>
+      </div>
+      <div class="contact-panel reveal">
+        <p class="demo-tag">Scripted demo</p>
+        <div id="intake-form">
+        <div class="field"><label for="f-name">Name</label><input id="f-name" type="text" placeholder="Your name"></div>
+        <div class="field"><label for="f-email">Email</label><input id="f-email" type="email" placeholder="you@example.com"></div>
+        <div class="field"><label for="f-topic">What&rsquo;s on your mind?</label>
+          <select id="f-topic">
+            <option>Retirement planning</option>
+            <option>Investment management</option>
+            <option>Tax planning</option>
+            <option>Equity compensation</option>
+            <option>Something else</option>
+          </select>
+        </div>
+        <div class="field"><label for="f-msg">Anything you&rsquo;d like us to know?</label><textarea id="f-msg" rows="4" placeholder="A sentence or two is plenty"></textarea></div>
+        <button class="btn gold" style="width:100%" onclick="intakeSummary()">Request my free intro call</button>
+        <p class="footnote" style="margin-top:12px">Demo only. Nothing is sent or saved. Send it to see the summary a planner would get before the call.</p>
+        </div>
+        <div class="intake" id="intake" hidden tabindex="-1">
+          <p class="eyebrow">What your planner sees</p>
+          <h3>Before the first call</h3>
+          <dl id="intake-facts"></dl>
+          <p class="intake-sub">Suggested focus for the conversation</p>
+          <ul id="intake-focus"></ul>
+          <button class="btn green" onclick="intakeReset()">Start again</button>
+          <p class="footnote" style="margin-top:14px">Example summary from a scripted demo, not a live AI. On a live site this would be drafted for the planner and never shown to the visitor.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===================== PAGE: RESOURCES ===================== -->
+<div class="page" id="page-resources">
+  <div class="page-hero">
+    <div class="wrap">
+      <p class="eyebrow">Documents &amp; Secure Files</p>
+      <h1>Everything you need, in one place</h1>
+      <p class="lede">Public forms and guides are below and free to download. Anything containing your personal financial information moves only through the encrypted client vault &mdash; never plain email.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap grid-2" style="align-items:start">
+      <div class="reveal">
+        <p class="eyebrow">Open to everyone</p>
+        <h2 style="font-size:30px;margin:12px 0 8px">Before you become a client</h2>
+        <p style="color:#4d5c53;font-size:15px">Read these at your own pace. No email address required.</p>
+        <div class="doc-list">
+          <a class="doc" href="#" onclick="return false;">
+            <span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></span>
+            <span class="meta"><strong>Form ADV Part 2A &amp; 2B</strong><span>Our required disclosure brochure &mdash; services, fees, and conflicts</span></span>
+            <span class="type">PDF</span>
+          </a>
+          <a class="doc" href="#" onclick="return false;">
+            <span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></span>
+            <span class="meta"><strong>Fee schedule &amp; what&rsquo;s included</strong><span>How our flat fee is set, in writing</span></span>
+            <span class="type">PDF</span>
+          </a>
+          <a class="doc" href="#" onclick="return false;">
+            <span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 11l3 3 8-8"/><path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg></span>
+            <span class="meta"><strong>10 questions to ask any advisor</strong><span>Use it with us &mdash; or with anyone else you interview</span></span>
+            <span class="type">PDF</span>
+          </a>
+          <a class="doc" href="#" onclick="return false;">
+            <span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 11l3 3 8-8"/><path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg></span>
+            <span class="meta"><strong>Getting-ready checklist</strong><span>What to gather before your first planning meeting</span></span>
+            <span class="type">PDF</span>
+          </a>
+          <a class="doc" href="#" onclick="return false;">
+            <span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span>
+            <span class="meta"><strong>Annual planning calendar</strong><span>Key tax and retirement deadlines, month by month</span></span>
+            <span class="type">PDF</span>
+          </a>
+        </div>
+        <p class="footnote">Concept site: these links are inactive. On a live site they open hosted files the owner can swap without touching the site.</p>
+      </div>
+
+      <div class="reveal">
+        <div class="vault">
+          <p class="eyebrow on-dark">Current clients</p>
+          <h3 style="margin-top:12px">The secure file vault</h3>
+          <p>Upload tax returns, statements, and estate documents &mdash; and download your plan, reports, and signed agreements &mdash; through an encrypted connection.</p>
+          <a class="btn gold" href="#" onclick="return false;">Open the client vault</a>
+          <div class="lock-note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+            <span>Please don&rsquo;t send account numbers, Social Security numbers, or statements by regular email. If you need to send something and can&rsquo;t reach the vault, call and we&rsquo;ll send you a secure upload link.</span>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:26px">
+          <p class="eyebrow" style="margin-bottom:12px">New client onboarding</p>
+          <h3 style="font-size:21px;margin-bottom:10px">Your first-week packet</h3>
+          <p style="font-size:15px;color:#4d5c53;margin-bottom:16px">Once you decide to work with us, your welcome packet lands in the vault: engagement agreement, account paperwork, data-gathering worksheet, and a privacy notice.</p>
+          <div class="doc-list">
+            <a class="doc" href="#" onclick="return false;" style="padding:13px 4px">
+              <span class="meta"><strong>Engagement agreement</strong><span>Sent for e-signature</span></span><span class="type">SECURE</span>
+            </a>
+            <a class="doc" href="#" onclick="return false;" style="padding:13px 4px">
+              <span class="meta"><strong>Data-gathering worksheet</strong><span>Fillable, saves as you go</span></span><span class="type">SECURE</span>
+            </a>
+            <a class="doc" href="#" onclick="return false;" style="padding:13px 4px">
+              <span class="meta"><strong>Privacy notice</strong><span>How we handle your information</span></span><span class="type">PDF</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===================== PAGE: BLOG INDEX ===================== -->
+<div class="page" id="page-blog">
+  <div class="page-hero">
+    <div class="wrap">
+      <p class="eyebrow">Insights</p>
+      <h1>Plain-language notes on the money decisions that actually move the needle</h1>
+      <p class="lede">Written by Nora for clients and neighbors &mdash; no jargon, no market predictions, no sales pitch.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="featured reveal">
+        <div class="copy">
+          <span class="post-card-tag eyebrow">Featured &middot; Retirement &amp; taxes</span>
+          <h2>The quiet window: why the years between retirement and RMDs may be your best tax opportunity</h2>
+          <p>For a few years after you stop working and before required withdrawals begin, your taxable income can dip to the lowest it will ever be again. Here&rsquo;s how Roth conversions work in that window.</p>
+          <button class="btn green" onclick="showPage('post-roth')">Read the article</button>
+          <p class="when" style="margin-top:18px;font-size:13px;color:var(--mist)">Sample article</p>
+        </div>
+        <div class="art">
+          <svg viewBox="0 0 300 130" style="width:88%;color:var(--poppy-soft)" aria-hidden="true">
+            <g transform="translate(30,10)"><use href="#poppy-sprig"/></g>
+            <g transform="translate(120,4)"><use href="#lupine-spike"/></g>
+            <g transform="translate(200,30)"><use href="#grass-tuft"/></g>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head reveal" style="margin-bottom:34px">
+        <h2 style="font-size:26px">Coming next</h2>
+        <p style="color:#4d5c53;font-size:15px;margin-top:8px">Topics on the way, each chosen because it maps to a question clients actually ask.</p>
+      </div>
+      <div class="post-list">
+        <div class="post-card draft reveal"><div class="thumb"><svg width="40" height="40" viewBox="0 0 32 32" aria-hidden="true"><use href="#daisy-mark"/></svg></div><div class="body"><span class="tag">Coming soon</span><h3>Social Security: the case for waiting (and when not to)</h3><p>Claiming ages, the breakeven math, and how a spouse&rsquo;s benefit changes the answer.</p></div></div>
+        <div class="post-card draft reveal"><div class="thumb"><svg width="40" height="40" viewBox="0 0 32 32" aria-hidden="true"><use href="#daisy-mark"/></svg></div><div class="body"><span class="tag">Coming soon</span><h3>Your RSUs vested. Now what?</h3><p>Concentration risk, the sell-to-cover trap, and a simple rule for deciding what to do next.</p></div></div>
+        <div class="post-card draft reveal"><div class="thumb"><svg width="40" height="40" viewBox="0 0 32 32" aria-hidden="true"><use href="#daisy-mark"/></svg></div><div class="body"><span class="tag">Coming soon</span><h3>What 1% a year really costs over 30 years</h3><p>A plain look at how advisory fee structures compound &mdash; and why we chose a flat fee.</p></div></div>
+        <div class="post-card draft reveal"><div class="thumb"><svg width="40" height="40" viewBox="0 0 32 32" aria-hidden="true"><use href="#daisy-mark"/></svg></div><div class="body"><span class="tag">Coming soon</span><h3>Medicare at 65: the enrollment mistakes that cost the most</h3><p>IRMAA, Part B timing penalties, and how income two years back follows you.</p></div></div>
+        <div class="post-card draft reveal"><div class="thumb"><svg width="40" height="40" viewBox="0 0 32 32" aria-hidden="true"><use href="#daisy-mark"/></svg></div><div class="body"><span class="tag">Coming soon</span><h3>The 10-year rule: what your kids will inherit, and what they&rsquo;ll owe</h3><p>How the SECURE Act changed inherited IRAs, and what to do about it now.</p></div></div>
+        <div class="post-card draft reveal"><div class="thumb"><svg width="40" height="40" viewBox="0 0 32 32" aria-hidden="true"><use href="#daisy-mark"/></svg></div><div class="body"><span class="tag">Coming soon</span><h3>Giving from your IRA after 70&frac12;</h3><p>Qualified charitable distributions, and why they often beat writing a check.</p></div></div>
+        <div class="post-card draft reveal"><div class="thumb"><svg width="40" height="40" viewBox="0 0 32 32" aria-hidden="true"><use href="#daisy-mark"/></svg></div><div class="body"><span class="tag">Coming soon</span><h3>Retiring where you live now: a cost-of-living reality check</h3><p>Property tax, insurance, and staying put versus moving.</p></div></div>
+        <div class="post-card draft reveal"><div class="thumb"><svg width="40" height="40" viewBox="0 0 32 32" aria-hidden="true"><use href="#daisy-mark"/></svg></div><div class="body"><span class="tag">Coming soon</span><h3>Bear markets and the first five years of retirement</h3><p>Sequence-of-returns risk explained without a single Greek letter.</p></div></div>
+        <div class="post-card draft reveal"><div class="thumb"><svg width="40" height="40" viewBox="0 0 32 32" aria-hidden="true"><use href="#daisy-mark"/></svg></div><div class="body"><span class="tag">Coming soon</span><h3>The documents your family will need if something happens to you</h3><p>A one-evening project that spares the people you love a very hard month.</p></div></div>
+      </div>
+      <p class="footnote" style="margin-top:26px">Example topics for this concept site.</p>
+    </div>
+  </section>
+</div>
+
+
+<!-- ===================== PAGE: ARTICLE — ROTH CONVERSIONS ===================== -->
+<div class="page" id="page-post-roth">
+  <div class="page-hero">
+    <div class="wrap" style="max-width:760px">
+      <button class="backlink" onclick="showPage('blog')">&larr; All insights</button>
+      <p class="eyebrow" style="margin-top:10px">Retirement &amp; taxes</p>
+      <h1 style="max-width:24ch">The quiet window: Roth conversions between retirement and RMDs</h1>
+      <p class="lede">There may be a stretch of years when your income is the lowest it will ever be again. What you do with those years can change your tax bill for the rest of your life.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="article">
+        <div class="byline">
+          <span class="av"><svg width="20" height="20" viewBox="0 0 32 32" aria-hidden="true"><use href="#daisy-mark"/></svg></span>
+          <div><strong>Nora Ellery, CFP&reg;</strong>Horizon Financial &middot; Sample article</div>
+        </div>
+
+        <p>Most people picture their tax bill going down when they retire. For a while, it usually does. The paychecks stop, Social Security may not have started yet, and required withdrawals from retirement accounts are still years away. Taxable income falls into a valley.</p>
+
+        <p>Then, at a certain birthday, the valley ends. Required minimum distributions begin, they are calculated whether you need the money or not, and they stack on top of Social Security and any pension you have. For savers who did everything right &mdash; who filled a 401(k) faithfully for thirty years &mdash; that arrival can be genuinely unpleasant. A large pre-tax balance is a tax bill that has been growing quietly alongside it.</p>
+
+        <p>The years in between are the planning opportunity. This is the window where a <strong>Roth conversion</strong> does its best work.</p>
+
+        <h2>What a conversion actually is</h2>
+
+        <p>A Roth conversion moves money from a pre-tax account &mdash; a traditional IRA, SEP, SIMPLE, or in many cases a 401(k) &mdash; into a Roth IRA. The amount you convert is added to your ordinary income for that year, and you pay tax on it at your regular rates. There is no special conversion tax rate; it simply stacks on top of everything else you earned.</p>
+
+        <p>In exchange, that money is done being taxed. Qualified withdrawals later are tax-free, and a Roth IRA has no required minimum distributions during the original owner&rsquo;s lifetime. You are choosing to pay tax now, voluntarily, at a rate you can see &mdash; instead of later, involuntarily, at a rate you cannot.</p>
+
+        <p>There is no income limit on conversions and no dollar cap. Anyone can convert any amount in any year.</p>
+
+        <div class="callout"><p><strong>The sample ends here.</strong> On a live site the article continues with timing, how much to convert, and the ways a conversion can backfire.</p></div>
+
+        <div style="margin:38px 0">
+          <button class="btn green" onclick="showPage('contact')">Book a free intro call</button>
+        </div>
+
+        <div class="disclaimer">
+          <strong style="color:var(--spruce)">Sample content:</strong> This article belongs to a concept site for a fictional firm. It shows how a planner&rsquo;s writing could look and is general information only, not tax, legal or investment advice.
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="site">
+  <div class="wrap cols">
+    <div>
+      <h4>Horizon <span style="font-style:italic;color:var(--poppy-soft)">Financial</span></h4>
+      <p style="font-size:14px;max-width:36ch;line-height:1.7">Fee-only, fiduciary financial planning, investment management, and tax guidance. Independent, and small by design.</p>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <a href="#" onclick="showPage('services');return false;">Services</a>
+      <a href="#" onclick="showPage('approach');return false;">Our Approach</a>
+      <a href="#" onclick="showPage('fees');return false;">Fees</a>
+      <a href="#" onclick="showPage('blog');return false;">Insights</a>
+      <a href="#" onclick="showPage('about');return false;">About</a>
+    </div>
+    <div>
+      <h4>Connect</h4>
+      <a href="#" onclick="showPage('contact');return false;">Book an intro call</a>
+      <a href="#" onclick="showPage('resources');return false;">Documents &amp; forms</a>
+      <a href="#" onclick="showPage('resources');return false;">Client login</a>
+    </div>
+  </div>
+  <div class="wrap legal">
+    <span class="concept-tag">Concept</span> Horizon Financial is a fictional firm. This site is a design example by <a href="../../index.html">Aglow Studios</a>, not client work, and nothing on it is financial, tax or investment advice.<br><br>
+    Photography: AI-generated images.
+  </div>
+</footer>
+
+<script src="financial.js"></script>
+</body>
+</html>
