@@ -94,10 +94,11 @@ concept slowly on hover; click opens the live concept page.
   `index.html`, `services.html`, `who.html`, `packages.html`, `contact.html`.
   Shared header, mobile menu, footer, sticky phone booking bar and "Ask Aglow"
   chat are repeated in each file: change all five together. Home adds a
-  "Concept designs" section (browser-frame cards; the salon card scrolls on
-  hover, the spa card must NOT scroll, owner Nov 2026: class `concept--static`; images
+  "Concept designs" section (browser-frame cards; every card scrolls through its
+  whole site on hover in about 30s, owner Nov 2026; images
   `assets/images/concepts/card-*.webp` are full-page screenshots of the concept
-  sites, regenerate when a concept changes) and the "Smart site setup" demo.
+  sites taken with the demos mid-use: quiz answered, a day being booked, a chat
+  in progress. Regenerate when a concept changes) and the "Smart site setup" demo.
 - Contact form: Netlify Forms, same form name ("contact") and field names as
   live, posted by fetch from `script.js`; `?about=quote|invoice` presets kept.
   Glow List still uses the live site's interim mailto; replace when the owner
@@ -140,8 +141,9 @@ concept slowly on hover; click opens the live concept page.
   `medspa-detail-600.webp` (hand, cropped above the chin). Visit section has
   no placeholders (directions sent on booking, hours, alone or together, what
   to bring). Approved by the owner (Nov 2026).
-- Concept card scrolling must be slow (owner, Nov 2026): 60s linear for the full
-  page on hover (`--scroll-time`), quick return on leave.
+- Concept card scrolling (owner, Nov 2026): all cards scroll, about 30s linear
+  for the full page on hover (`--scroll-time`), quick return on leave. The 9s
+  original was too fast.
 - Concepts left: financial planner, wedding planner (owner decides).
 - Financial concept, open question: the owner has an older "Wildflower" demo on
   Netlify (project playful-dasik-de8141, password protected). It uses the
