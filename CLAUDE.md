@@ -173,15 +173,12 @@ concept slowly on hover; click opens the live concept page.
   demo in `wedding.js`: date check (the 5th, 10th, 15th... show as taken and
   offer the days either side), then guests, setting and service give a rough
   planning fee from sample ranges. Nothing is sent or saved.
-  Waiting on 5 photos from the owner's Canva, to go in `assets/images/concepts/`:
-  bouquet MAHbkza14WA -> `wedding-bouquet-1000.webp` (4:5), bride and groom
-  MAHbkytwS5w -> `wedding-couple-1000.webp` (4:5), two brides MAHblDkrYtA (the
-  owner's revision: left bride in a suit, different hair; first try
-  MAHblOat6sU was "too alike") -> `wedding-brides-1000.webp` (4:5), table
-  MAHbk63z78o -> `wedding-table-2000.webp` and `-1200.webp` (3:2), place setting
-  MAHbk545TTI -> `wedding-setting-800.webp` (1:1). Until then the frames show
-  labeled placeholders. `card-wedding.webp` was captured with low-res previews
-  standing in: regenerate it once the real photos are in.
+  Photos (Canva, owner-approved, in `assets/images/concepts/`): the fan is
+  `wedding-bouquet-1000.webp`, `wedding-couple-1000.webp` (bride and groom) and
+  `wedding-brides-1000.webp` (two brides; the owner's revision with the left
+  bride in a suit, because the first version looked "too alike"); band
+  `wedding-table-2000.webp` / `-1200.webp`; `wedding-setting-800.webp` beside
+  the demo. If a photo is missing, its frame shows a labeled placeholder.
 - All four planned concepts are built. Home page shows them two by two.
 
 ## Preview
