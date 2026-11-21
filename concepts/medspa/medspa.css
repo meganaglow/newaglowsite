@@ -31,6 +31,8 @@
   --sage-ink: #3E4E39;     /* hover */
   --ink: #2A2C28;          /* text */
   --ink-soft: #5F625C;     /* secondary text */
+  --line-strong: #8C887E;  /* input borders (3:1 or better on white) */
+  --error: #9A3B2E;        /* form error text */
 
   /* Type */
   --f-serif: "Newsreader", Georgia, serif;
@@ -234,7 +236,7 @@ h1 em, h2 em { font-style: italic; color: var(--sage-deep); }
 .dish__desc { font: italic 400 1.125rem/1.5 var(--f-serif); color: var(--ink-soft); margin-top: 4px; }
 .dish__price { font: 600 var(--t-label)/1 var(--f-sans); letter-spacing: .18em; text-transform: uppercase; color: var(--sage-deep); margin-top: 12px; }
 
-/* ---------- Treatment finder ---------- */
+/* ---------- Design your day ---------- */
 .finder {
   max-width: var(--max); margin: 0 auto; padding: var(--sec) var(--gut);
   display: grid; gap: 48px;
@@ -271,6 +273,78 @@ h1 em, h2 em { font-style: italic; color: var(--sage-deep); }
 .fresult__list span { font-size: var(--t-small); color: var(--ink-soft); }
 .fresult__note { margin: 20px 0 28px; padding: 16px 20px; border-radius: var(--r); background: var(--stone); font-size: var(--t-small); }
 .fine { margin-top: 24px; font-size: var(--t-small); color: var(--ink-soft); }
+
+/* ---------- Online booking ---------- */
+.reserve { background: var(--stone); padding: var(--sec) 0; }
+.reserve__inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--gut); display: grid; gap: 48px; }
+.reserve h2 { font-size: var(--t-h2); line-height: 1.08; }
+.reserve__intro > p:last-child { color: var(--ink-soft); max-width: 42ch; margin-top: 28px; }
+.reserve .demo-tag { background: var(--paper); }
+@media (min-width: 960px) { .reserve__inner { grid-template-columns: .9fr 1.1fr; gap: 96px; align-items: start; } }
+
+.booking {
+  background: var(--paper); border: 1px solid var(--line); border-radius: var(--r-lg);
+  padding: clamp(24px, 4.5vw, 56px); box-shadow: var(--shadow);
+}
+.booking__steps {
+  list-style: none; margin: 0 0 28px; padding: 0 0 20px; border-bottom: 1px solid var(--line);
+  display: flex; flex-wrap: wrap; gap: 8px 24px; counter-reset: bk;
+  font: 600 var(--t-label)/1.3 var(--f-sans); letter-spacing: .14em; text-transform: uppercase; color: var(--ink-soft);
+}
+.booking__steps li { counter-increment: bk; }
+.booking__steps li::before { content: counter(bk) ". "; }
+.booking__steps li.is-on { color: var(--sage-deep); }
+.booking__steps li.is-done::before { content: "\2713  "; }
+.bk { display: none; margin: 0; }
+.bk.is-active { display: block; animation: fade var(--t-ui) var(--ease); }
+.bk h3 { font-size: clamp(1.75rem, 3vw, 2.25rem); line-height: 1.15; margin: 0 0 24px; }
+.bk h3:focus { outline: none; }
+.bk-label { font: 600 var(--t-label)/1.3 var(--f-sans); letter-spacing: .18em; text-transform: uppercase; color: var(--ink-soft); margin: 0 0 12px; }
+.bk-chips { margin: 0 0 28px; }
+.bk-hint { color: var(--ink-soft); font-size: var(--t-small); }
+.bk-chosen { margin: 0 0 24px; padding: 12px 18px; border-radius: var(--r); background: var(--stone); font-size: var(--t-small); }
+
+.bk-options { display: grid; gap: 10px; margin-bottom: 28px; }
+.bk-option {
+  display: grid; gap: 4px; width: 100%; padding: 18px 22px; text-align: left; cursor: pointer;
+  border: 1px solid var(--stone-deep); border-radius: var(--r); background: var(--white); color: var(--ink); font: inherit;
+  transition: background var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease);
+}
+.bk-option strong { font: 400 1.375rem/1.25 var(--f-serif); }
+.bk-option span { font-size: var(--t-small); line-height: 1.5; color: var(--ink-soft); }
+.bk-option em { font: 600 var(--t-label)/1.3 var(--f-sans); letter-spacing: .16em; text-transform: uppercase; color: var(--sage-deep); margin-top: 6px; }
+.bk-option:hover { border-color: var(--sage); }
+.bk-option[aria-pressed="true"] { background: var(--sage-soft); border-color: var(--sage-deep); }
+.bk-option[aria-pressed="true"] strong::before { content: "\2713\00a0\00a0"; color: var(--sage-deep); }
+
+.bk-dates { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 28px; }
+@media (min-width: 560px) { .bk-dates { grid-template-columns: repeat(6, 1fr); } }
+.bk-date {
+  display: grid; justify-items: center; gap: 2px; min-height: 88px; padding: 10px 2px; cursor: pointer;
+  border: 1px solid var(--stone-deep); border-radius: var(--r); background: var(--white); color: var(--ink); font-family: var(--f-sans);
+  transition: background var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease), color var(--t-fast) var(--ease);
+}
+.bk-date small { font-size: var(--t-label); font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); }
+.bk-date b { font: 400 1.625rem/1.1 var(--f-serif); }
+.bk-date span { font-size: .8125rem; color: var(--ink-soft); }
+.bk-date:hover:not(:disabled) { border-color: var(--sage-deep); }
+.bk-date[aria-pressed="true"] { background: var(--sage-deep); border-color: var(--sage-deep); color: var(--white); }
+.bk-date[aria-pressed="true"] small, .bk-date[aria-pressed="true"] span { color: var(--white); }
+.bk-date:disabled, .chip:disabled { cursor: not-allowed; background: var(--stone); border-style: dashed; }
+.bk-date:disabled b, .chip:disabled { text-decoration: line-through; color: var(--ink-soft); }
+
+.bk-field { display: grid; gap: 8px; margin-bottom: 20px; }
+.bk-field span { font: 600 var(--t-label)/1.3 var(--f-sans); letter-spacing: .18em; text-transform: uppercase; color: var(--ink-soft); }
+.bk-field input {
+  width: 100%; min-height: 54px; padding: 0 16px; font: inherit; color: var(--ink); background: var(--white);
+  border: 1px solid var(--line-strong); border-radius: var(--r);
+}
+.bk-field input:focus-visible { outline: 2px solid var(--sage-deep); outline-offset: 2px; }
+.bk-error { margin: 0 0 20px; color: var(--error); font-size: var(--t-small); font-weight: 600; }
+.bk-receipt { display: grid; grid-template-columns: auto 1fr; gap: 12px 28px; margin: 24px 0; padding: 24px 0; border-block: 1px solid var(--line); }
+.bk-receipt dt { font: 600 var(--t-label)/1.3 var(--f-sans); letter-spacing: .18em; text-transform: uppercase; color: var(--sage-deep); padding-top: 5px; }
+.bk-receipt dd { margin: 0; font: 400 1.1875rem/1.4 var(--f-serif); }
+.bk-done .actions { margin-top: 28px; }
 
 /* ---------- Prep assistant ---------- */
 .prep { background: var(--sage-soft); padding: var(--sec) var(--gut); display: grid; gap: 48px; }
@@ -326,3 +400,6 @@ h1 em, h2 em { font-style: italic; color: var(--sage-deep); }
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .reveal { opacity: 1; transform: none; }
 }
+.bk-done .fq__count { margin-bottom: 14px; }
+/* Room for the absolutely placed Back link, so it never sits on a button */
+.finder__card { padding-bottom: calc(clamp(28px, 4.5vw, 56px) + 44px); }

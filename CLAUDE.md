@@ -80,7 +80,7 @@ sites, to show range. Decisions already made with the owner:
 | Concept | Look | Layout idea | AI demo |
 |---|---|---|---|
 | Hair salon | Fashion editorial: warm black, copper, cream; bold condensed headlines | Full-bleed portraits, sideways-scrolling lookbook | Stylist-match quiz, booking concierge |
-| Luxury spa & skin (medspa) | Calm luxury: white, stone, soft sage; light airy type | Full-bleed photos, generous space, rituals menu like a fine-dining menu | "Design your day" itinerary builder, day concierge |
+| Luxury spa & skin (medspa) | Calm luxury: white, stone, soft sage; light airy type | Full-bleed photos, generous space, rituals menu like a fine-dining menu | Online booking, "Design your day" itinerary builder, day concierge |
 | Financial planner | Quiet confidence: deep green or navy, cream, brass; classic serif | Structured grid, thin chart-like lines, numbered steps | Meeting-prep intake that summarizes goals |
 | Wedding planner | Romantic editorial: ivory, dusty rose, olive; large italic serif | Overlapping photo collage, slow parallax gallery | Date-availability check, rough-estimate builder |
 
@@ -94,7 +94,8 @@ concept slowly on hover; click opens the live concept page.
   `index.html`, `services.html`, `who.html`, `packages.html`, `contact.html`.
   Shared header, mobile menu, footer, sticky phone booking bar and "Ask Aglow"
   chat are repeated in each file: change all five together. Home adds a
-  "Concept designs" section (browser-frame cards that scroll on hover; images
+  "Concept designs" section (browser-frame cards; the salon card scrolls on
+  hover, the spa card must NOT scroll, owner Nov 2026: class `concept--static`; images
   `assets/images/concepts/card-*.webp` are full-page screenshots of the concept
   sites, regenerate when a concept changes) and the "Smart site setup" demo.
 - Contact form: Netlify Forms, same form name ("contact") and field names as
@@ -126,8 +127,13 @@ concept slowly on hover; click opens the live concept page.
   kept only as one "Aesthetic consultation" line on the menu.
   White, stone, sage; Newsreader (light serif) + Manrope; fonts in
   `concepts/medspa/fonts/` (OFL). Rituals menu with sample prices; scripted
-  "Design your day" (builds a timed itinerary) and day concierge in
-  `medspa.js` (health questions go to a therapist). Photos (owner-approved):
+  "Design your day" (builds a timed itinerary), online booking and day
+  concierge in `medspa.js` (health questions go to a therapist). Booking demo
+  (`#reserve`, owner request Nov 2026): choose a day and guests, a date from the
+  next 12 days and an arrival time (availability is made up), name and email,
+  then a confirmation. Nothing is sent, saved or charged, and it says so.
+  "Reserve this day" carries the designed day into the booking. No booking step
+  may scroll the page (focus uses preventScroll). Photos (owner-approved):
   full-bleed hero `medspa-hero-*.webp` (shoulder, vase, sphere; copy on the
   wall behind a light veil), full-bleed band `medspa-band-*.webp` (figure under
   an arch), `medspa-room-1200.webp` (arch + olive tree), menu thumbnail

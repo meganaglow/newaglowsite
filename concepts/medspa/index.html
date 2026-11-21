@@ -28,7 +28,7 @@
       <a href="#finder">Design your day</a>
       <a href="#visit">Visit</a>
     </nav>
-    <a class="btn btn--line" href="#finder">Reserve a day</a>
+    <a class="btn btn--line" href="#reserve">Reserve a day</a>
   </header>
 
   <main id="main">
@@ -106,7 +106,7 @@
       </div>
     </section>
 
-    <!-- AI demo 1: design your day -->
+    <!-- Demo 1: design your day -->
     <section class="finder" id="finder" aria-labelledby="finder-title">
       <div class="finder__intro">
         <p class="demo-tag">Scripted demo</p>
@@ -151,7 +151,7 @@
           <h3 data-ftitle></h3>
           <ol class="fresult__list" data-flist></ol>
           <div class="actions">
-            <a class="btn btn--solid" href="#prep" data-fbook>Reserve this day</a>
+            <a class="btn btn--solid" href="#reserve" data-fbook>Reserve this day</a>
             <button type="button" class="link" data-frestart>Start again</button>
           </div>
           <p class="fine">Example itinerary. Your therapist adjusts it on arrival after reading your skin.</p>
@@ -160,7 +160,66 @@
       </div>
     </section>
 
-    <!-- AI demo 2: day concierge -->
+    <!-- Demo 2: online booking (scripted; nothing is sent or saved) -->
+    <section class="reserve" id="reserve" aria-labelledby="reserve-title">
+      <div class="reserve__inner">
+        <div class="reserve__intro">
+          <p class="demo-tag">Scripted demo</p>
+          <h2 id="reserve-title">Reserve <em>your day.</em></h2>
+          <p>Choose your day, a date and a time to arrive. It takes about a minute. On a live site this would check real availability and email your confirmation; here nothing is sent or saved.</p>
+        </div>
+        <div class="booking" data-booking>
+          <ol class="booking__steps" aria-hidden="true"><li>Your day</li><li>Date and time</li><li>Your details</li></ol>
+
+          <div class="bk is-active" role="group" aria-labelledby="bk1">
+            <h3 id="bk1" tabindex="-1">Which day would you like?</h3>
+            <div class="bk-options" data-options>
+              <button type="button" class="bk-option" data-day="still" aria-pressed="false"><strong>The Still Day</strong><span>Guided meditation, a slow facial and warm-oil massage</span><em>$480 &middot; Five hours</em></button>
+              <button type="button" class="bk-option" data-day="awake" aria-pressed="false"><strong>The Awake Day</strong><span>Mineral salt scrub, warm and cool pools and a lifting facial</span><em>$480 &middot; Five hours</em></button>
+              <button type="button" class="bk-option" data-day="thermal" aria-pressed="false"><strong>Thermal suite and meditation rooms</strong><span>Cedar sauna, eucalyptus steam, red light and guided stillness</span><em>$90 &middot; Stay as long as you like</em></button>
+            </div>
+            <p class="bk-label" id="bk-guests">Who is coming?</p>
+            <div class="chips bk-chips" role="group" aria-labelledby="bk-guests">
+              <button type="button" class="chip" data-guests="1" aria-pressed="true">Just me</button>
+              <button type="button" class="chip" data-guests="2" aria-pressed="false">A day for two</button>
+            </div>
+            <div class="actions"><button type="button" class="btn btn--solid" data-bk-next disabled>Choose a date</button></div>
+            <p class="fine">Sample prices for this concept.</p>
+          </div>
+
+          <div class="bk" role="group" aria-labelledby="bk2">
+            <h3 id="bk2" tabindex="-1">When would you like to come?</h3>
+            <p class="bk-chosen" data-chosen></p>
+            <p class="bk-label" id="bk-date">Date</p>
+            <div class="bk-dates" data-dates role="group" aria-labelledby="bk-date"></div>
+            <p class="bk-label" id="bk-time">Arrival time</p>
+            <div class="chips bk-chips" data-times role="group" aria-labelledby="bk-time"></div>
+            <div class="actions"><button type="button" class="btn btn--solid" data-bk-next disabled>Continue</button><button type="button" class="link" data-bk-back><span aria-hidden="true">&larr;</span> Back</button></div>
+          </div>
+
+          <form class="bk" novalidate aria-labelledby="bk3">
+            <h3 id="bk3" tabindex="-1">Who is the day for?</h3>
+            <p class="bk-chosen" data-chosen></p>
+            <label class="bk-field"><span>Your name</span><input type="text" name="name" autocomplete="name" required></label>
+            <label class="bk-field"><span>Email for your confirmation</span><input type="email" name="email" autocomplete="email" required></label>
+            <p class="bk-error" data-bk-error role="alert" hidden></p>
+            <div class="actions"><button type="submit" class="btn btn--solid">Confirm my day</button><button type="button" class="link" data-bk-back><span aria-hidden="true">&larr;</span> Back</button></div>
+            <p class="fine">Demo only. Nothing is sent, saved or charged.</p>
+          </form>
+
+          <div class="bk bk-done" aria-labelledby="bk4">
+            <p class="fq__count">Reserved</p>
+            <h3 id="bk4" tabindex="-1" data-done-title></h3>
+            <dl class="bk-receipt" data-receipt></dl>
+            <p data-done-note></p>
+            <div class="actions"><a class="btn btn--solid" href="#prep">Questions before you arrive?</a><button type="button" class="link" data-bk-restart>Reserve another day</button></div>
+            <p class="fine">Example confirmation. Nothing was sent, saved or charged.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Demo 3: day concierge -->
     <section class="prep" id="prep" aria-labelledby="prep-title">
       <div class="prep__copy">
         <p class="demo-tag">Scripted demo</p>
