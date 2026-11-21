@@ -158,11 +158,11 @@ concept slowly on hover; click opens the live concept page.
   short sample. Never restore those details, never copy that original into this
   public repo, and never show it publicly without the firm's written permission.
   Fee figure ($6,000) is labeled as a sample.
-  Waiting on 3 photos generated in the owner's Canva: coast MAHbk-sEgnY ->
-  `financial-coast-1200.webp` (4:3), desk MAHbkwxZHWA ->
-  `financial-desk-1200.webp` (4:3), founder seen from behind MAHbkxjixX0 (slimmer version the owner asked for; first try was MAHbk4k6J5I) ->
-  `financial-founder-1000.webp` (4:5), all in `assets/images/concepts/`. Until
-  then the line-art panels show. Home card image `card-financial.webp` joins the
+  Photos (Canva, owner-approved, in `assets/images/concepts/`):
+  `financial-coast-1200.webp` and `financial-desk-1200.webp` on the services
+  page, `financial-founder-1000.webp` on the about page (seen from behind; the
+  owner asked for the slimmer version). If a photo is missing, the line-art
+  panel shows instead. Home card image `card-financial.webp` joins the
   home page and the contact page with the summary showing.
 - Concepts left: wedding planner (owner decides).
 
