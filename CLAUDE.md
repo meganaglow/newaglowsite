@@ -140,7 +140,16 @@ concept slowly on hover; click opens the live concept page.
   `medspa-detail-600.webp` (hand, cropped above the chin). Visit section has
   no placeholders (directions sent on booking, hours, alone or together, what
   to bring). Approved by the owner (Nov 2026).
+- Concept card scrolling must be slow (owner, Nov 2026): 60s linear for the full
+  page on hover (`--scroll-time`), quick return on leave.
 - Concepts left: financial planner, wedding planner (owner decides).
+- Financial concept, open question: the owner has an older "Wildflower" demo on
+  Netlify (project playful-dasik-de8141, password protected). It uses the
+  identity of a real, operating advisory firm (name, adviser, credentials, fee),
+  confirmed by web search Nov 2026, though the owner recalled it as fictional.
+  Do NOT put it on the site or in this public repo as-is. Use it only once
+  fictionalized (new firm and person, no real email, fee or memberships) or
+  with the firm's written permission, and then as client work, not a Concept.
 
 ## Preview
 `python3 -m http.server 8000` from the repo root, then open `/styleguide.html`.

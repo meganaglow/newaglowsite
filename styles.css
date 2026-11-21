@@ -596,9 +596,10 @@ a.card, .card--link { display: block; text-decoration: none; color: inherit; }
 .browser__bar i { width: 9px; height: 9px; border-radius: 50%; background: var(--line-strong); opacity: .5; }
 .browser__url { margin-left: var(--s-3); font-size: .75rem; color: var(--ink-soft); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .browser__view { aspect-ratio: 16 / 10; overflow: hidden; }
-.browser__view img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; transition: object-position 9s linear; }
+/* Hover scrolls the page slowly (owner: it has to go slowly); leaving returns to the top quickly. */
+.browser__view img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; transition: object-position 1.2s var(--ease); }
 .concept:hover .browser, .concept:focus-visible .browser { transform: translateY(-4px); box-shadow: var(--shadow-float); border-color: var(--gold); }
-.concept:hover .browser__view img, .concept:focus-visible .browser__view img { object-position: 50% 100%; }
+.concept:hover .browser__view img, .concept:focus-visible .browser__view img { object-position: 50% 100%; transition: object-position var(--scroll-time, 60s) linear; }
 /* .concept--static: the frame stays on the top of the page (owner: the spa card must not scroll) */
 .concept--static:hover .browser__view img, .concept--static:focus-visible .browser__view img { object-position: 50% 0; }
 .concept__body { padding-top: var(--s-5); }
