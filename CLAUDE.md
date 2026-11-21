@@ -82,7 +82,7 @@ sites, to show range. Decisions already made with the owner:
 | Hair salon | Fashion editorial: warm black, copper, cream; bold condensed headlines | Full-bleed portraits, sideways-scrolling lookbook | Stylist-match quiz, booking concierge |
 | Luxury spa & skin (medspa) | Calm luxury: white, stone, soft sage; light airy type | Full-bleed photos, generous space, rituals menu like a fine-dining menu | Online booking, "Design your day" itinerary builder, day concierge |
 | Financial planner | Quiet confidence: deep green, paper, gold; classic serif; botanical line art | Structured grid, fee comparison table, numbered steps | Meeting-prep intake that summarizes each request |
-| Wedding planner | Romantic editorial: ivory, dusty rose, olive; large italic serif | Overlapping photo collage, slow parallax gallery | Date-availability check, rough-estimate builder |
+| Wedding planner | Romantic editorial: ivory, dusty rose, olive; large italic serif | One compact page; photo prints fanned like cards, slow parallax | Date check with a rough fee estimate |
 
 On the Aglow home page: four cards, each a browser frame that scrolls the
 concept slowly on hover; click opens the live concept page.
@@ -164,7 +164,25 @@ concept slowly on hover; click opens the live concept page.
   owner asked for the slimmer version). If a photo is missing, the line-art
   panel shows instead. Home card image `card-financial.webp` joins the
   home page and the contact page with the summary showing.
-- Concepts left: wedding planner (owner decides).
+- Wedding concept built: `concepts/wedding/` ("The Ivory Hour", fictional). The
+  owner asked for ONE compact page, not a full site: hero, three services, one
+  image band, one demo. Ivory, dusty rose, olive; Bodoni Moda (display, italic
+  accents) + DM Sans in `concepts/wedding/fonts/` (OFL). Hero collage is three
+  prints fanned like a hand of cards (owner request; `transform-origin` far
+  below the cards, rotate -12/0/12deg), with slow parallax on desktop. Scripted
+  demo in `wedding.js`: date check (the 5th, 10th, 15th... show as taken and
+  offer the days either side), then guests, setting and service give a rough
+  planning fee from sample ranges. Nothing is sent or saved.
+  Waiting on 5 photos from the owner's Canva, to go in `assets/images/concepts/`:
+  bouquet MAHbkza14WA -> `wedding-bouquet-1000.webp` (4:5), bride and groom
+  MAHbkytwS5w -> `wedding-couple-1000.webp` (4:5), two brides MAHblDkrYtA (the
+  owner's revision: left bride in a suit, different hair; first try
+  MAHblOat6sU was "too alike") -> `wedding-brides-1000.webp` (4:5), table
+  MAHbk63z78o -> `wedding-table-2000.webp` and `-1200.webp` (3:2), place setting
+  MAHbk545TTI -> `wedding-setting-800.webp` (1:1). Until then the frames show
+  labeled placeholders. `card-wedding.webp` was captured with low-res previews
+  standing in: regenerate it once the real photos are in.
+- All four planned concepts are built. Home page shows them two by two.
 
 ## Preview
 `python3 -m http.server 8000` from the repo root, then open `/styleguide.html`.

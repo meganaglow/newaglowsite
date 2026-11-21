@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Ivory Hour · Concept by Aglow Studios</title>
+  <meta name="description" content="A concept website for a fictional wedding planner, designed by Aglow Studios to show a romantic editorial direction. Not a real business.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="fonts/bodoni-moda-latin-opsz-italic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="wedding.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <!-- Concept label: required on every concept page (see CLAUDE.md). -->
+  <div class="concept-bar" role="note">
+    <span class="concept-tag">Concept</span>
+    <p>A design example by Aglow Studios. The Ivory Hour is not a real business.</p>
+    <a href="../../index.html">Back to Aglow <span aria-hidden="true">&rarr;</span></a>
+  </div>
+
+  <header class="top">
+    <a class="wordmark" href="#main" aria-label="The Ivory Hour, top of page">The Ivory Hour<span>Wedding planning &amp; design</span></a>
+    <a class="btn btn--line" href="#date">Check your date</a>
+  </header>
+
+  <main id="main">
+    <!-- Hero: large italic serif over an overlapping photo collage (slow parallax on desktop) -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__copy">
+        <p class="eyebrow">Wedding planning &amp; design</p>
+        <h1 id="hero-title">A day that feels <em>like the two of you.</em></h1>
+        <p class="lead">We plan it, design it and run it, down to the last candle. You get to be a guest at your own wedding.</p>
+        <div class="actions">
+          <a class="btn btn--solid" href="#date">Check your date</a>
+          <a class="link" href="#services">What we do <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </div>
+      <!-- Three prints fanned like a hand of cards; the two couple photos sit together -->
+      <div class="collage" data-collage>
+        <figure class="frame c1" data-speed="-0.03" data-ph="Placeholder image: bouquet">
+          <img src="../../assets/images/concepts/wedding-bouquet-1000.webp" width="1000" height="1250" alt="A bride's hands holding a loose bouquet of dusty rose and ivory flowers with olive branches." fetchpriority="high">
+        </figure>
+        <figure class="frame c2" data-speed="0.04" data-ph="Placeholder image: couple">
+          <img src="../../assets/images/concepts/wedding-couple-1000.webp" width="1000" height="1250" alt="A bride and groom seen from behind, walking hand in hand through an olive grove at golden hour.">
+        </figure>
+        <figure class="frame c3" data-speed="0.08" data-ph="Placeholder image: two brides">
+          <img src="../../assets/images/concepts/wedding-brides-1000.webp" width="1000" height="1250" alt="Two brides seen from behind, walking hand in hand through an olive grove at golden hour.">
+        </figure>
+      </div>
+    </section>
+
+    <!-- Three ways to help -->
+    <section class="services" id="services" aria-labelledby="sv-title">
+      <h2 id="sv-title">However much you&rsquo;d like <em>off your plate.</em></h2>
+      <ol class="services__list">
+        <li><span class="num">i.</span><h3>Full planning &amp; design</h3><p>From the first venue visit to the last dance. We find the right people, set the look and hold the timeline.</p></li>
+        <li><span class="num">ii.</span><h3>Design &amp; coordination</h3><p>You have the venue and the date. We shape how it looks, manage the details and run the day.</p></li>
+        <li><span class="num">iii.</span><h3>Month-of coordination</h3><p>You planned it. We take over four weeks out, so you can stop answering emails.</p></li>
+      </ol>
+    </section>
+
+    <!-- Image band with overlapping line -->
+    <section class="band" aria-label="The table">
+      <figure class="frame band__img" data-ph="Placeholder image: long candlelit table">
+        <img src="../../assets/images/concepts/wedding-table-2000.webp" srcset="../../assets/images/concepts/wedding-table-1200.webp 1200w, ../../assets/images/concepts/wedding-table-2000.webp 2000w" sizes="100vw" width="2000" height="1333" loading="lazy" alt="A long outdoor dinner table at dusk with ivory linen, taper candles and low dusty rose flowers.">
+      </figure>
+      <p class="band__line">Long tables, candlelight, <em>and no one watching the clock.</em></p>
+    </section>
+
+    <!-- AI demo: date check + rough estimate (scripted) -->
+    <section class="date" id="date" aria-labelledby="date-title">
+      <div class="date__intro">
+        <p class="demo-tag">Scripted demo</p>
+        <h2 id="date-title">Is your date <em>still open?</em></h2>
+        <p>Choose a date and tell us a little about the day. You&rsquo;ll see whether it&rsquo;s free, and a rough idea of our fee. On a live site this checks the planner&rsquo;s real calendar; here the answers are scripted.</p>
+        <figure class="frame print" data-ph="Placeholder image: place setting">
+          <img src="../../assets/images/concepts/wedding-setting-800.webp" width="800" height="800" loading="lazy" alt="A place setting on ivory linen with a dusty rose napkin tied with an olive sprig.">
+        </figure>
+      </div>
+      <div class="planner" data-planner>
+        <ol class="planner__steps" aria-hidden="true"><li>Your date</li><li>Your day</li><li>Estimate</li></ol>
+
+        <div class="pl is-active" role="group" aria-labelledby="pl1">
+          <h3 id="pl1" tabindex="-1">When is the day?</h3>
+          <label class="pl-label" for="pl-date">Wedding date</label>
+          <input class="pl-date" type="date" id="pl-date">
+          <p class="pl-status" data-status aria-live="polite">Pick a date to check it.</p>
+          <div class="pl-alts" data-alts hidden></div>
+          <div class="actions"><button type="button" class="btn btn--solid" data-next disabled>Continue</button></div>
+        </div>
+
+        <div class="pl" role="group" aria-labelledby="pl2">
+          <h3 id="pl2" tabindex="-1">Tell us about the day</h3>
+          <p class="pl-label" id="pl-g">Guests</p>
+          <div class="chips" role="group" aria-labelledby="pl-g" data-group="guests">
+            <button type="button" class="chip" value="Under 50" aria-pressed="false">Under 50</button>
+            <button type="button" class="chip" value="50 to 100" aria-pressed="false">50 to 100</button>
+            <button type="button" class="chip" value="100 to 150" aria-pressed="false">100 to 150</button>
+            <button type="button" class="chip" value="Over 150" aria-pressed="false">Over 150</button>
+          </div>
+          <p class="pl-label" id="pl-s">Setting</p>
+          <div class="chips" role="group" aria-labelledby="pl-s" data-group="setting">
+            <button type="button" class="chip" value="Garden" aria-pressed="false">Garden</button>
+            <button type="button" class="chip" value="Vineyard" aria-pressed="false">Vineyard</button>
+            <button type="button" class="chip" value="Coast" aria-pressed="false">Coast</button>
+            <button type="button" class="chip" value="City" aria-pressed="false">City</button>
+          </div>
+          <p class="pl-label" id="pl-h">How much help would you like?</p>
+          <div class="chips chips--stack" role="group" aria-labelledby="pl-h" data-group="service">
+            <button type="button" class="chip" value="Full planning &amp; design" aria-pressed="false">Full planning &amp; design</button>
+            <button type="button" class="chip" value="Design &amp; coordination" aria-pressed="false">Design &amp; coordination</button>
+            <button type="button" class="chip" value="Month-of coordination" aria-pressed="false">Month-of coordination</button>
+          </div>
+          <div class="actions"><button type="button" class="btn btn--solid" data-next disabled>See my estimate</button><button type="button" class="link" data-back><span aria-hidden="true">&larr;</span> Back</button></div>
+        </div>
+
+        <div class="pl pl-result" aria-labelledby="pl3">
+          <p class="eyebrow">A rough starting point</p>
+          <h3 id="pl3" tabindex="-1" data-r-title></h3>
+          <dl class="pl-facts" data-r-facts></dl>
+          <div class="actions"><button type="button" class="btn btn--solid" data-hold>Hold this date</button><button type="button" class="link" data-restart>Start again</button></div>
+          <p class="pl-held" data-held role="status" hidden>Held for seven days. On a live site, your planner would now write to arrange a first call.</p>
+          <p class="fine">Example only. Sample figures for a fictional business, and nothing is sent or saved. A real planner confirms the fee after a conversation.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p class="foot__mark" aria-hidden="true">The Ivory Hour</p>
+    <p><span class="concept-tag">Concept</span> The Ivory Hour is a fictional wedding planner. This page is a design example by <a href="../../index.html">Aglow Studios</a>, not client work.</p>
+    <p>Photography: AI-generated images.</p>
+  </footer>
+
+  <script src="wedding.js"></script>
+</body>
+</html>
